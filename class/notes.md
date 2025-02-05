@@ -36,8 +36,52 @@ Investigate these concepts:
 * data federation
 * B-tree and Hash indexation, [this](https://peerdh.com/es/blogs/programming-insights/comparing-b-tree-and-hash-indexing-for-performance-optimization-1) is a comparison between these two
 
+# Class 1(3/2/25)
 
-
+* Appliance: Is a PC or hardware used to host a DB. This "server" has special boards called FPGA that has specialized chips to do databases processing, so this in combination with software is a specialized solution for DB processing. I usually installed on premise. This is really design to handle large amounts of data so be careful when using them as it may be to much power for just a simple task or small DB, they can be specialized in Analytical or transactional databases
  
+* Crosstab: In a dashboard context these are dynamic tables that can filter info
 
- 
+## Multidimensional Cubes
+
+* Dimensions: They are analysis points of view. All dimensions are hierarchies for example in a sales history DB it would have, date, month, client name, product name. They ar the element by which we analyze metrics. Dimensions usually are of type text but they can be numerical
+
+* Metrics: Usually they are number or operations like multiplying number of articles sold by price, that would be a calculated metric.
+
+## Analysis Data Models
+Data models are used to denormalize any source of data with the purpose of making it more performant for data analytics. 
+
+* Datamart: Is how we identify the dimensions and metrics to create a data model. It's physical structure is a data model(star model, snow flake, )
+
+* Datawarehouse: Is formed by a lot of Datamarts and is where all the info will live, so this component might be the most important in a "business intelligence" solution implementation.
+
+To learn more about "datamart" and "datawarehouse" and how the data warehouse are denormalized see [here](https://www.youtube.com/watch?v=jFsRdTcljeU) and [here](https://www.youtube.com/watch?v=Ko-GKlHMVcU)
+
+### Star Model
+
+At center it has a table called "FACT" table(tabla de hechos) which contains metrics, and is surrounded by dimensions, each represented individually. Dimensions connect to the FACT table using a surrogated key/substitute key that allows us to stablish correlations. For example in a list of sales history I have a dimension/column with the product name, and I want to create a surrogated key for each I would to something like
+
+| Product |
+| ------- |
+| Shoe |
+| Food |
+| Drink |
+| Toy |
+
+They will be given a surrogated key, so the product dimension will look like
+
+| Surrogated_Key | Product |
+| -------------- | ------- |
+| 1 | Shoe |
+| 2 | Food |
+| 3 | Drink |
+| 4 | Toy |
+
+As mentioned before at the center of the models there is a FACT table, a FACT is an event that happens in a specific time point and the tables around it are dimension's tables, and the dimensions are all the properties that describe the FACT, we can think of a FACT as an event that happened. Dimension's tables are 'descriptive containers' and the fact and the FACT stores all the keys of the dimensions that give sense to a FACT/event. A dimension can have additional attributes, meaning we can add attributes to dimensions and they can be associated to any of the dimension's levels.
+
+Information is extracted using an ETL tool and then it is inserted to a datawarehouse which is formed by datamarts that uses either the star, snowflake or any other data model. The data then is read using reporting tools like "poweBi", SAP's systems "business logic", "click view", Salesforce's "tableau" and from these tools some of them has the purpose of making dashboards easy and other has the purpose of doing enterprise analysis like  
+
+### Snowflake Model(Copo de Nieve)
+In the star model we usually denormalize data we get from a normalize source like a transactional DB in the operational side of an architecture but in the snowflake model the data is usually kept in its normalized form. 
+
+Sometimes a Datawarehouse can have datamarts that implement both models, some datamarts will implement a star model while other will implement snowflake model. It can happen that some levels of the hierarchy are denomalized and other levels are kept normalized and that would be a starflake model
