@@ -85,3 +85,60 @@ Information is extracted using an ETL tool and then it is inserted to a dataware
 In the star model we usually denormalize data we get from a normalize source like a transactional DB in the operational side of an architecture but in the snowflake model the data is usually kept in its normalized form. 
 
 Sometimes a Datawarehouse can have datamarts that implement both models, some datamarts will implement a star model while other will implement snowflake model. It can happen that some levels of the hierarchy are denomalized and other levels are kept normalized and that would be a starflake model
+
+
+# Class (10 feb 2025)
+
+## Tools to make graphs and reports or Dashboards
+
+PowerBi, Cognos Analytics, Business objects, Tableu, ClickView or Quickview
+
+Tools like PowerBi depend on the data mart(snowflake or star model) and multidimensional cubes to create the dashboard that means those components have to be some way designed to be able to create a dashboard but tools like Cogno Analytics and Business Objects are more flexible because you have to create some "adapter" layer, this means it might require more work and time to set up a dashboar using those tools but they are more flexible, this way you can connect to your data marts and dimensional cubes without have to modify them. Cognos make some intelligent analysis so you can ask it to create a graphic from a data source in just natural language, it is very intelligent which is something powerBi doesn't do
+
+## Descriptive Analytics
+
+### Data Models
+There is always one or more fact tables, and each fact table is surrounded by dimension tables
+
+### Fact Tables
+They contain all the dimension tables primary keys and all metrics
+
+### Dimension Tables
+In a three level dimension "products" model context, Levels are: Product : 1) category, 2) line 3) SKU, we would need at least the following fields/columns. 
+
+This would be just one level dimension, maybe we would use it if we wanted a star model
+
+SK(primary surrogated key, this is referred in the fact table), SKU_code, SKU_description, line_code, line_desc, category_code, category_description
+
+But if we want to have a three level dimension model because we are maybe wanting to create a snowflake model we would do arrange the three levels like the following
+
+Level one(SKU)
+
+SK, SKU_code, SKU_description, SKL(key to be able to connect line table)
+
+Level two(Line)
+SKL, line_code, line_desc, SKC(key to be able to connect code table)
+
+Level Three(Code)
+SKC, code_category, code_description
+
+## Analysis cycles
+There is different analytics types/phases in an analytics lifecycle. See "analytics lifecycle" picture to see picture to get more info
+
+## Tools to make ETL
+IBM InfoSphere DataStage, Oracle Integration Cloud Service
+
+## CDC(Change Data Capture)
+Is making a copy of some part of the info in the transactional DBs to another area and then take it to the analytical side. Sometimes it can substitute the ETL process
+
+### Tools to make CDC copies
+Almost all DBs has a tool to make CDC replicas, advantage of making these replicas instead an ETL is that they are executed in real time. In the transaction data bases(our data source) an agent is added, this agent is monitoring activity in the DB, then you can ask the agent to make a copy of a table in the DB, it is monitoring all updates and inserts and deletes and when it captures any of these actions and when that happens it copies it into the repica that lives in another server which is on the "side" of the data warehouse(this assumes our architecture separates between the transactional servers and applications and the data warehouse components), this allows to have a replica of a table in real time, to avoid these agents having a performance overhead on the database performance is just monitoring database logs, it monitors all audit logs which can tell what has changed. The copy of the table usually is part of our stage area or it is part of the ODS(operational data storage), an ODS is also a copy of a model from the transactional side that lives in the data warehouse side. Some benefits of this is that if some transformation fails we don't need to query the database and instead we can retrieve the info from the ODS, however ODS is volatile in the sense it is temporally storage.
+
+### Data Fabric
+Refers to the tools we need to automate the analysis process. basically is just a name for the whole process that tries to make this process as efficient as possible, this implicates the virtualization of the information meaning we move physical information using virtualization and this is basically the same as the federation of a database which is a concept that was previously used which is a database that exists physically in different instances, like a distributed database, but they have logic version in common, so this what the virtualization does, it can distribute the database across different databases(oracle, MySQL, etc) across different platforms(gcp, aws, etc) but that can interact with all the databases it needs in a single query this done by using some servers that handles both the physical and logical version of data so we interact with this servers as normal query but in the background it is interacting with the distributed nodes to answer the request logically
+
+### Master Data Management(MDM)
+It is closely related with data governance. Is a catalog of information or a source of truth, the data inserted here has to be standardized, for example to identify a client profile in the sales department and a client profile in the warehouse department(department that fulfills orders), this enable us to unify the information in a single source, this means the data has to go through a quality assurance process defined by the data owner to make sure this way we can make sure the data being inserted complies to the defined standard, the data owner is the "stakeholder" that uses it the most for example the clients info belongs to sales dept, if some data does not fully comply to the standard we still need to keep it but we have to inform the user the quality of the data using an index
+
+## Fact and dimension tables
+There can be more than one fact table in a model and the dimensions can be related to more than one fact table, it may be preferred to stay with the star model
