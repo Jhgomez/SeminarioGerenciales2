@@ -140,5 +140,11 @@ Refers to the tools we need to automate the analysis process. basically is just 
 ### Master Data Management(MDM)
 It is closely related with data governance. Is a catalog of information or a source of truth, the data inserted here has to be standardized, for example to identify a client profile in the sales department and a client profile in the warehouse department(department that fulfills orders), this enable us to unify the information in a single source, this means the data has to go through a quality assurance process defined by the data owner to make sure this way we can make sure the data being inserted complies to the defined standard, the data owner is the "stakeholder" that uses it the most for example the clients info belongs to sales dept, if some data does not fully comply to the standard we still need to keep it but we have to inform the user the quality of the data using an index
 
+Class (17 feb 2025)
+
 ## Fact and dimension tables
 There can be more than one fact table in a model and the dimensions can be related to more than one fact table, it may be preferred to stay with the star model
+
+### Dimension Table
+Primary key aka Surrogated Key. For each hierarchy of the dimension each level would have at least a description and a code for example in a retail shop when creating products dimensions. THey have three types of fields, surrogated key, hierarchy level and attributes. Attributes are complementary info like in a customer dimension you would have the client full name, phone number, or in a product dimension we could have the product's color, attributes should not be part of search querys
+
