@@ -1,10 +1,12 @@
+from extract import extract
 import os
+
 
 clear = lambda: os.system('cls')
 
 def displayMenu():
-    clear()
     while True:
+        clear()
         print("Seleccione una opción:")
         print("1. Borrar Modelo")
         print("2. Crear Modelo")
@@ -14,17 +16,23 @@ def displayMenu():
         print("6. Realizar Consultas")
         print("7. Salir")
 
+        def todo(): 
+            print("implementacion pendiente") 
+
         option = input("Opción: ")
 
         dictionarySwitcher = {
-            '0': prueba
+            '1': todo,
+            '2': todo,
+            '3': extract,
+            '4': todo,
+            '5': todo,
+            '6': todo,
+            '7': exit,
         }
 
         dictionarySwitcher[option]()
-
-
-def prueba():
-    print("simon")
+        option = input("press enter")
 
 if __name__ == "__main__":
     displayMenu()
