@@ -1,4 +1,5 @@
 from extract import extract
+from transformation import transform
 import os
 
 
@@ -25,13 +26,18 @@ def displayMenu():
             '1': todo,
             '2': todo,
             '3': extract,
-            '4': todo,
+            '4': transform,
             '5': todo,
             '6': todo,
             '7': exit,
         }
 
-        dictionarySwitcher[option]()
+        if option == '3':
+            dataframe = dictionarySwitcher[option]()
+
+        if option == "4":
+            dictionarySwitcher[option](dataframe)
+
         option = input("press enter")
 
 if __name__ == "__main__":
