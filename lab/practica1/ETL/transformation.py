@@ -157,15 +157,15 @@ def transform(dataframe):
 
     dataframe['sk_departure_airport'] = dataframe['airport_name'].map(dim_departure_airport.set_index('airport_name')['sk_id'])
 
-    dataframe['sk_departure_date'] = dataframe['departure_date'].map(dim_departure_date('departure_date')['sk_id'])
+    dataframe['sk_departure_date'] = dataframe['departure_date'].map(dim_departure_date.set_index('departure_date')['sk_id'])
 
-    dataframe['sk_arrival_airport'] = dataframe['arrival_airport'].map(dim_arrival_airport('arrival_airport')['sk_id'])
+    dataframe['sk_arrival_airport'] = dataframe['arrival_airport'].map(dim_arrival_airport.set_index('arrival_airport')['sk_id'])
 
-    dataframe['sk_pilot'] = dataframe['pilot_name'].map(dim_pilot('pilot_name')['sk_id'])
+    dataframe['sk_pilot'] = dataframe['pilot_name'].map(dim_pilot.set_index('pilot_name')['sk_id'])
 
-    dataframe['sk_flight_status'] = dataframe['flight_status'].map(dim_flight_status('flight_status')['sk_id'])
+    dataframe['sk_flight_status'] = dataframe['flight_status'].map(dim_flight_status.set_index('flight_status')['sk_id'])
 
-    fact_flight = dataframe['sk_airport_continent', 'sk_departure_country', 'sk_departure_airport', 'sk_departure_date', 'sk_arrival_airport', 'sk_pilot', 'sk_passenger', 'sk_flight_status']
+    fact_flight = dataframe[['sk_airport_continent', 'sk_departure_country', 'sk_departure_airport', 'sk_departure_date', 'sk_arrival_airport', 'sk_pilot', 'sk_passenger', 'sk_flight_status']]
     
     # verificar la cabeza de todos
     print("fact_flight:")
