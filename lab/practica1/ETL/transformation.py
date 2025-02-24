@@ -46,19 +46,7 @@ def transform(dataframe):
     input("Para continuar presiona \"Enter\"...")
 
 
-
-    dataframe['departure_date'] = dataframe['departure_date'].apply(parse_dates)
-
-    dim_departure_date = dataframe[['departure_date']].drop_duplicates()
-    dim_departure_date['sk_id'] = range(1, len(dim_departure_date) + 1)
-
-    dim_departure_date['year'] = dim_departure_date['departure_date'].dt.year
-    dim_departure_date['month'] = dim_departure_date['departure_date'].dt.month
-    dim_departure_date['day'] = dim_departure_date['departure_date'].dt.day
-    
-    print("DimDepartureDate:")
-    print(dim_departure_date.head())
-    input("Para continuar presiona \"Enter\"...")
+# Date
 
 
     dim_arrival_airport = dataframe[['arrival_airport']].drop_duplicates()
@@ -109,14 +97,17 @@ def transform(dataframe):
     input("Para continuar presiona \"Enter\"...")
     
 
-
     dim_passenger = dataframe[['sk_id', 'first_name', 'last_name', 'gender', 'age', 'nationality']].drop_duplicates()
+
     dim_passenger['sk_gender'] = dim_passenger['gender'].map(dim_gender.set_index('gender')['sk_id'])
+    dim_passenger['sk_age'] = dim_passenger['age'].map(dim_age.set_index('age')['sk_id'])
+    dim_passenger['sk_nationality'] = dim_passenger['nationality'].map(dim_nationality.set_index('nationality')['sk_id'])
+
+    dim_passenger = dim_passenger[['sk_id', 'first_name', 'last_name', 'sk_gender', 'sk_age', 'sk_nationality']]
 
     print("dim_passenger:")
     print(dim_passenger.head())
     input("Para continuar presiona \"Enter\"...")
-
     
     # ENTONCES UTILIZANDO LOS ID DE LAS DIMENSIONES, SE DEBE RELACIONAR CON LA TABLA DE HECHOS CON LOS ID CORRESPONDIENTES
     # PARA ELLO SE PUEDE UTILIZAR LA FUNCIÓN map DE PANDAS
@@ -128,7 +119,31 @@ def transform(dataframe):
     # 3. SE RELACIONA LA COLUMNA DEL DATAFRAME CON LA SERIE UTILIZANDO map
     # 4. SE OBTIENE UNA SERIE CON LOS VALORES RELACIONADOS
     # 5. SE ASIGNA LA SERIE AL DATAFRAME CON df['NOMBRE DE LA COLUMNA RELACIONADA'] = SERIE
-    df['DepartureDateID'] = df['Departure Date'].map(dim_departure_date.set_index('Departure Date')['DepartureDateID'])
+
+
+    # cambiar el nombre de la columna en el dataframe original a el nombre establecido en la tabla de hechos 
+    dataframe.rename(columns={'sk_id': 'sk_passenger'}, inplace = True)
+
+    # mapear a la llave surrogada usando las dos columnas para asegurar la integridad
+    dataframe = dataframe.merge(dim_airport_continent, left_on = ['continent_code', 'continent_name'], right_on = ['continent_code', 'continent_name'], how = 'left', validate = 'm:1')
+
+    # renombrar la key de la columna agregada al establecido en el modelo establecido
+    dataframe.rename(columns={'sk_id': 'sk_airport_continent'}, inplace = True)
+
+    print('airport continent keys:')    
+    print(dataframe['sk_airport_continent'].head())
+    input("Para continuar presiona \"Enter\"...")
+
+    # mapear a la llave surrogada usando las dos columnas para asegurar la integridad
+    dataframe = dataframe.merge(dim_departure_country, left_on = ['country_code', 'country_name'], right_on = ['country_code', 'country_name'], how = 'left', validate = 'm:1')
+
+    # renombrar la key de la columna agregada al establecido en el modelo establecido
+    dataframe.rename(columns={'sk_id': 'sk_departure_country'}, inplace = True)
+
+    print('departure country keys:')    
+    print(dataframe['sk_departure_country'].head())
+    input("Para continuar presiona \"Enter\"...")
+
     df['ArrivalAirportID'] = df['Arrival Airport'].map(dim_arrival_airport.set_index('Arrival Airport')['ArrivalAirportID'])
     df['PilotID'] = df['Pilot Name'].map(dim_pilot.set_index('Pilot Name')['PilotID'])
     df['FlightStatusID'] = df['Flight Status'].map(dim_flight_status.set_index('Flight Status')['FlightStatusID'])
