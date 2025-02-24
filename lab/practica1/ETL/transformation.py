@@ -46,7 +46,18 @@ def transform(dataframe):
     input("Para continuar presiona \"Enter\"...")
 
 
-# Date
+    dataframe['departure_date'] = dataframe['departure_date'].apply(parse_dates)
+
+    dim_departure_date = dataframe[['departure_date']].drop_duplicates()
+    dim_departure_date['sk_id'] = range(1, len(dim_departure_date) + 1)
+
+    dim_departure_date['year'] = dim_departure_date['departure_date'].dt.year
+    dim_departure_date['month'] = dim_departure_date['departure_date'].dt.month
+    dim_departure_date['day'] = dim_departure_date['departure_date'].dt.day
+    
+    print("DimDepartureDate:")
+    print(dim_departure_date.head())
+    input("Para continuar presiona \"Enter\"...")
 
 
     dim_arrival_airport = dataframe[['arrival_airport']].drop_duplicates()
@@ -87,14 +98,6 @@ def transform(dataframe):
     print("dim_nationality:")
     print(dim_nationality.head())
     input("Para continuar presiona \"Enter\"...")
-
-
-    dim_flight_status = dataframe[['flight_status']].drop_duplicates()
-    dim_flight_status['sk_id'] = range(1, len(dim_flight_status) + 1)
-
-    print("dim_flight_status:")
-    print(dim_flight_status.head())
-    input("Para continuar presiona \"Enter\"...")
     
 
     dim_passenger = dataframe[['sk_id', 'first_name', 'last_name', 'gender', 'age', 'nationality']].drop_duplicates()
@@ -107,6 +110,14 @@ def transform(dataframe):
 
     print("dim_passenger:")
     print(dim_passenger.head())
+    input("Para continuar presiona \"Enter\"...")
+
+
+    dim_flight_status = dataframe[['flight_status']].drop_duplicates()
+    dim_flight_status['sk_id'] = range(1, len(dim_flight_status) + 1)
+
+    print("dim_flight_status:")
+    print(dim_flight_status.head())
     input("Para continuar presiona \"Enter\"...")
     
     # ENTONCES UTILIZANDO LOS ID DE LAS DIMENSIONES, SE DEBE RELACIONAR CON LA TABLA DE HECHOS CON LOS ID CORRESPONDIENTES
@@ -144,40 +155,20 @@ def transform(dataframe):
     print(dataframe['sk_departure_country'].head())
     input("Para continuar presiona \"Enter\"...")
 
-    df['ArrivalAirportID'] = df['Arrival Airport'].map(dim_arrival_airport.set_index('Arrival Airport')['ArrivalAirportID'])
-    df['PilotID'] = df['Pilot Name'].map(dim_pilot.set_index('Pilot Name')['PilotID'])
-    df['FlightStatusID'] = df['Flight Status'].map(dim_flight_status.set_index('Flight Status')['FlightStatusID'])
-    df['DepartureAirportID'] = df['Airport Name'].map(dim_departure_airport.set_index('Airport Name')['DepartureAirportID'])
+    dataframe['sk_departure_airport'] = dataframe['airport_name'].map(dim_departure_airport.set_index('airport_name')['sk_id'])
+
+    dataframe['sk_departure_date'] = dataframe['departure_date'].map(dim_departure_date('departure_date')['sk_id'])
+
+    dataframe['sk_arrival_airport'] = dataframe['arrival_airport'].map(dim_arrival_airport('arrival_airport')['sk_id'])
+
+    dataframe['sk_pilot'] = dataframe['pilot_name'].map(dim_pilot('pilot_name')['sk_id'])
+
+    dataframe['sk_flight_status'] = dataframe['flight_status'].map(dim_flight_status('flight_status')['sk_id'])
+
+    fact_flight = dataframe['sk_airport_continent', 'sk_departure_country', 'sk_departure_airport', 'sk_departure_date', 'sk_arrival_airport', 'sk_pilot', 'sk_passenger', 'sk_flight_status']
     
-    # POR ULTIMO CREAMOS LA TABLA DE HECHOS CON LOS ID DE LAS DIMENSIONES RELACIONADAS Y LOS DATOS DE LA TABLA ORIGINAL
-    fact_flight = df[['Passenger ID', 'DepartureDateID', 'ArrivalAirportID', 'PilotID', 'FlightStatusID', 'DepartureAirportID']]
-    
-    # VERIFICAMOS CADA UNA PARA VER COMO QUEDARON (MOSTRAR LAS PRIMERAS 5 FILAS)
-    print("DimPassenger:")
-    print(dim_passenger.head())
-    print("Número total de registros:", len(dim_passenger))
-    input("Para continuar presiona \"Enter\"...")
-    print("DimDepartureDate:")
-    print(dim_departure_date.head())
-    print("Número total de registros:", len(dim_departure_date))
-    input("Para continuar presiona \"Enter\"...")
-    print("DimArrivalAirport:")
-    print(dim_arrival_airport.head())
-    print("Número total de registros:", len(dim_arrival_airport))
-    input("Para continuar presiona \"Enter\"...")
-    print("DimPilot:")
-    print(dim_pilot.head())
-    print("Número total de registros:", len(dim_pilot))
-    input("Para continuar presiona \"Enter\"...")
-    print("DimFlightStatus:")
-    print(dim_flight_status.head())
-    print("Número total de registros:", len(dim_flight_status))
-    input("Para continuar presiona \"Enter\"...")
-    print("DimDepartureAirport:")
-    print(dim_departure_airport.head())
-    print("Número total de registros:", len(dim_departure_airport))
-    input("Para continuar presiona \"Enter\"...")
-    print("FactFlight:")
+    # verificar la cabeza de todos
+    print("fact_flight:")
     print(fact_flight.head())
     print("Número total de registros:", len(fact_flight))
     input("Para continuar presiona \"Enter\"...")
@@ -186,7 +177,7 @@ def transform(dataframe):
     # PODEMOS RETORNAR CADA UNA O UTILIZAR UNA TUPLA O LISTA PARA RETORNARLAS TODAS JUNTAS
     # return dim_passenger, dim_departure_date, dim_departure_airport, dim_arrival_airport, dim_pilot, dim_flight_status, fact_flight
     # O
-    return [dim_passenger, dim_departure_date, dim_departure_airport, dim_arrival_airport, dim_pilot, dim_flight_status, fact_flight]
+    return [dim_airport_continent, dim_departure_country, dim_departure_airport, dim_departure_date, dim_arrival_airport, dim_pilot, dim_gender, dim_age, dim_nationality, dim_passenger, dim_flight_status, fact_flight]
 
 
 # LAS FECHAS PUEDEN ESTAR EN FORMATO 'MM/DD/YYYY' O 'MM-DD-YYYY', POR LO QUE SE DEBE NORMALIZAR A UN FORMATO CONSISTENTE
