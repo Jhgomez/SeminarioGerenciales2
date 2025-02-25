@@ -1,5 +1,7 @@
 from extract import extract
 from transformation import transform
+from load import load
+import model
 import os
 
 
@@ -23,20 +25,29 @@ def displayMenu():
         option = input("Opción: ")
 
         dictionarySwitcher = {
-            '1': todo,
-            '2': todo,
+            '1': model.drop_model,
+            '2': model.create_model,
             '3': extract,
             '4': transform,
-            '5': todo,
+            '5': load,
             '6': todo,
             '7': exit,
         }
+
+        if option == '1':
+            dataframe = dictionarySwitcher[option]()
+
+        if option == '2':
+            dataframe = dictionarySwitcher[option]()
 
         if option == '3':
             dataframe = dictionarySwitcher[option]()
 
         if option == "4":
-            dictionarySwitcher[option](dataframe.copy())
+            data = dictionarySwitcher[option](dataframe.copy())
+
+        if option == "5":
+            dictionarySwitcher[option](data.copy())
 
         option = input("press enter")
 
