@@ -52,6 +52,19 @@ def load(data):
                 row['sk_id'], row['sk_id'], row['airport_name']
             )
 
+        for _, row in tqdm(dim_departure_date.iterrows(), total = len(dim_departure_date), desc = "Insertando datos de aeropuertos de salidas"):
+            database.cursor.execute("""
+                IF NOT EXISTS (SELECT 1 FROM practica1.dim_departure_date WHERE sk_id = ?)
+                BEGIN
+                    INSERT INTO  practica1.dim_departure_date (sk_id, departure_date, month, day, year)
+                    VALUES (?, ?, ?, ?, ?)
+                END
+
+                """,
+
+                row['sk_id'], row['sk_id'], row['departure_date'], row['month'], row['day'], row['year']
+            )
+
     except Exception as e:
         print(row)
         print(f"Error al insertar datos: {e}")
