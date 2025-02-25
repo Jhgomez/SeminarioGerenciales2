@@ -1,6 +1,21 @@
 import pandas as pd
 
 def transform(dataframe):
+    dataframe.rename(columns={'Passenger ID': 'sk_id'}, inplace = True)
+    dataframe.rename(columns={'First Name': 'first_name'}, inplace = True)
+    dataframe.rename(columns={'Last Name': 'last_name'}, inplace = True)
+    dataframe.rename(columns={'Gender': 'gender'}, inplace = True)
+    dataframe.rename(columns={'Age': 'age'}, inplace = True)
+    dataframe.rename(columns={'Nationality': 'nationality'}, inplace = True)
+    dataframe.rename(columns={'Airport Name': 'airport_name'}, inplace = True)
+    dataframe.rename(columns={'Airport Country Code': 'country_code'}, inplace = True)
+    dataframe.rename(columns={'Country Name': 'country_name'}, inplace = True)
+    dataframe.rename(columns={'Airport Continent': 'continent_code'}, inplace = True)
+    dataframe.rename(columns={'Continents': 'continent_name'}, inplace = True)
+    dataframe.rename(columns={'Departure Date': 'departure_date'}, inplace = True)
+    dataframe.rename(columns={'Arrival Airport': 'arrival_airport'}, inplace = True)
+    dataframe.rename(columns={'Pilot Name': 'pilot_name'}, inplace = True)
+    dataframe.rename(columns={'Flight Status': 'flight_status'}, inplace = True)
 
     # PARA ACCEDER A UNA COLUMNA ESPECÍFICA DEL DATAFRAME, SE UTILIZA dataframe['NOMBRE DE LA COLUMNA']
     # ESTO PERMITE OBTENER UNA SERIE DE PANDAS QUE CONTIENE LOS VALORES DE ESA COLUMNA
@@ -12,52 +27,28 @@ def transform(dataframe):
     dim_airport_continent = dataframe[['continent_code', 'continent_name']].drop_duplicates()
     dim_airport_continent['sk_id'] = range(1, len(dim_airport_continent) + 1)
 
-    print('\ncontinent_code dups')
-    print(dim_airport_continent['continent_code'].duplicated().sum())  # Debe ser 0
-    print('\n')
-    input("Para continuar presiona \"Enter\"...")
+    print('\ncontinent_code dups: ', dim_airport_continent['continent_code'].duplicated().sum()) # Debe ser 0
 
-    print('\n')
-    print('\ncontinent_name dups')
-    print(dim_airport_continent['continent_name'].duplicated().sum())  # Debe ser 0
-    print('\n')
-    input("Para continuar presiona \"Enter\"...")
+    print('\ncontinent_name dups: ', dim_airport_continent['continent_name'].duplicated().sum())  # Debe ser 0
 
-    print('\n')
     print("\ndim_airport_continent:")
     print(dim_airport_continent.head())
-    print('\n')
-    input("Para continuar presiona \"Enter\"...")
-
 
     dim_departure_country = dataframe[['country_name', 'country_code']].drop_duplicates()
     dim_departure_country['sk_id'] = range(1, len(dim_departure_country) + 1)
 
-    print('\n')
-    print('\ncountry_name dups')
-    print(dim_departure_country['country_name'].duplicated().sum())  # Debe ser 0
-    print('\n')
-    print('\ncountry_code dups')
-    print(dim_departure_country['country_code'].duplicated().sum())
-    print('\n')
-    input("Para continuar presiona \"Enter\"...")
+    print('\ncountry_name dups: ', dim_departure_country['country_name'].duplicated().sum())  # Debe ser 0
 
-    print('\n')
+    print('\ncountry_code dups: ', dim_departure_country['country_code'].duplicated().sum())
+
     print("\ndim_departure_country:")
     print(dim_departure_country.head())
-    print('\n')
-    input("Para continuar presiona \"Enter\"...")
-
 
     dim_departure_airport = dataframe[['airport_name']].drop_duplicates()   
     dim_departure_airport['sk_id'] = range(1, len(dim_departure_airport) + 1)
 
-    print('\n')
     print("\ndim_departure_airport:")
     print(dim_departure_airport.head())
-    print('\n')
-    input("Para continuar presiona \"Enter\"...")
-
 
     dataframe['departure_date'] = dataframe['departure_date'].apply(parse_dates)
 
@@ -68,62 +59,38 @@ def transform(dataframe):
     dim_departure_date['month'] = dim_departure_date['departure_date'].dt.month
     dim_departure_date['day'] = dim_departure_date['departure_date'].dt.day
     
-    print('\n')
     print("\nDimDepartureDate:")
     print(dim_departure_date.head())
-    print('\n')
-    input("Para continuar presiona \"Enter\"...")
-
 
     dim_arrival_airport = dataframe[['arrival_airport']].drop_duplicates()
     dim_arrival_airport['sk_id'] = range(1, len(dim_arrival_airport) + 1)
 
-    print('\n')
     print("\ndim_arrival_airport:")
     print(dim_arrival_airport.head())
-    print('\n')
-    input("Para continuar presiona \"Enter\"...")
-
 
     dim_pilot = dataframe[['pilot_name']].drop_duplicates()
     dim_pilot['sk_id'] = range(1, len(dim_pilot) + 1)
 
-    print('\n')
     print("\ndim_pilot:")
     print(dim_pilot.head())
-    print('\n')
-    input("Para continuar presiona \"Enter\"...")
-
 
     dim_gender = dataframe[['gender']].drop_duplicates()
     dim_gender['sk_id'] = range(1, len(dim_gender) + 1)
 
-    print('\n')
     print("\ndim_gender:")
     print(dim_gender.head())
-    print('\n')
-    input("Para continuar presiona \"Enter\"...")
-
 
     dim_age = dataframe[['age']].drop_duplicates()
     dim_age['sk_id'] = range(1, len(dim_age) + 1)
 
-    print('\n')
     print("\ndim_age:")
     print(dim_age.head())
-    print('\n')
-    input("Para continuar presiona \"Enter\"...")
-
 
     dim_nationality = dataframe[['nationality']].drop_duplicates()
     dim_nationality['sk_id'] = range(1, len(dim_nationality) + 1)
 
-    print('\n')
     print("\ndim_nationality:")
-    print(dim_nationality.head())
-    print('\n')
-    input("Para continuar presiona \"Enter\"...")
-    
+    print(dim_nationality.head())    
 
     dim_passenger = dataframe[['sk_id', 'first_name', 'last_name', 'gender', 'age', 'nationality']].drop_duplicates()
 
@@ -133,21 +100,18 @@ def transform(dataframe):
 
     dim_passenger = dim_passenger[['sk_id', 'first_name', 'last_name', 'sk_gender', 'sk_age', 'sk_nationality']]
 
-    print('\n')
+    # tenemos que convertirlo a string para poder insertarlo a la base de datos, no lo hicimos antes
+    # para poder hacer el mapping que acabamos de hacer
+    dim_age['age'] = dim_age['age'].astype(str)
+
     print("\ndim_passenger:")
     print(dim_passenger.head())
-    print('\n')
-    input("Para continuar presiona \"Enter\"...")
-
 
     dim_flight_status = dataframe[['flight_status']].drop_duplicates()
     dim_flight_status['sk_id'] = range(1, len(dim_flight_status) + 1)
 
-    print('\n')
     print("\ndim_flight_status:")
     print(dim_flight_status.head())
-    print('\n')
-    input("Para continuar presiona \"Enter\"...")
     
     # ENTONCES UTILIZANDO LOS ID DE LAS DIMENSIONES, SE DEBE RELACIONAR CON LA TABLA DE HECHOS CON LOS ID CORRESPONDIENTES
     # PARA ELLO SE PUEDE UTILIZAR LA FUNCIÓN map DE PANDAS
@@ -170,11 +134,8 @@ def transform(dataframe):
     # renombrar la key de la columna agregada al establecido en el modelo establecido
     dataframe.rename(columns={'sk_id': 'sk_airport_continent'}, inplace = True)
 
-    print('\n')
     print('\nairport continent keys:')    
     print(dataframe['sk_airport_continent'].head())
-    print('\n')
-    input("Para continuar presiona \"Enter\"...")
 
     # mapear a la llave surrogada usando las dos columnas para asegurar la integridad
     dataframe = dataframe.merge(dim_departure_country, left_on = ['country_code', 'country_name'], right_on = ['country_code', 'country_name'], how = 'left', validate = 'm:1')
@@ -182,11 +143,8 @@ def transform(dataframe):
     # renombrar la key de la columna agregada al establecido en el modelo establecido
     dataframe.rename(columns={'sk_id': 'sk_departure_country'}, inplace = True)
 
-    print('\n')
     print('\ndeparture country keys:')    
     print(dataframe['sk_departure_country'].head())
-    print('\n')
-    input("Para continuar presiona \"Enter\"...")
 
     dataframe['sk_departure_airport'] = dataframe['airport_name'].map(dim_departure_airport.set_index('airport_name')['sk_id'])
 
@@ -201,12 +159,12 @@ def transform(dataframe):
     fact_flight = dataframe[['sk_airport_continent', 'sk_departure_country', 'sk_departure_airport', 'sk_departure_date', 'sk_arrival_airport', 'sk_pilot', 'sk_passenger', 'sk_flight_status']]
     
     # verificar la cabeza de todos
-    print('\n')
     print("\nfact_flight:")
     print(fact_flight.head())
-    print("Número total de registros:", len(fact_flight))
-    print('\n')
-    input("Transformacion Completada con exito!, para continuar presiona \"Enter\"...")
+
+    print("\nNúmero total de registros:", len(fact_flight))
+
+    print("\nTransformacion Completada con exito!")
     
     # retornar las dimensiones
     return [dim_airport_continent, dim_departure_country, dim_departure_airport, dim_departure_date, dim_arrival_airport, dim_pilot, dim_gender, dim_age, dim_nationality, dim_passenger, dim_flight_status, fact_flight]
