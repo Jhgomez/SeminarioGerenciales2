@@ -36,7 +36,7 @@ def displayMenu():
             dataframe = dictionarySwitcher[option]()
 
         if option == "4":
-            dictionarySwitcher[option](dataframe)
+            dictionarySwitcher[option](dataframe.copy())
 
         option = input("press enter")
 
