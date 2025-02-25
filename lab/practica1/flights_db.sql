@@ -66,30 +66,30 @@ GO
 
 
 CREATE TABLE practica1.dim_departure_airport (
-	sk_id INTEGER NOT NULL IDENTITY UNIQUE,
+	sk_id INTEGER NOT NULL,
 	airport_name NVARCHAR(32) NOT NULL,
 	PRIMARY KEY(sk_id)
 );
 GO
 
 CREATE TABLE practica1.dim_departure_country (
-	sk_id INTEGER NOT NULL IDENTITY UNIQUE,
-	country_name NVARCHAR(16) NOT NULL,
+	sk_id INTEGER NOT NULL,
+	country_name NVARCHAR(32) NOT NULL,
 	country_code NVARCHAR(4) NOT NULL,
 	PRIMARY KEY(sk_id)
 );
 GO
 
 CREATE TABLE practica1.dim_airport_continent (
-	sk_id INTEGER NOT NULL IDENTITY UNIQUE,
+	sk_id INTEGER NOT NULL,
 	continent_code NVARCHAR(4) NOT NULL,
-	continent_name NVARCHAR(8) NOT NULL,
+	continent_name NVARCHAR(16) NOT NULL,
 	PRIMARY KEY(sk_id)
 );
 GO
 
 CREATE TABLE practica1.dim_departure_date (
-	sk_id INTEGER NOT NULL IDENTITY UNIQUE,
+	sk_id INTEGER NOT NULL,
 	departure_date DATE NOT NULL,
 	month INTEGER NOT NULL,
 	day INTEGER NOT NULL,
@@ -99,15 +99,15 @@ CREATE TABLE practica1.dim_departure_date (
 GO
 
 CREATE TABLE practica1.dim_arrival_airport (
-	sk_id INTEGER NOT NULL IDENTITY UNIQUE,
-	arrival_airport NVARCHAR(4) NOT NULL,
+	sk_id INTEGER NOT NULL,
+	arrival_airport NVARCHAR(8) NOT NULL,
 	PRIMARY KEY(sk_id)
 );
 GO
 
 CREATE TABLE practica1.dim_pilot (
-	sk_id INTEGER NOT NULL IDENTITY UNIQUE,
-	pilot_name NVARCHAR(32) NOT NULL,
+	sk_id INTEGER NOT NULL,
+	pilot_name NVARCHAR(64) NOT NULL,
 	PRIMARY KEY(sk_id)
 );
 GO
@@ -124,35 +124,35 @@ CREATE TABLE practica1.dim_passenger (
 GO
 
 CREATE TABLE practica1.dim_gender (
-	sk_id INTEGER NOT NULL IDENTITY UNIQUE,
-	gender NVARCHAR(4) NOT NULL,
+	sk_id INTEGER NOT NULL,
+	gender NVARCHAR(8) NOT NULL,
 	PRIMARY KEY(sk_id)
 );
 GO
 
 CREATE TABLE practica1.dim_age (
-	sk_id INTEGER NOT NULL IDENTITY UNIQUE,
+	sk_id INTEGER NOT NULL,
 	age INTEGER NOT NULL,
 	PRIMARY KEY(sk_id)
 );
 GO
 
 CREATE TABLE practica1.dim_nationality (
-	sk_id INTEGER NOT NULL IDENTITY UNIQUE,
+	sk_id INTEGER NOT NULL,
 	nationality NVARCHAR(32) NOT NULL,
 	PRIMARY KEY(sk_id)
 );
 GO
 
 CREATE TABLE practica1.dim_flight_status (
-	id INTEGER NOT NULL IDENTITY UNIQUE,
-	flight_status NVARCHAR(8) NOT NULL,
+	id INTEGER NOT NULL,
+	flight_status NVARCHAR(16) NOT NULL,
 	PRIMARY KEY(id)
 );
 GO
 
 CREATE TABLE practica1.fact_flight (
-	id INTEGER NOT NULL IDENTITY UNIQUE,
+	id INTEGER NOT NULL,
 	sk_airport_continent INTEGER NOT NULL,
 	sk_departure_country INTEGER NOT NULL,
 	sk_departure_airport INTEGER NOT NULL,
