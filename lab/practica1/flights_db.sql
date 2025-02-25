@@ -67,14 +67,14 @@ GO
 
 CREATE TABLE practica1.dim_departure_airport (
 	sk_id INTEGER NOT NULL,
-	airport_name NVARCHAR(32) NOT NULL,
+	airport_name NVARCHAR(255) NOT NULL,
 	PRIMARY KEY(sk_id)
 );
 GO
 
 CREATE TABLE practica1.dim_departure_country (
 	sk_id INTEGER NOT NULL,
-	country_name NVARCHAR(32) NOT NULL,
+	country_name NVARCHAR(64) NOT NULL,
 	country_code NVARCHAR(4) NOT NULL,
 	PRIMARY KEY(sk_id)
 );
@@ -113,7 +113,7 @@ CREATE TABLE practica1.dim_pilot (
 GO
 
 CREATE TABLE practica1.dim_passenger (
-	sk_id NVARCHAR NOT NULL UNIQUE,
+	sk_id NVARCHAR(64) NOT NULL UNIQUE,
 	sk_gender INTEGER NOT NULL,
 	sk_age INTEGER NOT NULL,
 	sk_nationality INTEGER NOT NULL,
@@ -139,15 +139,15 @@ GO
 
 CREATE TABLE practica1.dim_nationality (
 	sk_id INTEGER NOT NULL,
-	nationality NVARCHAR(32) NOT NULL,
+	nationality NVARCHAR(56) NOT NULL,
 	PRIMARY KEY(sk_id)
 );
 GO
 
 CREATE TABLE practica1.dim_flight_status (
-	id INTEGER NOT NULL,
+	sk_id INTEGER NOT NULL,
 	flight_status NVARCHAR(16) NOT NULL,
-	PRIMARY KEY(id)
+	PRIMARY KEY(sk_id)
 );
 GO
 
@@ -159,7 +159,7 @@ CREATE TABLE practica1.fact_flight (
 	sk_departure_date INTEGER NOT NULL,
 	sk_arrival_airport INTEGER NOT NULL,
 	sk_pilot INTEGER NOT NULL,
-	sk_passenger NVARCHAR NOT NULL,
+	sk_passenger NVARCHAR(64) NOT NULL,
 	sk_flight_status INTEGER NOT NULL,
 	PRIMARY KEY(id)
 );
@@ -206,6 +206,6 @@ ADD FOREIGN KEY(sk_nationality) REFERENCES practica1.dim_nationality(sk_id)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 GO
 ALTER TABLE practica1.fact_flight
-ADD FOREIGN KEY(sk_flight_status) REFERENCES practica1.dim_flight_status(id)
+ADD FOREIGN KEY(sk_flight_status) REFERENCES practica1.dim_flight_status(sk_id)
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 GO
