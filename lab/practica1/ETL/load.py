@@ -16,7 +16,7 @@ def load(data):
     fact_flight = data[11]
 
     try:
-        for _, row in tqdm(dim_airport_continent.iterrows(), total = len(dim_airport_continent), desc = "Insertando datos de pasajeros"):
+        for _, row in tqdm(dim_airport_continent.iterrows(), total = len(dim_airport_continent), desc = "Insertando datos de continentes"):
             database.cursor.execute("""
                 IF NOT EXISTS (SELECT 1 FROM practica1.dim_airport_continent WHERE sk_id = ?)
                 BEGIN
@@ -24,10 +24,23 @@ def load(data):
                     VALUES (?, ?, ?)
                 END
 
-                PRINT(?)
                 """,
-                row['sk_id'], row['sk_id'], row['continent_code'], row['continent_name'], row['sk_id']
+                row['sk_id'], row['sk_id'], row['continent_code'], row['continent_name']
             )
+
+        for _, row in tqdm(dim_departure_country.iterrows(), total = len(dim_departure_country), desc = "Insertando datos de paises de salidas"):
+            database.cursor.execute("""
+                IF NOT EXISTS (SELECT 1 FROM practica1.dim_departure_country WHERE sk_id = ?)
+                BEGIN
+                    INSERT INTO  practica1.dim_departure_country (sk_id, country_name, country_code)
+                    VALUES (?, ?, ?)
+                END
+
+                """,
+                row['sk_id'], row['sk_id'], row['country_name'], row['country_code']
+            )
+
+
     except Exception as e:
         print(row)
         print(f"Error al insertar datos: {e}")
