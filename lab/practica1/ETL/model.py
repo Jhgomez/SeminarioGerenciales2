@@ -5,16 +5,10 @@ def create_model():
         db_result = database.cursor.execute("SELECT 1 FROM sys.databases WHERE name = 'seminario'").fetchall()
 
         if len(db_result) == 0:
-            print(db_result[0])
-
             database.cursor.execute("USE master")
-
             database.cursor.execute("CREATE DATABASE seminario")
-
             database.cursor.execute("USE seminario")
-
             database.cursor.execute("DROP SCHEMA IF EXISTS practica1")
-
             database.cursor.execute("CREATE SCHEMA practica1")
 
             database.cursor.execute("""
@@ -210,15 +204,26 @@ def create_model():
                 ALTER TABLE practica1.fact_flight
                 ADD FOREIGN KEY(sk_flight_status) REFERENCES practica1.dim_flight_status(sk_id)
                 ON UPDATE NO ACTION ON DELETE NO ACTION;
-        """)
+            """)
 
-        input("\nExito, modelo creado, para continuar presiona \"Enter\"...")
-    else:
-        input("\nElimina el modelo actual antes de crear, para continuar presiona \"Enter\"...")
+            print("\nExito, modelo creado")
+        else:
+            input("\nElimina el modelo actual antes de crearlo de nuevo")
 
     except Exception as e:
-        print(f"Error al insertar datos: {e}")
+        print(f"Error al crear modelo: {e}")
 
 
 def drop_model():
-    print(f"Error al insertar datos")
+    try:
+        db_result = database.cursor.execute("SELECT 1 FROM sys.databases WHERE name = 'seminario'").fetchall()
+
+        if len(db_result) == 0:
+            print("\nNo existe ningun modelo, para continuar presiona \"Enter\"...")
+        else:
+            database.cursor.execute("USE master")
+            database.cursor.execute("DROP DATABASE IF EXISTS seminario")
+            print("\nModelo eliminado, para continuar presiona \"Enter\"...")
+
+    except Exception as e:
+        print(f"Error al borrar modelo: {e}")
