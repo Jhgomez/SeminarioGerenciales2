@@ -40,6 +40,17 @@ def load(data):
                 row['sk_id'], row['sk_id'], row['country_name'], row['country_code']
             )
 
+        for _, row in tqdm(dim_departure_airport.iterrows(), total = len(dim_departure_airport), desc = "Insertando datos de aeropuertos de salidas"):
+            database.cursor.execute("""
+                IF NOT EXISTS (SELECT 1 FROM practica1.dim_departure_airport WHERE sk_id = ?)
+                BEGIN
+                    INSERT INTO  practica1.dim_departure_airport (sk_id, airport_name)
+                    VALUES (?, ?, ?)
+                END
+
+                """,
+                row['sk_id'], row['sk_id'], row['airport_name']
+            )
 
     except Exception as e:
         print(row)
