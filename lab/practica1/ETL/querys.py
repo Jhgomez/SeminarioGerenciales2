@@ -3,6 +3,12 @@ import os
 import pandas as pd
 
 def display_querys():
+    db_result = database.cursor.execute("SELECT 1 FROM sys.databases WHERE name = 'seminario'").fetchall()
+
+    if len(db_result) == 0:
+        print('\nno existe ningun modelo, crea modelo y carga datos antes de hacer consultas\n')
+        return
+
     database.cursor.execute("USE seminario")
 
     while True:
@@ -19,6 +25,8 @@ def display_querys():
         print('8. Top 5 continentes mas visitados')
         print('9. Top 5 Edades por genero que mas viajan')
         print('10. Conteo de vuelos por \'mes-año\'')
+        print('11. Regresar')
+        print('12. Salir')
 
         option = input('\nOpción: ')
 
@@ -50,7 +58,13 @@ def display_querys():
             top_edades_genero()
 
         if option == '10':
-            __()
+            total_vuelos_mes_anio()
+
+        if option == '11':
+            return
+        
+        if option == '12':
+            exit()
 
 def entradas_tablas():
 
@@ -228,7 +242,7 @@ def vuelos_por_pais():
     print('\n')
 
     for row in df.iterrows():
-        index = row[0]
+        index = row[0] + 1
         name = row[1]['country_name']
         total = row[1]['total']
         print(f'{index}.{name}: {total}')
@@ -359,3 +373,21 @@ def top_edades_genero():
 
     input("\npress Enter to continue")
     
+def total_vuelos_mes_anio():
+    query = """
+        SELECT dd.month, dd.year, COUNT(dd.sk_id) as total
+        FROM practica1.fact_flight ff
+        RIGHT JOIN practica1.dim_departure_date dd ON dd.sk_id = ff.sk_departure_date
+        GROUP BY 
+            dd.month,
+            dd.year
+        ORDER BY
+            dd.month,
+            dd.year
+    """
+
+    df = pd.read_sql_query(query, database.conn)
+
+    print('\n', df)
+
+    input("\npress Enter to continue")
