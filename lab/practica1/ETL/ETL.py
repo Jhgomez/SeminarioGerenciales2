@@ -1,7 +1,8 @@
 from extract import extract
 from transformation import transform
 from load import load
-import model
+import model as mdl
+import querys as qrs
 import os
 
 
@@ -22,15 +23,15 @@ def displayMenu():
         def todo(): 
             print("implementacion pendiente") 
 
-        option = input("Opción: ")
+        option = input("\nOpción: ")
 
         dictionarySwitcher = {
-            '1': model.drop_model,
-            '2': model.create_model,
+            '1': mdl.drop_model,
+            '2': mdl.create_model,
             '3': extract,
             '4': transform,
             '5': load,
-            '6': todo,
+            '6': qrs.display_querys,
             '7': exit,
         }
 
@@ -48,6 +49,10 @@ def displayMenu():
 
         if option == "5":
             dictionarySwitcher[option](data.copy())
+
+        if option == "6":
+            clear()
+            dictionarySwitcher[option]()
 
         option = input("press enter")
 

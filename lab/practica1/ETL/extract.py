@@ -4,7 +4,7 @@ def extract():
 
     try:
         dataframe = pd.read_csv("C:/Users/Juan Enrique/seminario2/lab/practica1/VuelosDataSet.csv")
-        print("\NCantidad de registros:", len(dataframe))
+        print("\nCantidad de registros: ", len(dataframe))
 
         print("\nPrimeras 5 filas:")
         print(dataframe.head())
