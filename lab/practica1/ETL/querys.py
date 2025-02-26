@@ -31,24 +31,25 @@ def display_querys():
         if option == '3':
             salidas_nacionalidad_mes()
 
-        if option == '':
+        if option == '4':
+            vuelos_por_pais()
+
+        if option == '5':
+            top_aeropuerto_mas_pasajeros()
+
+        if option == '6':
+            total_estado_vuelo()
+
+        if option == '7':
             __()
 
-        if option == '':
+        if option == '8':
             __()
 
-        if option == '':
-            __()
-        if option == '':
+        if option == '9':
             __()
 
-        if option == '':
-            __()
-
-        if option == '':
-            __()
-
-        if option == '':
+        if option == '10':
             __()
 
 def entradas_tablas():
@@ -150,7 +151,7 @@ def salidas_nacionalidad_mes():
             ddd.month
     """
     
-    df = pd.read_sql(query, database.conn)
+    df = pd.read_sql_query(query, database.conn)
 
     print('\n')
     
@@ -168,6 +169,10 @@ def salidas_nacionalidad_mes():
 
     df_pivot = df_pivot.reset_index()
 
+    for row in df_pivot.iterrows():
+        print(row)
+    
+    print('\n')
     # for r in result:
     print(df_pivot)
 
@@ -205,5 +210,71 @@ def stored_procedure_example():
     """).fetchval()
 
     print('\ngenero 2 es: ', result)
+
+    input("\npress Enter to continue")
+
+
+def vuelos_por_pais():
+    query = """
+        SELECT ddc.country_name, COUNT(ddc.sk_id) AS total 
+        FROM practica1.fact_flight ff
+        RIGHT JOIN practica1.dim_departure_country ddc ON ddc.sk_id = ff.sk_departure_country
+        GROUP BY ddc.country_name
+        ORDER BY ddc.country_name
+    """
+
+    df = pd.read_sql_query(query, database.conn)
+
+    print('\n')
+
+    for row in df.iterrows():
+        index = row[0]
+        name = row[1]['country_name']
+        total = row[1]['total']
+        print(f'{index}.{name}: {total}')
+
+    input("\npress Enter to continue")
+
+def top_aeropuerto_mas_pasajeros():
+    query = """
+        SELECT TOP 5 dda.airport_name, COUNT(dda.sk_id) AS total 
+        FROM practica1.fact_flight ff
+        RIGHT JOIN practica1.dim_departure_airport dda ON dda.sk_id = ff.sk_departure_airport
+        GROUP BY dda.airport_name
+        ORDER BY total DESC
+    """
+
+    df = pd.read_sql_query(query, database.conn)
+
+    print('\n', "Aeropuerto mas transitado de salidas:\n")
+
+    print(df)
+
+    query = """
+        SELECT TOP 5 daa.arrival_airport, COUNT(daa.sk_id) AS total 
+        FROM practica1.fact_flight ff
+        RIGHT JOIN practica1.dim_arrival_airport daa ON daa.sk_id = ff.sk_departure_airport
+        GROUP BY daa.arrival_airport
+        ORDER BY total DESC
+    """
+
+    df = pd.read_sql_query(query, database.conn)
+
+    print('\n', "Aeropuerto de destino mas transitados:\n")
+
+    print(df)
+
+    input("\npress Enter to continue")
+
+def total_estado_vuelo():
+    query = """
+        SELECT dfs.flight_status, COUNT(dfs.sk_id) AS Total
+        FROM practica1.fact_flight ff
+        RIGHT JOIN practica1.dim_flight_status dfs ON dfs.sk_id = ff.sk_flight_status
+        GROUP BY dfs.flight_status
+    """
+    df = pd.read_sql_query(query, database.conn)
+
+    print('\n', df)
 
     input("\npress Enter to continue")
