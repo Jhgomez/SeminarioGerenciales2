@@ -2,6 +2,8 @@ import database
 import os
 
 def display_querys():
+    database.cursor.execute("USE seminario")
+
     while True:
         os.system('cls')
 
@@ -12,21 +14,43 @@ def display_querys():
         print('4. Conteo vuelos por pais')
         print('5. Top 5 aeropuertos con mas pasajeros')
         print('6. Conteo por estado de vuelo')
-        print('7. Top 5 paises mas visitados')
-        print('8. Top 5 continentes mas visitados')
+        #print('7. Top 5 paises mas visitados')
+        #print('8. Top 5 continentes mas visitados')
         print('9. Top 5 Edades por genero que mas viajan')
         print('10. Conteo de vuelos por \'mes-año\'')
 
         option = input('\nOpción: ')
 
         if option == '1':
-            table_entries()
+            entradas_tablas()
 
         if option == '2':
-            percentage_by_gender()
+            porcentaje_por_genero()
 
-def table_entries():
-    database.cursor.execute("USE seminario")
+        if option == '3':
+            salidas_nacionalidad_mes()
+
+        if option == '':
+            __()
+
+        if option == '':
+            __()
+
+        if option == '':
+            __()
+        if option == '':
+            __()
+
+        if option == '':
+            __()
+
+        if option == '':
+            __()
+
+        if option == '':
+            __()
+
+def entradas_tablas():
 
     result = database.cursor.execute("SELECT COUNT(sk_id) as C FROM practica1.dim_airport_continent").fetchval()
 
@@ -79,13 +103,58 @@ def table_entries():
     input("\npress Enter to continue")
 
 
-def percentage_by_gender():
+def porcentaje_por_genero():
+    valuex = []
+    valuex.append([1.1,2.2])
+    
+    total = database.cursor.execute("""
+        SELECT COUNT(ff.id)
+        FROM practica1.fact_flight ff
+        RIGHT JOIN practica1.dim_passenger dp ON dp.sk_id = ff.sk_passenger
+    """).fetchval()
+
+    mujer_id = database.cursor.execute("""
+        SELECT sk_id
+        FROM practica1.dim_gender
+        WHERE gender = 'Female'
+    """).fetchval()
+
+    mujer_porcentaje = database.cursor.execute(f"""
+        SELECT (COUNT(ff.id)*100.0)/{total}
+        FROM practica1.fact_flight ff
+        LEFT JOIN practica1.dim_passenger dp ON dp.sk_id = ff.sk_passenger
+        WHERE dp.sk_gender = {mujer_id}
+    """).fetchval()
+
+    hombre_porcentaje = 100.0 - float(mujer_porcentaje)
+
+    print(f"mujeres: {mujer_porcentaje}")
+    print(f"hombres: {hombre_porcentaje}")
 
     input("\npress Enter to continue")
 
+def salidas_nacionalidad_mes():
+    result = database.cursor.execute("""
+        SELECT dn.nationality, ddd.year, ddd.month, COUNT(dn.sk_id) AS total
+        FROM practica1.fact_flight ff
+            RIGHT JOIN practica1.dim_departure_date ddd ON ddd.sk_id = ff.sk_departure_date
+            RIGHT JOIN practica1.dim_passenger dp ON dp.sk_id = ff.sk_passenger
+            RIGHT JOIN practica1.dim_nationality dn ON dn.sk_id = dp.sk_nationality
+        GROUP BY
+            dn.nationality,
+            ddd.year,
+            ddd.month
+        ORDER BY
+            dn.nationality,
+            ddd.month
+    """).fetchall()
+
+    for r in result:
+        print(r)
+
+    input("\npress Enter to continue")
 
 def stored_procedure_example():
-    database.cursor.execute("USE seminario")
 
     database.cursor.execute("""
         CREATE OR ALTER PROCEDURE practica1.percentage_by_gender
