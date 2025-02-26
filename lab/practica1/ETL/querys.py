@@ -47,7 +47,7 @@ def display_querys():
             top_continentes_visitados()
 
         if option == '9':
-            __()
+            top_edades_genero()
 
         if option == '10':
             __()
@@ -308,3 +308,54 @@ def top_continentes_visitados():
     print('\n', df)
 
     input("\npress Enter to continue")
+
+def top_edades_genero():
+    mujer_id = database.cursor.execute("""
+        SELECT sk_id
+        FROM practica1.dim_gender
+        WHERE gender = 'Female'
+    """).fetchval()
+
+    mujeres_query = f"""
+        SELECT TOP 5 da.age, dg.gender, COUNT(da.sk_id) as total
+        FROM practica1.fact_flight ff
+        RIGHT JOIN practica1.dim_passenger dp ON dp.sk_id = ff.sk_passenger
+        RIGHT JOIN practica1.dim_age da ON da.sk_id = dp.sk_age
+        RIGHT JOIN practica1.dim_gender dg ON dg.sk_id = dp.sk_gender 
+        WHERE dp.sk_gender = {mujer_id}
+        GROUP BY 
+            da.age,
+            dg.gender
+        ORDER BY total DESC
+    """
+
+    df = pd.read_sql_query(mujeres_query, database.conn)
+
+    print('\nTop edades de mujeres: \n', df)
+
+    
+    hombre_id = database.cursor.execute("""
+        SELECT sk_id
+        FROM practica1.dim_gender
+        WHERE gender = 'Male'
+    """).fetchval()
+
+    hombres_query = F"""
+        SELECT TOP 5 da.age, dg.gender, COUNT(da.sk_id) as total
+        FROM practica1.fact_flight ff
+        RIGHT JOIN practica1.dim_passenger dp ON dp.sk_id = ff.sk_passenger
+        RIGHT JOIN practica1.dim_age da ON da.sk_id = dp.sk_age
+        RIGHT JOIN practica1.dim_gender dg ON dg.sk_id = dp.sk_gender 
+        WHERE dp.sk_gender = {hombre_id}
+        GROUP BY 
+            da.age,
+            dg.gender
+        ORDER BY total DESC
+    """
+
+    df = pd.read_sql_query(hombres_query, database.conn)
+
+    print('\nTop edades de hombres: \n', df)
+
+    input("\npress Enter to continue")
+    
