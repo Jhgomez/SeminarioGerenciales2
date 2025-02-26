@@ -148,7 +148,7 @@ def create_model():
 
 
                 CREATE TABLE practica1.fact_flight (
-                    id INTEGER NOT NULL,
+                    id INTEGER IDENTITY(1,1) NOT NULL,
                     sk_airport_continent INTEGER NOT NULL,
                     sk_departure_country INTEGER NOT NULL,
                     sk_departure_airport INTEGER NOT NULL,
