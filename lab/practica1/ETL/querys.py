@@ -1,5 +1,6 @@
 import database
 import os
+import pandas as pd
 
 def display_querys():
     database.cursor.execute("USE seminario")
@@ -134,7 +135,7 @@ def porcentaje_por_genero():
     input("\npress Enter to continue")
 
 def salidas_nacionalidad_mes():
-    result = database.cursor.execute("""
+    query ="""
         SELECT dn.nationality, ddd.year, ddd.month, COUNT(dn.sk_id) AS total
         FROM practica1.fact_flight ff
             RIGHT JOIN practica1.dim_departure_date ddd ON ddd.sk_id = ff.sk_departure_date
@@ -147,10 +148,28 @@ def salidas_nacionalidad_mes():
         ORDER BY
             dn.nationality,
             ddd.month
-    """).fetchall()
+    """
+    
+    df = pd.read_sql(query, database.conn)
 
-    for r in result:
-        print(r)
+    print('\n')
+    
+    paises = df[['nationality']].drop_duplicates()
+
+    df['fecha'] = df['month'].astype(str) + '-' + df['year'].astype(str)
+    df['total'] = df['total'].astype(int)
+
+    df = df.sort_values(by=['year','month'])
+
+    fechas = df['fecha'].drop_duplicates()
+
+    df_pivot = df.pivot_table(index="nationality", columns="fecha", values="total", fill_value='0').astype(int)
+    df_pivot = df_pivot.reindex(columns=fechas, fill_value='0')
+
+    df_pivot = df_pivot.reset_index()
+
+    # for r in result:
+    print(df_pivot)
 
     input("\npress Enter to continue")
 
