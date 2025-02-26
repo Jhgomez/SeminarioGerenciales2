@@ -315,7 +315,7 @@ GO
 CREATE OR ALTER PROCEDURE practica1.total_estado_de_vuelo
 AS
 BEGIN
-	SELECT dfs.flight_status, COUNT(dfs.sk_id) 
+	SELECT dfs.flight_status, COUNT(dfs.sk_id) AS Total
 	FROM practica1.fact_flight ff
 	RIGHT JOIN practica1.dim_flight_status dfs ON dfs.sk_id = ff.sk_flight_status
 	GROUP BY dfs.flight_status
@@ -325,7 +325,32 @@ GO
 EXEC practica1.total_estado_de_vuelo
 GO
 
+CREATE OR ALTER PROCEDURE practica1.top_paises_visitados
+AS
+BEGIN
+	SELECT TOP 5 ddc.country_name, COUNT(ddc.sk_id) as total
+	FROM practica1.fact_flight ff
+	RIGHT JOIN practica1.dim_departure_country ddc ON ddc.sk_id = ff.sk_departure_country
+	GROUP BY ddc.country_name
+	ORDER BY total DESC
+END
 
+EXEC practica1.top_paises_visitados
+
+
+CREATE OR ALTER PROCEDURE practica1.continentes_mas_visitados
+AS
+BEGIN
+	SELECT TOP 5 dac.continent_name, dac.continent_code, COUNT(dac.sk_id) as total
+	FROM practica1.fact_flight ff
+	RIGHT JOIN practica1.dim_airport_continent dac ON dac.sk_id = ff.sk_airport_continent
+	GROUP BY 
+		dac.continent_name,
+		dac.continent_code
+	ORDER BY total DESC 
+END
+
+EXEC practica1.continentes_mas_visitados
 
 CREATE OR ALTER PROCEDURE practica1.top_edades_por_genero
 	@top INT
