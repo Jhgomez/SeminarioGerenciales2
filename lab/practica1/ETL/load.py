@@ -179,7 +179,26 @@ def load(data):
                 row['sk_id'], row['sk_id'], row['flight_status']
             )
 
-        print("estados de vuelos insertados\n")
+        print("Estado de vuelo insertados\n")
+
+        for _, row in tqdm(fact_flight.iterrows(), total = len(fact_flight), desc = "Insertando hechos de vuelo"):
+            database.cursor.execute("""
+                INSERT INTO  practica1.fact_flight
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+
+                """,
+                row['sk_airport_continent'],
+                row['sk_departure_country'],
+                row['sk_departure_airport'],
+                row['sk_departure_date'],
+                row['sk_arrival_airport'],
+                row['sk_pilot'],
+                row['sk_passenger'],
+                row['sk_flight_status']
+            )
+
+        print("hechos de vuelo insertados\n")
+
         print("Exito, todos los datos se han cargado\n")
 
     except Exception as e:
