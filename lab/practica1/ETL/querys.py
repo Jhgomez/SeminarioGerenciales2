@@ -15,8 +15,8 @@ def display_querys():
         print('4. Conteo vuelos por pais')
         print('5. Top 5 aeropuertos con mas pasajeros')
         print('6. Conteo por estado de vuelo')
-        #print('7. Top 5 paises mas visitados')
-        #print('8. Top 5 continentes mas visitados')
+        print('7. Top 5 paises mas visitados')
+        print('8. Top 5 continentes mas visitados')
         print('9. Top 5 Edades por genero que mas viajan')
         print('10. Conteo de vuelos por \'mes-año\'')
 
@@ -41,10 +41,10 @@ def display_querys():
             total_estado_vuelo()
 
         if option == '7':
-            __()
+            top_paises_visitados()
 
         if option == '8':
-            __()
+            top_continentes_visitados()
 
         if option == '9':
             __()
@@ -272,6 +272,36 @@ def total_estado_vuelo():
         FROM practica1.fact_flight ff
         RIGHT JOIN practica1.dim_flight_status dfs ON dfs.sk_id = ff.sk_flight_status
         GROUP BY dfs.flight_status
+    """
+    df = pd.read_sql_query(query, database.conn)
+
+    print('\n', df)
+
+    input("\npress Enter to continue")
+
+def top_paises_visitados():
+    query = """
+        SELECT TOP 5 ddc.country_name, COUNT(ddc.sk_id) as total
+        FROM practica1.fact_flight ff
+        RIGHT JOIN practica1.dim_departure_country ddc ON ddc.sk_id = ff.sk_departure_country
+        GROUP BY ddc.country_name
+        ORDER BY total DESC
+    """
+    df = pd.read_sql_query(query, database.conn)
+
+    print('\n', df)
+
+    input("\npress Enter to continue")
+
+def top_continentes_visitados():
+    query = """
+        SELECT TOP 5 dac.continent_name, dac.continent_code, COUNT(dac.sk_id) as total
+        FROM practica1.fact_flight ff
+        RIGHT JOIN practica1.dim_airport_continent dac ON dac.sk_id = ff.sk_airport_continent
+        GROUP BY 
+            dac.continent_name,
+            dac.continent_code
+        ORDER BY total DESC 
     """
     df = pd.read_sql_query(query, database.conn)
 
