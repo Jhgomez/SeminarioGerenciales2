@@ -9,6 +9,9 @@ import os
 clear = lambda: os.system('cls')
 
 def displayMenu():
+    data = None
+    dataframe = None
+
     while True:
         clear()
         print("Seleccione una opción:")
@@ -35,24 +38,39 @@ def displayMenu():
             '7': exit,
         }
 
-        if option == '1':
-            dataframe = dictionarySwitcher[option]()
-
-        if option == '2':
-            dataframe = dictionarySwitcher[option]()
-
         if option == '3':
             dataframe = dictionarySwitcher[option]()
+            option = input("press enter")
+            continue    
 
         if option == "4":
+            if dataframe is None:
+                print('Extrae datos antes de transformar')
+                option = input("press enter")
+                continue
+
             data = dictionarySwitcher[option](dataframe.copy())
+            option = input("press enter")
+            continue
 
         if option == "5":
+            if data is None:
+                print('Transforma datos antes de insertarlo')
+                option = input("press enter")
+                continue
+                
             dictionarySwitcher[option](data.copy())
+            option = input("press enter")
+            continue
 
         if option == "6":
             clear()
-            dictionarySwitcher[option]()
+        
+        if option == '':
+            option = input("press enter")
+            continue
+        
+        dictionarySwitcher[option]()
 
         option = input("press enter")
 
