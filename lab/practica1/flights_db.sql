@@ -427,17 +427,3 @@ GO
 
 EXEC practica1.total_vuelos_por_mes_anio
 GO
-
-
-
-Seleccione la consulta que desea hacer:
-  1. Contar las entradas en cada tabla
-  2. Porcentaje pasajeros por genero
-  3. Salidas por nacionalidad y mes
-  4. Conteo vuelos por pais
-  5. Top 5 aeropuertos con mas pasajeros
-  6. Conteo por estado de vuelo
-7. Top 5 paises mas visitados   TODO
-8. Top 5 continentes mas visitados  TODO
-  9. Top 5 Edades por genero que mas viajan
-  10. Conteo de vuelos por 'mes-año'
