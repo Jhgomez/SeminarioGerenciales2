@@ -168,8 +168,6 @@ def salidas_nacionalidad_mes():
     df = pd.read_sql_query(query, database.conn)
 
     print('\n')
-    
-    paises = df[['nationality']].drop_duplicates()
 
     df['fecha'] = df['month'].astype(str) + '-' + df['year'].astype(str)
     df['total'] = df['total'].astype(int)
