@@ -208,10 +208,10 @@ def create_model():
 
             print("\nExito, modelo creado")
         else:
-            input("\nElimina el modelo actual antes de crearlo de nuevo")
+            print("\nElimina el modelo actual antes de crearlo de nuevo")
 
     except Exception as e:
-        print(f"Error al crear modelo: {e}")
+        print(f"\nError al crear modelo: {e}")
 
 
 def drop_model():
@@ -226,4 +226,4 @@ def drop_model():
             print("\nModelo eliminado, para continuar presiona \"Enter\"...")
 
     except Exception as e:
-        print(f"Error al borrar modelo: {e}")
+        print(f"\nError al borrar modelo: {e}")
