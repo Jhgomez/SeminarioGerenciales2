@@ -1,3 +1,5 @@
+Class code 0798
+
 # Class 1(27/1/25)
 
 What is database normalization? Is removing duplicates in a DB. Is a teqnique to avoid redundancy in a DB. You have to apply at least 4 rules to a DB to make sure it is normalized. This help us accomplish data integrity, reduces maintenance costs, but it also implies a cost so you have to decide when it is worth making this effort. If duplicates exists in a DB is most likely an application issue since is the application that is interacting with the DB, the DB is just making what it is told to do, but if we removed duplication we remove inconsistency since deleting, reading, updating data, correctness is not guaranteed, but also we make our operations more efficient. Be aware that when making relational queries, meaning a join in a select, a third table is generated which contains two tables or more info, and the most expensive operation in a DB is "joning" information, but is even more expensive an "inner join" and similar operations and when a third table is created and we want to read from it, it will actually need to get the info from its parent tables, so removing duplication, normalizing data, could make reads way more expensive, that is why we need to evaluate the tradeoffs and see if normalization is worth and/or required. All `where` operations in a select, in most of databases actually implies a join operation. Be aware that the most inefficient key type to use in a DB is a text to indexing a database. To make reads more efficient we'd have to reduce the number of tables it needs to read to get info, so with duplicated information, meaning without normalizing, we could optimize read transactions/operations and this is safe to do if we design our apps to safely do this.
@@ -147,4 +149,7 @@ There can be more than one fact table in a model and the dimensions can be relat
 
 ### Dimension Table
 Primary key aka Surrogated Key. For each hierarchy of the dimension each level would have at least a description and a code for example in a retail shop when creating products dimensions. THey have three types of fields, surrogated key, hierarchy level and attributes. Attributes are complementary info like in a customer dimension you would have the client full name, phone number, or in a product dimension we could have the product's color, attributes should not be part of search querys
+
+Class (10 marzo 2025)
+Very important summary of modern data warehouse
 
