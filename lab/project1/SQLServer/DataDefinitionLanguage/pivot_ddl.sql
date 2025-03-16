@@ -30,7 +30,7 @@ CREATE TABLE ventas_temp (
     CodigoCliente VARCHAR(16),
     NombreCliente VARCHAR(96),
     TipoCliente VARCHAR(24),
-    DireccionCliente VARCHAR(88),
+    DireccionCliente VARCHAR(128),
     NumeroCliente VARCHAR(16),
     CodVendedor VARCHAR(16),
     NombreVendedor VARCHAR(48),
@@ -41,7 +41,7 @@ CREATE TABLE ventas_temp (
     Categoria VARCHAR(24),
     SodSucursal VARCHAR(16),
     NombreSucursal VARCHAR(24),
-    DireccionSucursal VARCHAR(88),
+    DireccionSucursal VARCHAR(96),
     Region VARCHAR(24),
     Departamento VARCHAR(40),
     Unidades VARCHAR(16),
@@ -49,5 +49,31 @@ CREATE TABLE ventas_temp (
 );
 GO
 
-TRUNCATE TABLE compras_temp
+DROP TABLE dbo.compras_temp
+DROP TABLE dbo.ventas_temp
+
+TRUNCATE TABLE dbo.ventas_temp
 GO
+
+DELETE FROM dbo.ventas_temp
+
+BULK INSERT dbo.compras_temp
+FROM '/home/SGFood01.comp'
+WITH (
+  FIELDTERMINATOR = '|', 
+  ROWTERMINATOR = '0x0a',
+  FIRSTROW = 2
+)
+
+TRUNCATE TABLE dbo.ventas_temp
+GO
+
+SELECT * FROM dbo.ventas_temp
+
+BULK INSERT dbo.ventas_temp
+FROM '/home/SGFood01.vent'
+WITH (
+  FIELDTERMINATOR = '|', 
+  ROWTERMINATOR = '0x0a',
+  FIRSTROW = 2
+)
