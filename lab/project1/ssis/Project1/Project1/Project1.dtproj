@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">LAPTOP-79740UKS</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAYoi0jq72rEKxD2TKlPWIGwAAAAACAAAAAAAQZgAAAAEAACAAAAAsXyDyHNM2VVxR3DSnU6MWJNVqYZ6sZI01CFElFLmkUAAAAAAOgAAAAAIAACAAAAAh+3ztH9uvpSqCpbM1hFTLk2u9Tsuv10bPHH6WXXGiIpAAAAA1HzzNm8Omix3j5RgaFzyM8mAtF0uFKigeRcdEitEro+XGHkYpo5O9jZCrWQO8z6Cmm5fCvB/XBYo2Ut5ev8guLrZAJf6nfBAo9C4Gpw3yaDUKvEGaNxr+9hE7OzI6T/jbWzvYHkNYiXpSnckJ+vsWOehE3bmzq+QZkbo3xg71B1zzY2H5EQBQuoQQ8j+FtcBAAAAAWhMg43kA91cz6eoMmmhuT5pvWjfiDqrgOfEkObZQ4ibgBJg20GhCIqzgBCXPHhvnJ/t5H2l/qcN++VJH1fezAw==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAYoi0jq72rEKxD2TKlPWIGwAAAAACAAAAAAAQZgAAAAEAACAAAAC2JJqrFMawJn7MDX0abdoRwMeLYJzOjYuZyhCOtuhI3AAAAAAOgAAAAAIAACAAAAAQ6XlQdFEyntTOB8QUaiSVNWKS+Ll98VKNUQKZDlD4q5AAAABnO0AKx9H1ULMZCpU2OH5oxp5LjS5zEouth3Lo6U/P2Fix1ZUybi/cZDd0SGIp9ACXcESnixbjXj3sBZy5/1/ys9VC7HXeY+dQC/9MaW60uuzz3U5B82gELt/aYKPM04AVw31PBl+2aMEV+4dyaG/vDBJYtxxFpSmsRBVcFWZS5O/YH8wdwLrEE+xFdHn8XmZAAAAAltesnUmGJYOg1WTuNO8LB6JkKEIXK85I7EPMQUSgAOaQ2cHiqtrEJwZq+pa4uS2Iwc/Exz2vTLhDEhJxAzkvaA==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -63,7 +63,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">Data Source=localhost;User ID=sa;Initial Catalog=pivot_tables;Provider=SQLOLEDB.1;Persist Security Info=True;Application Name=SSIS-Package-{98C57A51-84EA-4227-A027-3C0B5C92217B}localhost.pivot_tables.sa;Auto Translate=False;</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">Data Source=localhost;User ID=sa;Initial Catalog=pivot_tables;Provider=SQLOLEDB.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Package-{98C57A51-84EA-4227-A027-3C0B5C92217B}localhost.pivot_tables.sa;</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -194,10 +194,10 @@
                 <SSIS:Property SSIS:Name="Name">Package</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">24</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{6AC10984-D61C-4C7F-835A-A1D3D75D78C7}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{43DE2746-3D67-4884-817F-C3DE46C731F0}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>

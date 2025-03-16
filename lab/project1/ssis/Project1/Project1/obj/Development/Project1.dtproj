@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">LAPTOP-79740UKS</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAYoi0jq72rEKxD2TKlPWIGwAAAAACAAAAAAAQZgAAAAEAACAAAADckvNXXoTnjiNP+GhwU87XMpBTCLPkTEcWJp3A7Sz8nwAAAAAOgAAAAAIAACAAAACKpiUytrITUj+j0syPvQ7Qq7dxVPMOoc752BaU2ijWDpAAAADP9d1Fk6RXe+Y4CXn3Xz3G6V+LJ4SRj8dYmhpQjUna0bwrj99Lsov228SypLiWm4AZ7vtfbvroATOpS91UZZ7rQM/aQFctQo5HvdqeJDfB2eMOfQr1SOUWcQqRNTH2W2ZLvGispSProq+uyouiQLtjv6ipIGC0oVzhVfOI8qZ260PRJCybYeq3pP7cnR2T5h5AAAAAuiK0IUVjfCMWtrRpVe9p5HfLKAUJr5QaMNY9V5ElNvXnCTg8MO4IK5IEVik4Luk5wc4P/jPboK8e5DRteOAVDg==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAYoi0jq72rEKxD2TKlPWIGwAAAAACAAAAAAAQZgAAAAEAACAAAADgrTfniHlUKiQrkQhM4Xi4V8SKLyeXAiUgBFXv1qGOGQAAAAAOgAAAAAIAACAAAACE5ocp8SoA2aGhUmyelMglT/ZidhK3nqUKxPZrgPET+JAAAABlwuYmqaLA2bsg3L6kEHNUqIYHD7A3dcYy7rRZ1n46Cvyl1j1Qqv6+TCX3+Mo3xK2FZpoc2zOex4+SrGbirx3AonKGD+xKdxVlcEt0JVfiLTjJXMQEM/lvUytd1QcIfuoY/PzhC7yHhE3ohp9MYk40/pmEX3blE52Um30G8s2HdW/Qw46ZFyBLiKQZw4VA4RlAAAAAx5M+lJJmtWBeCBRoUL8LPiqhsqY2iPwGdSIwkZEFV6IzHWFjAWAlvPA/63uT8cWvb2ORJKCE1rRhqE6CuQUjCQ==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -63,7 +63,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">Data Source=localhost;User ID=sa;Initial Catalog=pivot_tables;Provider=SQLOLEDB.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Package-{A2F9DF56-5808-4391-B13D-02D3B9CC6F18}localhost.pivot_tables.sa;Use Encryption for Data=False;</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">Data Source=localhost;User ID=sa;Initial Catalog=pivot_tables;Provider=SQLOLEDB.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Package-{98C57A51-84EA-4227-A027-3C0B5C92217B}localhost.pivot_tables.sa;</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -194,10 +194,10 @@
                 <SSIS:Property SSIS:Name="Name">Package</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">5</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">30</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{C99BE717-CDA8-4E49-A588-353CD51181CB}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{AAB2F302-142F-4B9E-A0C0-2A6C429CCA63}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -228,7 +228,13 @@
         <LinkedAzureSSISIR />
         <LinkedAzureStorage />
         <RemoteExecutionFolder />
-        <ParameterConfigurationValues />
+        <ParameterConfigurationValues>
+          <ConfigurationSetting>
+            <Id>LastModifiedTime</Id>
+            <Name>LastModifiedTime</Name>
+            <Value xsi:type="xsd:dateTime">2025-03-16T19:32:45.4809353Z</Value>
+          </ConfigurationSetting>
+        </ParameterConfigurationValues>
       </Options>
     </Configuration>
   </Configurations>
