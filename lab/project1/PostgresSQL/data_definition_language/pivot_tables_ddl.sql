@@ -17,7 +17,7 @@ CREATE TABLE compras_temp (
     Unidades VARCHAR(16),
     CostoU VARCHAR(16)
 );
-
+COPY table_name (column1, column2, ...) FROM '/path/to/data.csv' DELIMITER ',' CSV;
 
 CREATE TABLE ventas_temp (
     Fecha VARCHAR(16),
@@ -35,7 +35,7 @@ CREATE TABLE ventas_temp (
     Categoria VARCHAR(24),
     SodSucursal VARCHAR(16),
     NombreSucursal VARCHAR(24),
-    DireccionSucursal VARCHAR(96),
+    DireccionSucursal VARCHAR(256),
     Region VARCHAR(24),
     Departamento VARCHAR(40),
     Unidades VARCHAR(16),
@@ -47,5 +47,7 @@ drop table ventas_temp
 
 
 SELECT * FROM compras_temp
+
+COPY compras_temp FROM '/home/SGFood02.comp' WITH  (FORMAT csv, HEADER true, DELIMITER '|')
 
 
