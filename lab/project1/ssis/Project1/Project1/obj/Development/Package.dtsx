@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="67"
-  DTS:VersionGUID="{6A7566AF-7077-492D-AD2E-0B7E0D2FBCD0}">
+  DTS:VersionBuild="71"
+  DTS:VersionGUID="{1E1D4DA0-ED67-46A2-9E18-9FBE8FA9707C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -36,7 +36,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Clear PostgresSQL Pivot SQL Task"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -53,7 +53,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Clear SQL Server Pivot Execute SQL Task"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -71,7 +71,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Postgres Compras Bulk Insert SQL Task"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -88,12 +88,1062 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Postgres Ventas Bulk Insert SQL Task"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{483FE134-80A5-47F2-BB91-B71BAF99B347}"
           SQLTask:SqlStatementSource="COPY ventas_temp FROM '/home/SGFood02.vent' WITH  (FORMAT text, HEADER true, DELIMITER '|', ENCODING 'UTF8');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PostgreSQL Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{95735464-50F5-466A-BB10-8231D1AAD122}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PostgreSQL Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source"
+              componentClassID="Microsoft.SSISODBCSrc"
+              contactInfo="ODBC Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="ODBC Source"
+              name="Compras ODBC Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The name of the table to be fetched."
+                  expressionType="Notify"
+                  name="TableName"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT * FROM compras_temp</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows fetched per batch."
+                  expressionType="Notify"
+                  name="BatchSize">1000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determines the chunk size allocation for LOB columns"
+                  expressionType="Notify"
+                  name="LobChunkSize">32768</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines how the component exposes CHAR columns. If False, CHAR columns are exposed as (multi-)byte strings (DT_STR), if True, CHAR columns are exposed as wide strings (DT_WSTR)"
+                  expressionType="Notify"
+                  name="ExposeCharColumnsAsUnicode">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds to wait for an SQL statement to execute before returning to the application."
+                  expressionType="Notify"
+                  name="StatementTimeout">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The code page to use when code page information is unavailable from the data source."
+                  expressionType="Notify"
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Int32"
+                  description="The method used for fetching data."
+                  expressionType="Notify"
+                  name="FetchMethod">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="The ODBC C data type for binding numeric data."
+                  expressionType="Notify"
+                  name="BindNumericAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determines how the component would bind columns of (multi)-byte string types (i.e., SQL_CHAR, SQL_VARCHAR, SQL_LONGVARCHAR). The options are: Unicode (SQL_C_WCHAR) and ANSI (SQL_C_CHAR)."
+                  expressionType="Notify"
+                  name="BindCharColumnsAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The mode used to access the database."
+                  expressionType="Notify"
+                  name="AccessMode"
+                  typeConverter="AccessMode">1</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Connections[ODBCConnection]"
+                  connectionManagerID="{483FE134-80A5-47F2-BB91-B71BAF99B347}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[PostgreSQL30.edgar]"
+                  description="The ODBC runtime connection used to access the database."
+                  name="ODBCConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output]"
+                  errorRowDisposition="FailComponent"
+                  name="ODBC Source Output"
+                  truncationRowDisposition="FailComponent">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[fecha]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[fecha]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[fecha]"
+                      name="fecha" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[codproveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[codproveedor]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[codproveedor]"
+                      name="codproveedor" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[nombreproveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombreproveedor]"
+                      length="96"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[nombreproveedor]"
+                      name="nombreproveedor" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[direccionproveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[direccionproveedor]"
+                      length="256"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[direccionproveedor]"
+                      name="direccionproveedor" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[numeroproveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[numeroproveedor]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[numeroproveedor]"
+                      name="numeroproveedor" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[webproveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[webproveedor]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[webproveedor]"
+                      name="webproveedor" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[codproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[codproducto]"
+                      length="24"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[codproducto]"
+                      name="codproducto" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[nombreproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombreproducto]"
+                      length="96"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[nombreproducto]"
+                      name="nombreproducto" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[marcaproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[marcaproducto]"
+                      length="32"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[marcaproducto]"
+                      name="marcaproducto" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[categoria]"
+                      length="48"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[categoria]"
+                      name="categoria" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[sodsucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[sodsucursal]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[sodsucursal]"
+                      name="sodsucursal" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[nombresucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombresucursal]"
+                      length="48"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[nombresucursal]"
+                      name="nombresucursal" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[direccionsucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[direccionsucursal]"
+                      length="256"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[direccionsucursal]"
+                      name="direccionsucursal" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[region]"
+                      length="24"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[region]"
+                      name="region" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[departamento]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[departamento]"
+                      length="40"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[departamento]"
+                      name="departamento" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[unidades]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[unidades]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[unidades]"
+                      name="unidades" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[costou]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[costou]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[costou]"
+                      name="costou" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[fecha]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="fecha" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[codproveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="codproveedor" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombreproveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="96"
+                      name="nombreproveedor" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[direccionproveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="256"
+                      name="direccionproveedor" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[numeroproveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="numeroproveedor" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[webproveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="webproveedor" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[codproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      name="codproducto" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombreproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="96"
+                      name="nombreproducto" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[marcaproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      name="marcaproducto" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="48"
+                      name="categoria" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[sodsucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="sodsucursal" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombresucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="48"
+                      name="nombresucursal" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[direccionsucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="256"
+                      name="direccionsucursal" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      name="region" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[departamento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="departamento" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[unidades]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="unidades" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[costou]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="costou" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output]"
+                  isErrorOut="true"
+                  name="ODBC Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[fecha]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[fecha]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[fecha]"
+                      name="fecha" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[codproveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[codproveedor]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[codproveedor]"
+                      name="codproveedor" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[nombreproveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombreproveedor]"
+                      length="96"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[nombreproveedor]"
+                      name="nombreproveedor" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[direccionproveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[direccionproveedor]"
+                      length="256"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[direccionproveedor]"
+                      name="direccionproveedor" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[numeroproveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[numeroproveedor]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[numeroproveedor]"
+                      name="numeroproveedor" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[webproveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[webproveedor]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[webproveedor]"
+                      name="webproveedor" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[codproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[codproducto]"
+                      length="24"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[codproducto]"
+                      name="codproducto" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[nombreproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombreproducto]"
+                      length="96"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[nombreproducto]"
+                      name="nombreproducto" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[marcaproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[marcaproducto]"
+                      length="32"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[marcaproducto]"
+                      name="marcaproducto" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[categoria]"
+                      length="48"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[categoria]"
+                      name="categoria" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[sodsucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[sodsucursal]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[sodsucursal]"
+                      name="sodsucursal" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[nombresucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombresucursal]"
+                      length="48"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[nombresucursal]"
+                      name="nombresucursal" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[direccionsucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[direccionsucursal]"
+                      length="256"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[direccionsucursal]"
+                      name="direccionsucursal" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[region]"
+                      length="24"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[region]"
+                      name="region" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[departamento]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[departamento]"
+                      length="40"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[departamento]"
+                      name="departamento" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[unidades]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[unidades]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[unidades]"
+                      name="unidades" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[costou]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[costou]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[costou]"
+                      name="costou" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source"
+              componentClassID="Microsoft.SSISODBCSrc"
+              contactInfo="ODBC Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="ODBC Source"
+              name="Ventas ODBC Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The name of the table to be fetched."
+                  expressionType="Notify"
+                  name="TableName"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT * FROM ventas_temp</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows fetched per batch."
+                  expressionType="Notify"
+                  name="BatchSize">1000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determines the chunk size allocation for LOB columns"
+                  expressionType="Notify"
+                  name="LobChunkSize">32768</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines how the component exposes CHAR columns. If False, CHAR columns are exposed as (multi-)byte strings (DT_STR), if True, CHAR columns are exposed as wide strings (DT_WSTR)"
+                  expressionType="Notify"
+                  name="ExposeCharColumnsAsUnicode">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds to wait for an SQL statement to execute before returning to the application."
+                  expressionType="Notify"
+                  name="StatementTimeout">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The code page to use when code page information is unavailable from the data source."
+                  expressionType="Notify"
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Int32"
+                  description="The method used for fetching data."
+                  expressionType="Notify"
+                  name="FetchMethod">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="The ODBC C data type for binding numeric data."
+                  expressionType="Notify"
+                  name="BindNumericAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determines how the component would bind columns of (multi)-byte string types (i.e., SQL_CHAR, SQL_VARCHAR, SQL_LONGVARCHAR). The options are: Unicode (SQL_C_WCHAR) and ANSI (SQL_C_CHAR)."
+                  expressionType="Notify"
+                  name="BindCharColumnsAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The mode used to access the database."
+                  expressionType="Notify"
+                  name="AccessMode"
+                  typeConverter="AccessMode">1</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Connections[ODBCConnection]"
+                  connectionManagerID="{483FE134-80A5-47F2-BB91-B71BAF99B347}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[PostgreSQL30.edgar]"
+                  description="The ODBC runtime connection used to access the database."
+                  name="ODBCConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output]"
+                  errorRowDisposition="FailComponent"
+                  name="ODBC Source Output"
+                  truncationRowDisposition="FailComponent">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[fecha]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[fecha]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[fecha]"
+                      name="fecha" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[codigocliente]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[codigocliente]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[codigocliente]"
+                      name="codigocliente" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[nombrecliente]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombrecliente]"
+                      length="96"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[nombrecliente]"
+                      name="nombrecliente" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[tipocliente]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[tipocliente]"
+                      length="24"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[tipocliente]"
+                      name="tipocliente" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[direccioncliente]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[direccioncliente]"
+                      length="128"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[direccioncliente]"
+                      name="direccioncliente" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[numerocliente]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[numerocliente]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[numerocliente]"
+                      name="numerocliente" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[codvendedor]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[codvendedor]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[codvendedor]"
+                      name="codvendedor" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[nombrevendedor]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombrevendedor]"
+                      length="48"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[nombrevendedor]"
+                      name="nombrevendedor" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[vacacionista]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[vacacionista]"
+                      length="8"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[vacacionista]"
+                      name="vacacionista" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[codproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[codproducto]"
+                      length="32"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[codproducto]"
+                      name="codproducto" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[nombreproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombreproducto]"
+                      length="88"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[nombreproducto]"
+                      name="nombreproducto" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[marcaproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[marcaproducto]"
+                      length="24"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[marcaproducto]"
+                      name="marcaproducto" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[categoria]"
+                      length="24"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[categoria]"
+                      name="categoria" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[sodsucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[sodsucursal]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[sodsucursal]"
+                      name="sodsucursal" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[nombresucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombresucursal]"
+                      length="24"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[nombresucursal]"
+                      name="nombresucursal" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[direccionsucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[direccionsucursal]"
+                      length="256"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[direccionsucursal]"
+                      name="direccionsucursal" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[region]"
+                      length="24"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[region]"
+                      name="region" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[departamento]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[departamento]"
+                      length="40"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[departamento]"
+                      name="departamento" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[unidades]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[unidades]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[unidades]"
+                      name="unidades" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[preciounitario]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[preciounitario]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[preciounitario]"
+                      name="preciounitario" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[fecha]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="fecha" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[codigocliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="codigocliente" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombrecliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="96"
+                      name="nombrecliente" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[tipocliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      name="tipocliente" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[direccioncliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="direccioncliente" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[numerocliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="numerocliente" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[codvendedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="codvendedor" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombrevendedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="48"
+                      name="nombrevendedor" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[vacacionista]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="vacacionista" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[codproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      name="codproducto" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombreproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="88"
+                      name="nombreproducto" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[marcaproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      name="marcaproducto" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      name="categoria" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[sodsucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="sodsucursal" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombresucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      name="nombresucursal" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[direccionsucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="256"
+                      name="direccionsucursal" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      name="region" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[departamento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="departamento" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[unidades]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="unidades" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[preciounitario]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="preciounitario" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output]"
+                  isErrorOut="true"
+                  name="ODBC Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[fecha]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[fecha]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[fecha]"
+                      name="fecha" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[codigocliente]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[codigocliente]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[codigocliente]"
+                      name="codigocliente" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[nombrecliente]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombrecliente]"
+                      length="96"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[nombrecliente]"
+                      name="nombrecliente" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[tipocliente]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[tipocliente]"
+                      length="24"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[tipocliente]"
+                      name="tipocliente" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[direccioncliente]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[direccioncliente]"
+                      length="128"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[direccioncliente]"
+                      name="direccioncliente" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[numerocliente]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[numerocliente]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[numerocliente]"
+                      name="numerocliente" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[codvendedor]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[codvendedor]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[codvendedor]"
+                      name="codvendedor" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[nombrevendedor]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombrevendedor]"
+                      length="48"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[nombrevendedor]"
+                      name="nombrevendedor" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[vacacionista]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[vacacionista]"
+                      length="8"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[vacacionista]"
+                      name="vacacionista" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[codproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[codproducto]"
+                      length="32"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[codproducto]"
+                      name="codproducto" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[nombreproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombreproducto]"
+                      length="88"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[nombreproducto]"
+                      name="nombreproducto" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[marcaproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[marcaproducto]"
+                      length="24"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[marcaproducto]"
+                      name="marcaproducto" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[categoria]"
+                      length="24"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[categoria]"
+                      name="categoria" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[sodsucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[sodsucursal]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[sodsucursal]"
+                      name="sodsucursal" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[nombresucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombresucursal]"
+                      length="24"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[nombresucursal]"
+                      name="nombresucursal" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[direccionsucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[direccionsucursal]"
+                      length="256"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[direccionsucursal]"
+                      name="direccionsucursal" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[region]"
+                      length="24"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[region]"
+                      name="region" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[departamento]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[departamento]"
+                      length="40"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[departamento]"
+                      name="departamento" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[unidades]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[unidades]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[unidades]"
+                      name="unidades" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[preciounitario]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[preciounitario]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[preciounitario]"
+                      name="preciounitario" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+        </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -105,7 +1155,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="SQL server Compras Bulk Insert SQL Task"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1205,7 +2255,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="SQL Server Ventas Bulk Insert SQL Task 1"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1256,6 +2306,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 4"
       DTS:To="Package\Postgres Ventas Bulk Insert SQL Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{1B0A91E8-C8F7-4BC9-A279-03D5AC5FC0BF}"
+      DTS:From="Package\Postgres Ventas Bulk Insert SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\PostgreSQL Data Flow Task" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -1407,6 +2465,32 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="209.6,41.6"
+          Id="Package\PostgreSQL Data Flow Task"
+          TopLeft="562.499969266357,269.533331459032" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="665.783303305425,236.599998643994">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32.9333328150383"
+              Start="0,0"
+              End="0,25.4333328150383">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.4333328150383" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1449,6 +2533,38 @@
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\PostgreSQL Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="179.2,41.6"
+          Id="Package\PostgreSQL Data Flow Task\Ventas ODBC Source"
+          TopLeft="139.166659062936,88.3999993852774" />
+        <NodeLayout
+          Size="188.8,41.6"
+          Id="Package\PostgreSQL Data Flow Task\Compras ODBC Source"
+          TopLeft="435.833309520451,84.9333327427175" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\PostgreSQL Data Flow Task\Ventas ODBC Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\PostgreSQL Data Flow Task\Compras ODBC Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

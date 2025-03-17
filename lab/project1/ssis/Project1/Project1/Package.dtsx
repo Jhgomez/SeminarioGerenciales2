@@ -11,10 +11,385 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="67"
-  DTS:VersionGUID="{6A7566AF-7077-492D-AD2E-0B7E0D2FBCD0}">
+  DTS:VersionBuild="74"
+  DTS:VersionGUID="{C431E957-B2E0-4CE1-B1D4-A573D28901DF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Compras Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{6E6893F2-B7D7-4E6B-BC19-22C91B9B1E1E}"
+      DTS:ObjectName="Compras Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Juan Enrique\seminario2\lab\project1\ArchivosdeentradaProyecto\SGFood03.comp">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Fecha"
+              DTS:DTSID="{266A8378-AAF1-4314-BC89-1AE6A9796B91}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CodProveedor"
+              DTS:DTSID="{529A65DF-8339-4328-8598-9967E5CEF024}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NombreProveedor"
+              DTS:DTSID="{7D342ACD-2C80-4E39-BE54-622D9916D90F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DireccionProveedor"
+              DTS:DTSID="{884C8776-56A6-4497-AF84-FAF2F532F28D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NumeroProveedor"
+              DTS:DTSID="{73545088-5F74-419C-B713-B7C94E531778}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="WebProveedor"
+              DTS:DTSID="{ED38584F-0881-4D41-A219-422525CF1A02}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CodProducto"
+              DTS:DTSID="{5198482F-3C4E-4585-B8E4-1D05D5A65BB5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NombreProducto"
+              DTS:DTSID="{5C69AFF7-37A6-40F1-9B64-1AF2DB209C22}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MarcaProducto"
+              DTS:DTSID="{832EE1EB-3482-4AFB-B86C-AE6B00D7D79D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Categoria"
+              DTS:DTSID="{5C4DD3FB-7D3B-4B97-AFD4-F60B1C7DA4E6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SodSuSursal"
+              DTS:DTSID="{D92DB87A-76F3-42FC-B671-AE54FF1B4EC2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NombreSucursal"
+              DTS:DTSID="{F925B4A5-5001-441F-B501-9434383E6CAB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DireccionSucursal"
+              DTS:DTSID="{E07ED2B7-C503-4BAE-9522-4D494CF33974}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Region"
+              DTS:DTSID="{692323AE-2B15-4181-B496-E0F4C551A0D8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Departamento"
+              DTS:DTSID="{8B3A9AA6-9596-4BD2-A28D-D3C2459124C6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Unidades"
+              DTS:DTSID="{801B8ACB-DB0A-476A-A1C1-645163CD7A51}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CostoU"
+              DTS:DTSID="{A119AE9D-20C3-4F13-A997-38234E528209}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Ventas Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{EB30355F-0BEE-4A0B-8971-4A01957EC53D}"
+      DTS:ObjectName="Ventas Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Juan Enrique\seminario2\lab\project1\ArchivosdeentradaProyecto\SGFood03.vent">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Fecha"
+              DTS:DTSID="{9E45FF5B-3A53-4F20-82E6-A2C88E3269F1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CodigoCliente"
+              DTS:DTSID="{D1519347-B7B7-42BC-BCBC-7EB2C9279FB7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NombreCliente"
+              DTS:DTSID="{4DE6BA2E-9833-4152-BC12-3AF5A2744B94}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TipoCliente"
+              DTS:DTSID="{48153A7E-FEC6-4CC0-A1E9-28C0CDA8779C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DireccionCliente"
+              DTS:DTSID="{699CE212-8C83-46A4-9921-27F5F59379B7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NumeroCliente"
+              DTS:DTSID="{B053367A-8AA9-4615-A2A4-D41908FAE370}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CodVendedor"
+              DTS:DTSID="{6D817BAF-C4A3-4A87-9D98-C927AD3E412D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NombreVendedor"
+              DTS:DTSID="{963B70C1-3889-4E39-9A50-67CDA89C7ACE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Vacacionista"
+              DTS:DTSID="{E8D023C7-7A5F-4487-903F-CA3BB603975E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CodProducto"
+              DTS:DTSID="{899E2CE6-98E9-45AD-A313-17D59FAC6DC0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NombreProducto"
+              DTS:DTSID="{76D70347-DD64-41E5-8B19-08DCDE24D9C1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MarcaProducto"
+              DTS:DTSID="{94978174-7D11-44D2-93CD-7832DBF2D2F9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Categoria"
+              DTS:DTSID="{039C5210-7A47-4E87-B742-FBABA3BEC4A4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SodSuSursal"
+              DTS:DTSID="{7AC5736D-C1EE-4871-8378-3B33A333BEEE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NombreSucursal"
+              DTS:DTSID="{5D63960A-415B-4E14-80E4-D1E1DC6E2B5A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DireccionSucursal"
+              DTS:DTSID="{D903473C-43ED-4724-859E-3567E6295E37}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Region"
+              DTS:DTSID="{EA72CFE0-F45E-4744-9BEA-BF172DE80417}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Departamento"
+              DTS:DTSID="{2DC5112C-7CF3-46F6-9EC0-17E7FDF4B155}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Unidades"
+              DTS:DTSID="{2E642ACC-70D0-483B-BAFB-08076ACD52DA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PrecioUnitario"
+              DTS:DTSID="{DC46D942-A5B2-4CE7-84FF-A9A92796514C}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
@@ -63,6 +438,1190 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Flat Files Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{F56D537B-5F03-4363-A680-D93E4B53D686}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Flat Files Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Flat Files Data Flow Task\Compras Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Compras Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Compras Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Compras Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].Columns[Fecha]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Fecha]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].Columns[Fecha]"
+                      name="Fecha"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].Columns[CodProveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CodProveedor]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].Columns[CodProveedor]"
+                      name="CodProveedor"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].Columns[NombreProveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].ExternalColumns[NombreProveedor]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].Columns[NombreProveedor]"
+                      name="NombreProveedor"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].Columns[DireccionProveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DireccionProveedor]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].Columns[DireccionProveedor]"
+                      name="DireccionProveedor"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].Columns[NumeroProveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].ExternalColumns[NumeroProveedor]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].Columns[NumeroProveedor]"
+                      name="NumeroProveedor"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].Columns[WebProveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].ExternalColumns[WebProveedor]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].Columns[WebProveedor]"
+                      name="WebProveedor"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].Columns[CodProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CodProducto]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].Columns[CodProducto]"
+                      name="CodProducto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].Columns[NombreProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].ExternalColumns[NombreProducto]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].Columns[NombreProducto]"
+                      name="NombreProducto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].Columns[MarcaProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MarcaProducto]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].Columns[MarcaProducto]"
+                      name="MarcaProducto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].Columns[Categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Categoria]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].Columns[Categoria]"
+                      name="Categoria"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].Columns[SodSuSursal]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SodSuSursal]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].Columns[SodSuSursal]"
+                      name="SodSuSursal"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].Columns[NombreSucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].ExternalColumns[NombreSucursal]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].Columns[NombreSucursal]"
+                      name="NombreSucursal"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].Columns[DireccionSucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DireccionSucursal]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].Columns[DireccionSucursal]"
+                      name="DireccionSucursal"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].Columns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Region]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].Columns[Region]"
+                      name="Region"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].Columns[Departamento]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Departamento]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].Columns[Departamento]"
+                      name="Departamento"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].Columns[Unidades]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Unidades]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].Columns[Unidades]"
+                      name="Unidades"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].Columns[CostoU]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CostoU]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].Columns[CostoU]"
+                      name="CostoU"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Fecha]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Fecha" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CodProveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CodProveedor" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].ExternalColumns[NombreProveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NombreProveedor" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DireccionProveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DireccionProveedor" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].ExternalColumns[NumeroProveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NumeroProveedor" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].ExternalColumns[WebProveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="WebProveedor" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CodProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CodProducto" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].ExternalColumns[NombreProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NombreProducto" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MarcaProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MarcaProducto" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Categoria" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SodSuSursal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SodSuSursal" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].ExternalColumns[NombreSucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NombreSucursal" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DireccionSucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DireccionSucursal" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Departamento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Departamento" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Unidades]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Unidades" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CostoU]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CostoU" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Flat Files Data Flow Task\Compras Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Flat Files Data Flow Task\Ventas Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Ventas Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Ventas Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Ventas Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[Fecha]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Fecha]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[Fecha]"
+                      name="Fecha"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[CodigoCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CodigoCliente]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[CodigoCliente]"
+                      name="CodigoCliente"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[NombreCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[NombreCliente]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[NombreCliente]"
+                      name="NombreCliente"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[TipoCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TipoCliente]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[TipoCliente]"
+                      name="TipoCliente"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[DireccionCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DireccionCliente]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[DireccionCliente]"
+                      name="DireccionCliente"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[NumeroCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[NumeroCliente]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[NumeroCliente]"
+                      name="NumeroCliente"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[CodVendedor]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CodVendedor]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[CodVendedor]"
+                      name="CodVendedor"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[NombreVendedor]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[NombreVendedor]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[NombreVendedor]"
+                      name="NombreVendedor"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[Vacacionista]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Vacacionista]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[Vacacionista]"
+                      name="Vacacionista"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[CodProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CodProducto]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[CodProducto]"
+                      name="CodProducto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[NombreProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[NombreProducto]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[NombreProducto]"
+                      name="NombreProducto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[MarcaProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MarcaProducto]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[MarcaProducto]"
+                      name="MarcaProducto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[Categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Categoria]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[Categoria]"
+                      name="Categoria"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[SodSuSursal]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SodSuSursal]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[SodSuSursal]"
+                      name="SodSuSursal"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[NombreSucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[NombreSucursal]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[NombreSucursal]"
+                      name="NombreSucursal"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[DireccionSucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DireccionSucursal]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[DireccionSucursal]"
+                      name="DireccionSucursal"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Region]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[Region]"
+                      name="Region"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[Departamento]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Departamento]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[Departamento]"
+                      name="Departamento"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[Unidades]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Unidades]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[Unidades]"
+                      name="Unidades"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[PrecioUnitario]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PrecioUnitario]"
+                      length="50"
+                      lineageId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].Columns[PrecioUnitario]"
+                      name="PrecioUnitario"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Fecha]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Fecha" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CodigoCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CodigoCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[NombreCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NombreCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TipoCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TipoCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DireccionCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DireccionCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[NumeroCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NumeroCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CodVendedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CodVendedor" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[NombreVendedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NombreVendedor" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Vacacionista]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Vacacionista" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CodProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CodProducto" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[NombreProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NombreProducto" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MarcaProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MarcaProducto" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Categoria" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SodSuSursal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SodSuSursal" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[NombreSucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NombreSucursal" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DireccionSucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DireccionSucursal" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Departamento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Departamento" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Unidades]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Unidades" />
+                    <externalMetadataColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PrecioUnitario]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PrecioUnitario" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Flat Files Data Flow Task\Ventas Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Postgres Compras Bulk Insert SQL Task"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -94,6 +1653,1056 @@
         <SQLTask:SqlTaskData
           SQLTask:Connection="{483FE134-80A5-47F2-BB91-B71BAF99B347}"
           SQLTask:SqlStatementSource="COPY ventas_temp FROM '/home/SGFood02.vent' WITH  (FORMAT text, HEADER true, DELIMITER '|', ENCODING 'UTF8');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PostgreSQL Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{95735464-50F5-466A-BB10-8231D1AAD122}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PostgreSQL Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source"
+              componentClassID="Microsoft.SSISODBCSrc"
+              contactInfo="ODBC Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="ODBC Source"
+              name="Compras ODBC Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The name of the table to be fetched."
+                  expressionType="Notify"
+                  name="TableName"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT * FROM compras_temp</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows fetched per batch."
+                  expressionType="Notify"
+                  name="BatchSize">1000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determines the chunk size allocation for LOB columns"
+                  expressionType="Notify"
+                  name="LobChunkSize">32768</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines how the component exposes CHAR columns. If False, CHAR columns are exposed as (multi-)byte strings (DT_STR), if True, CHAR columns are exposed as wide strings (DT_WSTR)"
+                  expressionType="Notify"
+                  name="ExposeCharColumnsAsUnicode">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds to wait for an SQL statement to execute before returning to the application."
+                  expressionType="Notify"
+                  name="StatementTimeout">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The code page to use when code page information is unavailable from the data source."
+                  expressionType="Notify"
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Int32"
+                  description="The method used for fetching data."
+                  expressionType="Notify"
+                  name="FetchMethod">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="The ODBC C data type for binding numeric data."
+                  expressionType="Notify"
+                  name="BindNumericAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determines how the component would bind columns of (multi)-byte string types (i.e., SQL_CHAR, SQL_VARCHAR, SQL_LONGVARCHAR). The options are: Unicode (SQL_C_WCHAR) and ANSI (SQL_C_CHAR)."
+                  expressionType="Notify"
+                  name="BindCharColumnsAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The mode used to access the database."
+                  expressionType="Notify"
+                  name="AccessMode"
+                  typeConverter="AccessMode">1</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Connections[ODBCConnection]"
+                  connectionManagerID="{483FE134-80A5-47F2-BB91-B71BAF99B347}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[PostgreSQL30.edgar]"
+                  description="The ODBC runtime connection used to access the database."
+                  name="ODBCConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output]"
+                  errorRowDisposition="FailComponent"
+                  name="ODBC Source Output"
+                  truncationRowDisposition="FailComponent">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[fecha]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[fecha]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[fecha]"
+                      name="fecha" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[codproveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[codproveedor]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[codproveedor]"
+                      name="codproveedor" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[nombreproveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombreproveedor]"
+                      length="96"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[nombreproveedor]"
+                      name="nombreproveedor" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[direccionproveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[direccionproveedor]"
+                      length="256"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[direccionproveedor]"
+                      name="direccionproveedor" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[numeroproveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[numeroproveedor]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[numeroproveedor]"
+                      name="numeroproveedor" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[webproveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[webproveedor]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[webproveedor]"
+                      name="webproveedor" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[codproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[codproducto]"
+                      length="24"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[codproducto]"
+                      name="codproducto" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[nombreproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombreproducto]"
+                      length="96"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[nombreproducto]"
+                      name="nombreproducto" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[marcaproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[marcaproducto]"
+                      length="32"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[marcaproducto]"
+                      name="marcaproducto" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[categoria]"
+                      length="48"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[categoria]"
+                      name="categoria" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[sodsucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[sodsucursal]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[sodsucursal]"
+                      name="sodsucursal" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[nombresucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombresucursal]"
+                      length="48"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[nombresucursal]"
+                      name="nombresucursal" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[direccionsucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[direccionsucursal]"
+                      length="256"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[direccionsucursal]"
+                      name="direccionsucursal" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[region]"
+                      length="24"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[region]"
+                      name="region" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[departamento]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[departamento]"
+                      length="40"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[departamento]"
+                      name="departamento" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[unidades]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[unidades]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[unidades]"
+                      name="unidades" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[costou]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[costou]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].Columns[costou]"
+                      name="costou" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[fecha]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="fecha" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[codproveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="codproveedor" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombreproveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="96"
+                      name="nombreproveedor" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[direccionproveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="256"
+                      name="direccionproveedor" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[numeroproveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="numeroproveedor" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[webproveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="webproveedor" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[codproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      name="codproducto" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombreproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="96"
+                      name="nombreproducto" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[marcaproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      name="marcaproducto" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="48"
+                      name="categoria" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[sodsucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="sodsucursal" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombresucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="48"
+                      name="nombresucursal" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[direccionsucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="256"
+                      name="direccionsucursal" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      name="region" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[departamento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="departamento" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[unidades]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="unidades" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[costou]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="costou" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output]"
+                  isErrorOut="true"
+                  name="ODBC Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[fecha]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[fecha]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[fecha]"
+                      name="fecha" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[codproveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[codproveedor]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[codproveedor]"
+                      name="codproveedor" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[nombreproveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombreproveedor]"
+                      length="96"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[nombreproveedor]"
+                      name="nombreproveedor" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[direccionproveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[direccionproveedor]"
+                      length="256"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[direccionproveedor]"
+                      name="direccionproveedor" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[numeroproveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[numeroproveedor]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[numeroproveedor]"
+                      name="numeroproveedor" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[webproveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[webproveedor]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[webproveedor]"
+                      name="webproveedor" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[codproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[codproducto]"
+                      length="24"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[codproducto]"
+                      name="codproducto" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[nombreproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombreproducto]"
+                      length="96"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[nombreproducto]"
+                      name="nombreproducto" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[marcaproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[marcaproducto]"
+                      length="32"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[marcaproducto]"
+                      name="marcaproducto" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[categoria]"
+                      length="48"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[categoria]"
+                      name="categoria" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[sodsucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[sodsucursal]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[sodsucursal]"
+                      name="sodsucursal" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[nombresucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombresucursal]"
+                      length="48"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[nombresucursal]"
+                      name="nombresucursal" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[direccionsucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[direccionsucursal]"
+                      length="256"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[direccionsucursal]"
+                      name="direccionsucursal" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[region]"
+                      length="24"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[region]"
+                      name="region" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[departamento]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[departamento]"
+                      length="40"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[departamento]"
+                      name="departamento" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[unidades]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[unidades]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[unidades]"
+                      name="unidades" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[costou]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output].ExternalColumns[costou]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[costou]"
+                      name="costou" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\PostgreSQL Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source"
+              componentClassID="Microsoft.SSISODBCSrc"
+              contactInfo="ODBC Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="ODBC Source"
+              name="Ventas ODBC Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The name of the table to be fetched."
+                  expressionType="Notify"
+                  name="TableName"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT * FROM ventas_temp</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows fetched per batch."
+                  expressionType="Notify"
+                  name="BatchSize">1000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determines the chunk size allocation for LOB columns"
+                  expressionType="Notify"
+                  name="LobChunkSize">32768</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines how the component exposes CHAR columns. If False, CHAR columns are exposed as (multi-)byte strings (DT_STR), if True, CHAR columns are exposed as wide strings (DT_WSTR)"
+                  expressionType="Notify"
+                  name="ExposeCharColumnsAsUnicode">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds to wait for an SQL statement to execute before returning to the application."
+                  expressionType="Notify"
+                  name="StatementTimeout">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The code page to use when code page information is unavailable from the data source."
+                  expressionType="Notify"
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Int32"
+                  description="The method used for fetching data."
+                  expressionType="Notify"
+                  name="FetchMethod">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="The ODBC C data type for binding numeric data."
+                  expressionType="Notify"
+                  name="BindNumericAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determines how the component would bind columns of (multi)-byte string types (i.e., SQL_CHAR, SQL_VARCHAR, SQL_LONGVARCHAR). The options are: Unicode (SQL_C_WCHAR) and ANSI (SQL_C_CHAR)."
+                  expressionType="Notify"
+                  name="BindCharColumnsAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The mode used to access the database."
+                  expressionType="Notify"
+                  name="AccessMode"
+                  typeConverter="AccessMode">1</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Connections[ODBCConnection]"
+                  connectionManagerID="{483FE134-80A5-47F2-BB91-B71BAF99B347}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[PostgreSQL30.edgar]"
+                  description="The ODBC runtime connection used to access the database."
+                  name="ODBCConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output]"
+                  errorRowDisposition="FailComponent"
+                  name="ODBC Source Output"
+                  truncationRowDisposition="FailComponent">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[fecha]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[fecha]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[fecha]"
+                      name="fecha" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[codigocliente]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[codigocliente]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[codigocliente]"
+                      name="codigocliente" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[nombrecliente]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombrecliente]"
+                      length="96"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[nombrecliente]"
+                      name="nombrecliente" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[tipocliente]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[tipocliente]"
+                      length="24"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[tipocliente]"
+                      name="tipocliente" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[direccioncliente]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[direccioncliente]"
+                      length="128"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[direccioncliente]"
+                      name="direccioncliente" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[numerocliente]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[numerocliente]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[numerocliente]"
+                      name="numerocliente" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[codvendedor]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[codvendedor]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[codvendedor]"
+                      name="codvendedor" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[nombrevendedor]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombrevendedor]"
+                      length="48"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[nombrevendedor]"
+                      name="nombrevendedor" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[vacacionista]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[vacacionista]"
+                      length="8"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[vacacionista]"
+                      name="vacacionista" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[codproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[codproducto]"
+                      length="32"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[codproducto]"
+                      name="codproducto" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[nombreproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombreproducto]"
+                      length="88"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[nombreproducto]"
+                      name="nombreproducto" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[marcaproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[marcaproducto]"
+                      length="24"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[marcaproducto]"
+                      name="marcaproducto" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[categoria]"
+                      length="24"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[categoria]"
+                      name="categoria" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[sodsucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[sodsucursal]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[sodsucursal]"
+                      name="sodsucursal" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[nombresucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombresucursal]"
+                      length="24"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[nombresucursal]"
+                      name="nombresucursal" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[direccionsucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[direccionsucursal]"
+                      length="256"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[direccionsucursal]"
+                      name="direccionsucursal" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[region]"
+                      length="24"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[region]"
+                      name="region" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[departamento]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[departamento]"
+                      length="40"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[departamento]"
+                      name="departamento" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[unidades]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[unidades]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[unidades]"
+                      name="unidades" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[preciounitario]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[preciounitario]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].Columns[preciounitario]"
+                      name="preciounitario" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[fecha]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="fecha" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[codigocliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="codigocliente" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombrecliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="96"
+                      name="nombrecliente" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[tipocliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      name="tipocliente" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[direccioncliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="direccioncliente" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[numerocliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="numerocliente" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[codvendedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="codvendedor" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombrevendedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="48"
+                      name="nombrevendedor" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[vacacionista]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="vacacionista" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[codproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      name="codproducto" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombreproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="88"
+                      name="nombreproducto" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[marcaproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      name="marcaproducto" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      name="categoria" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[sodsucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="sodsucursal" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombresucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      name="nombresucursal" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[direccionsucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="256"
+                      name="direccionsucursal" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      name="region" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[departamento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="departamento" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[unidades]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="unidades" />
+                    <externalMetadataColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[preciounitario]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="preciounitario" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output]"
+                  isErrorOut="true"
+                  name="ODBC Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[fecha]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[fecha]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[fecha]"
+                      name="fecha" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[codigocliente]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[codigocliente]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[codigocliente]"
+                      name="codigocliente" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[nombrecliente]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombrecliente]"
+                      length="96"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[nombrecliente]"
+                      name="nombrecliente" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[tipocliente]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[tipocliente]"
+                      length="24"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[tipocliente]"
+                      name="tipocliente" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[direccioncliente]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[direccioncliente]"
+                      length="128"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[direccioncliente]"
+                      name="direccioncliente" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[numerocliente]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[numerocliente]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[numerocliente]"
+                      name="numerocliente" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[codvendedor]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[codvendedor]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[codvendedor]"
+                      name="codvendedor" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[nombrevendedor]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombrevendedor]"
+                      length="48"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[nombrevendedor]"
+                      name="nombrevendedor" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[vacacionista]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[vacacionista]"
+                      length="8"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[vacacionista]"
+                      name="vacacionista" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[codproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[codproducto]"
+                      length="32"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[codproducto]"
+                      name="codproducto" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[nombreproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombreproducto]"
+                      length="88"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[nombreproducto]"
+                      name="nombreproducto" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[marcaproducto]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[marcaproducto]"
+                      length="24"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[marcaproducto]"
+                      name="marcaproducto" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[categoria]"
+                      length="24"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[categoria]"
+                      name="categoria" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[sodsucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[sodsucursal]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[sodsucursal]"
+                      name="sodsucursal" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[nombresucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[nombresucursal]"
+                      length="24"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[nombresucursal]"
+                      name="nombresucursal" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[direccionsucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[direccionsucursal]"
+                      length="256"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[direccionsucursal]"
+                      name="direccionsucursal" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[region]"
+                      length="24"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[region]"
+                      name="region" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[departamento]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[departamento]"
+                      length="40"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[departamento]"
+                      name="departamento" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[unidades]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[unidades]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[unidades]"
+                      name="unidades" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[preciounitario]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output].ExternalColumns[preciounitario]"
+                      length="16"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[preciounitario]"
+                      name="preciounitario" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\PostgreSQL Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+        </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -1256,6 +3865,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 4"
       DTS:To="Package\Postgres Ventas Bulk Insert SQL Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{1B0A91E8-C8F7-4BC9-A279-03D5AC5FC0BF}"
+      DTS:From="Package\Postgres Ventas Bulk Insert SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\PostgreSQL Data Flow Task" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -1272,34 +3889,34 @@
         <NodeLayout
           Size="242.4,41.6"
           Id="Package\Clear PostgresSQL Pivot SQL Task"
-          TopLeft="543.33330364691,29.4666664617591" />
+          TopLeft="382.499979101122,29.4666664617591" />
         <NodeLayout
           Size="275.2,41.6"
           Id="Package\Clear SQL Server Pivot Execute SQL Task"
-          TopLeft="195.416655989571,31.199999783039" />
+          TopLeft="34.5833314437832,31.199999783039" />
         <NodeLayout
           Size="264.8,41.6"
           Id="Package\Postgres Compras Bulk Insert SQL Task"
-          TopLeft="530.833304329879,106.599999258717" />
+          TopLeft="369.999979784091,106.599999258717" />
         <NodeLayout
           Size="255.2,41.6"
           Id="Package\Postgres Ventas Bulk Insert SQL Task"
-          TopLeft="536.666637344494,194.999998643994" />
+          TopLeft="375.833312798706,194.999998643994" />
         <NodeLayout
           Size="276.8,41.6"
           Id="Package\SQL server Compras Bulk Insert SQL Task"
-          TopLeft="193.333322770067,107.899999249677" />
+          TopLeft="32.4999982242792,107.899999249677" />
         <NodeLayout
           Size="207.2,41.6"
           Id="Package\SQL Server Data Flow Task"
-          TopLeft="222.310593914091,251.333331585593" />
+          TopLeft="61.4772693683032,251.333331585593" />
         <NodeLayout
           Size="276.8,41.6"
           Id="Package\SQL Server Ventas Bulk Insert SQL Task 1"
-          TopLeft="189.583322974957,185.666666082078" />
+          TopLeft="28.7499984291692,185.666666082078" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="332.374989379819,72.799999783039">
+          TopLeft="171.541664834031,72.799999783039">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1321,7 +3938,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="329.858322872512,149.499999249677">
+          TopLeft="169.024998326724,149.499999249677">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1343,7 +3960,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="326.946958444524,227.266666082078">
+          TopLeft="166.113633898736,227.266666082078">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1365,7 +3982,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="663.883303988395,71.0666664617591">
+          TopLeft="503.049979442607,71.0666664617591">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1387,7 +4004,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="663.749970837187,148.199999258717">
+          TopLeft="502.916646291399,148.199999258717">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1407,6 +4024,36 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="209.6,41.6"
+          Id="Package\PostgreSQL Data Flow Task"
+          TopLeft="401.666644720569,269.533331459032" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="504.949978759637,236.599998643994">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32.9333328150383"
+              Start="0,0"
+              End="0,25.4333328150383">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.4333328150383" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="195.2,41.6"
+          Id="Package\Flat Files Data Flow Task"
+          TopLeft="669.999963392816,33.799999764959" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1452,5 +4099,53 @@
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\PostgreSQL Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="179.2,41.6"
+          Id="Package\PostgreSQL Data Flow Task\Ventas ODBC Source"
+          TopLeft="139.166659062936,88.3999993852774" />
+        <NodeLayout
+          Size="188.8,41.6"
+          Id="Package\PostgreSQL Data Flow Task\Compras ODBC Source"
+          TopLeft="435.833309520451,84.9333327427175" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\PostgreSQL Data Flow Task\Ventas ODBC Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\PostgreSQL Data Flow Task\Compras ODBC Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Flat Files Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="196,41.6"
+          Id="Package\Flat Files Data Flow Task\Compras Flat File Source"
+          TopLeft="38.9999994188546,6.99999989569186" />
+        <NodeLayout
+          Size="186.4,41.6"
+          Id="Package\Flat Files Data Flow Task\Ventas Flat File Source"
+          TopLeft="317.999995261431,10.666666507721" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
