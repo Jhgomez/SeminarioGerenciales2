@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="61"
-  DTS:VersionGUID="{82C7CBDD-6CB9-4DF3-8B85-F363D4CD110F}">
+  DTS:VersionBuild="67"
+  DTS:VersionGUID="{6A7566AF-7077-492D-AD2E-0B7E0D2FBCD0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -36,7 +36,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Clear PostgresSQL Pivot SQL Task"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -53,7 +53,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Clear SQL Server Pivot Execute SQL Task"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -63,38 +63,55 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Compras Bulk Insert SQL Task"
+      DTS:refId="Package\Postgres Compras Bulk Insert SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9A65F78B-2941-4571-96ED-7EAFCF8E4F60}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Postgres Compras Bulk Insert SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{483FE134-80A5-47F2-BB91-B71BAF99B347}"
+          SQLTask:SqlStatementSource="COPY compras_temp FROM '/home/SGFood02.comp' WITH  (FORMAT text, HEADER true, DELIMITER '|', ENCODING 'UTF8');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Postgres Ventas Bulk Insert SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{E98EEFBC-95D6-49B6-B542-54664BBADE3A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Postgres Ventas Bulk Insert SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{483FE134-80A5-47F2-BB91-B71BAF99B347}"
+          SQLTask:SqlStatementSource="COPY ventas_temp FROM '/home/SGFood02.vent' WITH  (FORMAT text, HEADER true, DELIMITER '|', ENCODING 'UTF8');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL server Compras Bulk Insert SQL Task"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
       DTS:DTSID="{1B1599B4-29F0-4664-92AC-F7AABB0365DB}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Compras Bulk Insert SQL Task"
+      DTS:ObjectName="SQL server Compras Bulk Insert SQL Task"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{98C57A51-84EA-4227-A027-3C0B5C92217B}"
           SQLTask:BypassPrepare="False"
           SQLTask:SqlStatementSource="BULK INSERT dbo.compras_temp&#xA;FROM '/home/SGFood01.comp'&#xA;WITH (&#xA;  FIELDTERMINATOR = '|', &#xA;  ROWTERMINATOR = '0x0a',&#xA;  FIRSTROW = 2&#xA;)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Execute SQL Task"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{9A65F78B-2941-4571-96ED-7EAFCF8E4F60}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Execute SQL Task"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{483FE134-80A5-47F2-BB91-B71BAF99B347}"
-          SQLTask:SqlStatementSource="COPY compras_temp FROM '/home/SGFood02.comp' WITH  (FORMAT text, HEADER true, DELIMITER '|', ENCODING 'UTF8');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -1180,15 +1197,15 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Ventas Bulk Insert SQL Task 1"
+      DTS:refId="Package\SQL Server Ventas Bulk Insert SQL Task 1"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
       DTS:DTSID="{e27a921f-fdd0-477d-9ef8-1c5858f5aeb0}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Ventas Bulk Insert SQL Task 1"
+      DTS:ObjectName="SQL Server Ventas Bulk Insert SQL Task 1"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1206,20 +1223,20 @@
       DTS:From="Package\Clear SQL Server Pivot Execute SQL Task"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\Compras Bulk Insert SQL Task" />
+      DTS:To="Package\SQL server Compras Bulk Insert SQL Task" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
       DTS:DTSID="{25427899-122D-42B1-92A7-E5343580DF7F}"
-      DTS:From="Package\Compras Bulk Insert SQL Task"
+      DTS:From="Package\SQL server Compras Bulk Insert SQL Task"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
-      DTS:To="Package\Ventas Bulk Insert SQL Task 1" />
+      DTS:To="Package\SQL Server Ventas Bulk Insert SQL Task 1" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
       DTS:DTSID="{D4C6DEA5-A7A0-4037-8BBC-C46429AC8A94}"
-      DTS:From="Package\Ventas Bulk Insert SQL Task 1"
+      DTS:From="Package\SQL Server Ventas Bulk Insert SQL Task 1"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
       DTS:To="Package\SQL Server Data Flow Task" />
@@ -1230,7 +1247,15 @@
       DTS:From="Package\Clear PostgresSQL Pivot SQL Task"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
-      DTS:To="Package\Execute SQL Task" />
+      DTS:To="Package\Postgres Compras Bulk Insert SQL Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{3969C1C0-C4EE-458B-B3B8-14D5B1B9EA8D}"
+      DTS:From="Package\Postgres Compras Bulk Insert SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Postgres Ventas Bulk Insert SQL Task" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -1253,31 +1278,39 @@
           Id="Package\Clear SQL Server Pivot Execute SQL Task"
           TopLeft="195.416655989571,31.199999783039" />
         <NodeLayout
-          Size="221.6,41.6"
-          Id="Package\Compras Bulk Insert SQL Task"
-          TopLeft="222.499987843137,107.033332589037" />
+          Size="264.8,41.6"
+          Id="Package\Postgres Compras Bulk Insert SQL Task"
+          TopLeft="530.833304329879,106.599999258717" />
+        <NodeLayout
+          Size="255.2,41.6"
+          Id="Package\Postgres Ventas Bulk Insert SQL Task"
+          TopLeft="536.666637344494,194.999998643994" />
+        <NodeLayout
+          Size="276.8,41.6"
+          Id="Package\SQL server Compras Bulk Insert SQL Task"
+          TopLeft="193.333322770067,107.899999249677" />
         <NodeLayout
           Size="207.2,41.6"
           Id="Package\SQL Server Data Flow Task"
-          TopLeft="233.143926655517,251.333331585593" />
+          TopLeft="222.310593914091,251.333331585593" />
         <NodeLayout
-          Size="220,41.6"
-          Id="Package\Ventas Bulk Insert SQL Task 1"
-          TopLeft="226.249987638245,185.666666082078" />
+          Size="276.8,41.6"
+          Id="Package\SQL Server Ventas Bulk Insert SQL Task 1"
+          TopLeft="189.583322974957,185.666666082078" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="333.158321916354,72.799999783039">
+          TopLeft="332.374989379819,72.799999783039">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,34.2333328059979"
+              EndConnector="0,35.099999466638"
               Start="0,0"
-              End="0,26.7333328059979">
+              End="0,27.599999466638">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.7333328059979" />
+                    End="0,27.599999466638" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1288,18 +1321,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="334.774987740691,148.633332589037">
+          TopLeft="329.858322872512,149.499999249677">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,37.0333334930412"
+              EndConnector="0,36.1666668324011"
               Start="0,0"
-              End="0,29.5333334930412">
+              End="0,28.6666668324011">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,29.5333334930412" />
+                    End="0,28.6666668324011" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1310,18 +1343,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="336.496957146881,227.266666082078">
+          TopLeft="326.946958444524,227.266666082078">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,24.0666655035147"
+              EndConnector="0,24.0666655035149"
               Start="0,0"
-              End="0,16.5666655035147">
+              End="0,16.5666655035149">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.5666655035147" />
+                    End="0,16.5666655035149" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1330,24 +1363,42 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\Execute SQL Task"
-          TopLeft="580.833301598,106.599999258717" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="663.883302622455,71.0666664617591">
+          TopLeft="663.883303988395,71.0666664617591">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,35.5333327969578"
+              EndConnector="0,35.5333327969579"
               Start="0,0"
-              End="0,28.0333327969578">
+              End="0,28.0333327969579">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.0333327969578" />
+                    End="0,28.0333327969579" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="663.749970837187,148.199999258717">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46.7999993852773"
+              Start="0,0"
+              End="0,39.2999993852773">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.2999993852773" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
