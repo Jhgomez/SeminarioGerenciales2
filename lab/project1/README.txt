@@ -100,3 +100,57 @@ WITH (
 ```
 
 Repeat same process with sales(ventas) file
+
+# Transformations
+
+## Compras
+1. En el "codigo de proveedor" removere espacios vacios al inico y final, los nulos y vacios para standarizar los datos, para los nulos y los vacios el valor por defecto sera "P0000"
+
+2. El "nombre de proveedor" todos sus caracteres estaran en minusculas y removere comillas simples y dobles, espacios vacios al inicio y al final, para estandarizar minusculas en todo el data warehouse(tentativamente se quitaran tildes)
+
+3. La "direccion de proveedor" tendra caracteres en minusculas y removere comillas simples y dobles, para estandarizar minusculas en todo el data warehouse(tentativamente se quitaran tildes)
+
+4. En el "numero de proveedor" removere cualquier caracter y si el valor es nulo o diferente a un numero entonces pondre ceros
+
+5. El "codigo de producto" se removeran vacios y nulos y el valor por defecto sera "NA00000"
+
+6. El "nombre de producto" removere espacios vacios al inico y final y sera todo sera minusculas(tentativamente se quitaran tildes)
+
+7. En la "marca de producto" removere espacios vacios al incio y final, valores nulos y vacios seran por defecto "sin marca" y todo sera minusculas(tentativamente se quitaran tildes)
+
+8. En la "categoria" removere espacios vacios al incio y final, valores nulos y vacios seran por defecto "sin categoria" y todo sera minusculas(tentativamente se quitaran tildes)
+
+9. En la "direccion sucursal" removere espacios vacios al incio y final, tambien comillas simples y dobles. Valores nulos y vacios seran por defecto "sin direccion" y todo sera minusculas(tentativamente se quitaran tildes)
+ 
+10. En la "region" removere espacios vacios al incio y final, valores nulos y vacios seran por defecto "sin region" y todo sera minusculas(tentativamente se quitaran tildes)
+
+11. En el "departamento" removere espacios vacios al incio y final, valores nulos y vacios seran por defecto "sin departamento" y todo sera minusculas(tentativamente se quitaran tildes)
+
+## Ventas
+
+1. En el "codigo de cliente" removere espacios vacios al inico y final, los nulos y vacios para standarizar los datos, para los nulos y los vacios el valor por defecto sera C0000"
+
+2. En el "nombre de cliente" todos sus caracteres estaran en minusculas y removere espacios vacios al inicio y al final, para estandarizar minusculas en todo el data warehouse(tentativamente se quitaran tildes)
+
+3. El "tipo de cliente" sera asignado "min" para Minorista y "may" para Mayorista
+
+4. La "direccion de cliente" tendra caracteres en minusculas y removere comillas simples y dobles, espacios vacios al inicio y final, para estandarizar minusculas en todo el data warehouse(tentativamente se quitaran tildes)
+
+5. En el "numero de cliente" removere espacios vacios al inicio y al final y nulos y si el valor es nulo o diferente a un numero entonces pondre ceros
+
+6. En el "nombre vendedor" volvere todas las letras minuscula(tentativamente se quitaran tildes)
+
+7. En "vacacionista" se sustituira cualquier cosa diferente a 1 por "n" y cualquier 1 por "s", esto nos cubrira los nulos y valores no validos
+
+8. En el "nombre de producto" todos sus caracteres estaran en minusculas y removere espacios vacios al inicio y al final, para estandarizar minusculas en todo el data warehouse(tentativamente se quitaran tildes)
+
+9. En la "marca producto" todos sus caracteres estaran en minusculas y removere espacios vacios al inicio y al final, para estandarizar minusculas en todo el data warehouse(tentativamente se quitaran tildes)
+
+10. En la "categoria" todos sus caracteres estaran en minusculas y removere espacios vacios al inicio y al final, para estandarizar minusculas en todo el data warehouse(tentativamente se quitaran tildes)
+
+11. En la "direccion sucursal" todos sus caracteres estaran en minusculas y removere espacios vacios al inicio y al final, comillas simples y dobles, para estandarizar minusculas en todo el data warehouse(tentativamente se quitaran tildes)
+
+12. En la "region" removere espacios vacios al incio y final, valores nulos y vacios seran por defecto "sin region" y todo sera minusculas(tentativamente se quitaran tildes)
+
+13. En el "departamento" removere espacios vacios al incio y final, valores nulos y vacios seran por defecto "sin departamento" y todo sera minusculas(tentativamente se quitaran tildes)
+
