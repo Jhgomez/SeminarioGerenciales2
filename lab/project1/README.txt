@@ -104,17 +104,17 @@ Repeat same process with sales(ventas) file
 # Transformations
 
 ## Compras
-1. En el "codigo de proveedor" removere espacios vacios al inico y final, los nulos y vacios para standarizar los datos, para los nulos y los vacios el valor por defecto sera "P0000"
+1. En el "codigo de proveedor" removere espacios vacios al inico y final. Los nulos y vacios se sustituiran con el valor por defecto "0000", para poder utilizar este valor como llave primaria numerica se removera la primera letra del codigo
 
 2. El "nombre de proveedor" todos sus caracteres estaran en minusculas y removere comillas simples y dobles, espacios vacios al inicio y al final, para estandarizar minusculas en todo el data warehouse(tentativamente se quitaran tildes) 
 
 3. La "direccion de proveedor" tendra caracteres en minusculas y removere comillas simples y dobles, para estandarizar minusculas en todo el data warehouse(tentativamente se quitaran tildes)
 
-4. En el "numero de proveedor" removere cualquier caracter(en caso de error) y si el valor es nulo o diferente a un numero entonces pondre ceros
+4. En el "numero de proveedor" removere cualquier caracter(en caso de error) y si el valor es nulo o diferente a un numero entonces pondre ceros	
 
-5. El "codigo de producto" se removeran vacios y nulos y el valor por defecto sera "NA00000"
+5. El "codigo de producto" se sustituiran vacios y nulos con el valor por defecto "PR00000"
 
-6. El "nombre de producto" removere espacios vacios al inico y final y sera todo sera minusculas(tentativamente se quitaran tildes)
+6. El "nombre de producto" removere espacios vacios al inico y final y todo sera minusculas(tentativamente se quitaran tildes)
 
 7. En la "marca de producto" removere espacios vacios al incio y final, valores nulos y vacios seran por defecto "sin marca" y todo sera minusculas(tentativamente se quitaran tildes)
 
