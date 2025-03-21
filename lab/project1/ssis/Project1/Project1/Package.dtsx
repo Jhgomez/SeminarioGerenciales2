@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="372"
-  DTS:VersionGUID="{A062E3A6-709D-47B7-B37A-9F0989AE9D58}">
+  DTS:VersionBuild="374"
+  DTS:VersionGUID="{BD04A745-0251-44CB-8523-00382DB49C63}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -375,7 +375,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAYoi0jq72rEKxD2TKlPWIGwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABXgGzbPpKK2LQS6aJfO3B9G0bGKtFI/3tgpcoMOF1BMAAAAAAOgAAAAAIAACAAAADutsC1tW5cMGuaFei5udPW+Ssns8WXXt1F5ytMo/CVNiAAAAAAqSjhWS/Yvim/dcHo+eqxXRxaZaSmyw+NE4rOynDUCEAAAACXzhYBUTGOL26r7w8qv0I5sxgDP6EfmjI3MwrQBNcJRH/mqn78Wnm1vGXLy2wjKdMvZBLiGo0TqE3m76Cz3put</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAYoi0jq72rEKxD2TKlPWIGwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAC29ECXySTwkvTBv5y8n8IXpoyJNiphCjYuRwjQ+k1KJQAAAAAOgAAAAAIAACAAAAAhIH8Ue+z0lLdwFaDaWfmmvuBwb2qf5euhS5HXs9Lx1iAAAAD3wuWW0atU4hPzZuZtoC//Sadl84lpk3aBN1MfcQP/pUAAAADjVAcG9ZVrBClokdOKmtPiSXVdBq/YtKOu+BmwhQUW0ewy8jVyh9cofCqwCaZ6vJz/Mna+g4pOEpZc0J3sy1wL</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -8068,173 +8068,6 @@ where [refTable].[id] = ? and [refTable].[fecha] = ? and [refTable].[anio] = ? a
               </outputs>
             </component>
             <component
-              refId="Package\SQL Server Data Flow Task\OLE DB Destination 1"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="OLE DB Destination 1"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[project1].[dim_sucursal]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\SQL Server Data Flow Task\OLE DB Destination 1.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[localhost.seminario.sa]"
-                  connectionManagerRefId="Package.ConnectionManagers[localhost.seminario.sa]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\SQL Server Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\SQL Server Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[nombre]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="nombre"
-                      externalMetadataColumnId="Package\SQL Server Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[nombre]"
-                      lineageId="Package\SQL Server Data Flow Task\Sucursal Aggregate.Outputs[Aggregate Output 1].Columns[nombre]" />
-                    <inputColumn
-                      refId="Package\SQL Server Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[region]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="region"
-                      externalMetadataColumnId="Package\SQL Server Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[region]"
-                      lineageId="Package\SQL Server Data Flow Task\Sucursal Aggregate.Outputs[Aggregate Output 1].Columns[region]" />
-                    <inputColumn
-                      refId="Package\SQL Server Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[codigo]"
-                      cachedDataType="i4"
-                      cachedName="codigo"
-                      externalMetadataColumnId="Package\SQL Server Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[id_codigo]"
-                      lineageId="Package\SQL Server Data Flow Task\Sucursal Aggregate.Outputs[Aggregate Output 1].Columns[codigo]" />
-                    <inputColumn
-                      refId="Package\SQL Server Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[direccion]"
-                      cachedDataType="wstr"
-                      cachedLength="512"
-                      cachedName="direccion"
-                      externalMetadataColumnId="Package\SQL Server Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[direccion]"
-                      lineageId="Package\SQL Server Data Flow Task\Sucursal Aggregate.Outputs[Aggregate Output 1].Columns[direccion]" />
-                    <inputColumn
-                      refId="Package\SQL Server Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[dept]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="dept"
-                      externalMetadataColumnId="Package\SQL Server Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[departamento]"
-                      lineageId="Package\SQL Server Data Flow Task\Sucursal Aggregate.Outputs[Aggregate Output 1].Columns[dept]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\SQL Server Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[id_codigo]"
-                      dataType="i4"
-                      name="id_codigo" />
-                    <externalMetadataColumn
-                      refId="Package\SQL Server Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[nombre]"
-                      codePage="1252"
-                      dataType="str"
-                      length="48"
-                      name="nombre" />
-                    <externalMetadataColumn
-                      refId="Package\SQL Server Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[direccion]"
-                      dataType="wstr"
-                      length="512"
-                      name="direccion" />
-                    <externalMetadataColumn
-                      refId="Package\SQL Server Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[region]"
-                      codePage="1252"
-                      dataType="str"
-                      length="24"
-                      name="region" />
-                    <externalMetadataColumn
-                      refId="Package\SQL Server Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[departamento]"
-                      codePage="1252"
-                      dataType="str"
-                      length="40"
-                      name="departamento" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\SQL Server Data Flow Task\OLE DB Destination 1.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\SQL Server Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\SQL Server Data Flow Task\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\SQL Server Data Flow Task\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\SQL Server Data Flow Task\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\SQL Server Data Flow Task\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\SQL Server Data Flow Task\Sucursal Aggregate"
               componentClassID="Microsoft.Aggregate"
               contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
@@ -8730,6 +8563,173 @@ where [refTable].[direccion] = ? and [refTable].[id_codigo] = ? and [refTable].[
                       refId="Package\SQL Server Data Flow Task\Sucursal Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\SQL Server Data Flow Task\Sucursal Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SQL Server Data Flow Task\Sucursal OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Sucursal OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[project1].[dim_sucursal]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SQL Server Data Flow Task\Sucursal OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.seminario.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.seminario.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\SQL Server Data Flow Task\Sucursal OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Sucursal OLE DB Destination.Inputs[OLE DB Destination Input].Columns[nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="nombre"
+                      externalMetadataColumnId="Package\SQL Server Data Flow Task\Sucursal OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nombre]"
+                      lineageId="Package\SQL Server Data Flow Task\Sucursal Aggregate.Outputs[Aggregate Output 1].Columns[nombre]" />
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Sucursal OLE DB Destination.Inputs[OLE DB Destination Input].Columns[region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="region"
+                      externalMetadataColumnId="Package\SQL Server Data Flow Task\Sucursal OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[region]"
+                      lineageId="Package\SQL Server Data Flow Task\Sucursal Aggregate.Outputs[Aggregate Output 1].Columns[region]" />
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Sucursal OLE DB Destination.Inputs[OLE DB Destination Input].Columns[codigo]"
+                      cachedDataType="i4"
+                      cachedName="codigo"
+                      externalMetadataColumnId="Package\SQL Server Data Flow Task\Sucursal OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id_codigo]"
+                      lineageId="Package\SQL Server Data Flow Task\Sucursal Aggregate.Outputs[Aggregate Output 1].Columns[codigo]" />
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Sucursal OLE DB Destination.Inputs[OLE DB Destination Input].Columns[direccion]"
+                      cachedDataType="wstr"
+                      cachedLength="512"
+                      cachedName="direccion"
+                      externalMetadataColumnId="Package\SQL Server Data Flow Task\Sucursal OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[direccion]"
+                      lineageId="Package\SQL Server Data Flow Task\Sucursal Aggregate.Outputs[Aggregate Output 1].Columns[direccion]" />
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Sucursal OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dept]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="dept"
+                      externalMetadataColumnId="Package\SQL Server Data Flow Task\Sucursal OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[departamento]"
+                      lineageId="Package\SQL Server Data Flow Task\Sucursal Aggregate.Outputs[Aggregate Output 1].Columns[dept]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SQL Server Data Flow Task\Sucursal OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id_codigo]"
+                      dataType="i4"
+                      name="id_codigo" />
+                    <externalMetadataColumn
+                      refId="Package\SQL Server Data Flow Task\Sucursal OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="48"
+                      name="nombre" />
+                    <externalMetadataColumn
+                      refId="Package\SQL Server Data Flow Task\Sucursal OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[direccion]"
+                      dataType="wstr"
+                      length="512"
+                      name="direccion" />
+                    <externalMetadataColumn
+                      refId="Package\SQL Server Data Flow Task\Sucursal OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      name="region" />
+                    <externalMetadataColumn
+                      refId="Package\SQL Server Data Flow Task\Sucursal OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[departamento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="departamento" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SQL Server Data Flow Task\Sucursal OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\SQL Server Data Flow Task\Sucursal OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Sucursal OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SQL Server Data Flow Task\Sucursal OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Sucursal OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SQL Server Data Flow Task\Sucursal OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -16145,7 +16145,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               startId="Package\SQL Server Data Flow Task\Fechs Lookup.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\SQL Server Data Flow Task.Paths[Lookup No Match Output1]"
-              endId="Package\SQL Server Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input]"
+              endId="Package\SQL Server Data Flow Task\Sucursal OLE DB Destination.Inputs[OLE DB Destination Input]"
               name="Lookup No Match Output"
               startId="Package\SQL Server Data Flow Task\Sucursal Lookup.Outputs[Lookup No Match Output]" />
             <path
@@ -16650,9 +16650,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           Id="Package\SQL Server Data Flow Task\Compras ODBC Source"
           TopLeft="733.898260721923,99.0619041133448" />
         <NodeLayout
-          Size="180,41.6"
-          Id="Package\SQL Server Data Flow Task\OLE DB Destination 1"
-          TopLeft="1174.03329831974,1353.26666438255" />
+          Size="214.4,41.6"
+          Id="Package\SQL Server Data Flow Task\Sucursal OLE DB Destination"
+          TopLeft="1162.03329831974,1353.26666438255" />
         <NodeLayout
           Size="200.8,41.6"
           Id="Package\SQL Server Data Flow Task\Compras Data Conversion"
@@ -16855,7 +16855,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\SQL Server Data Flow Task.Paths[Data Conversion Output2]"
-          TopLeft="833.990391155729,366.666665389008">
+          TopLeft="834.123724489063,366.666665389008">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -16881,26 +16881,26 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-199.205285745991,32.978788418177"
+              EndConnector="-198.671952412658,32.978788418177"
               Start="0,0"
-              End="-199.205285745991,25.478788418177">
+              End="-198.671952412658,25.478788418177">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.6237418686673" />
+                    End="0,15.6244148364954" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,15.6237418686673"
-                    Point2="0,19.6237418686673"
-                    Point3="-4,19.6237418686673" />
+                    Point1="0,15.6244148364954"
+                    Point2="0,19.6244148364954"
+                    Point3="-4,19.6244148364954" />
                   <mssgle:LineSegment
-                    End="-195.205285745991,19.6237418686673" />
+                    End="-194.671952412658,19.6244148364954" />
                   <mssgle:CubicBezierSegment
-                    Point1="-195.205285745991,19.6237418686673"
-                    Point2="-199.205285745991,19.6237418686673"
-                    Point3="-199.205285745991,23.6237418686673" />
+                    Point1="-194.671952412658,19.6244148364954"
+                    Point2="-198.671952412658,19.6244148364954"
+                    Point3="-198.671952412658,23.6244148364954" />
                   <mssgle:LineSegment
-                    End="-199.205285745991,25.478788418177" />
+                    End="-198.671952412658,25.478788418177" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -17183,7 +17183,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\SQL Server Data Flow Task.Paths[Union All Output 14]"
-          TopLeft="860.918171399787,516.14545346065">
+          TopLeft="861.118171399787,516.14545346065">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -17549,7 +17549,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\SQL Server Data Flow Task.Paths[Lookup No Match Output1]"
-          TopLeft="1265.34996892487,1325.06666450911">
+          TopLeft="1267.94996892487,1325.06666450911">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -17567,7 +17567,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-64.6750390625,2.34999993672011,129.350078125,16"
+              BoundingBox="-55.80638671875,4.54531243672011,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -17746,7 +17746,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\SQL Server Data Flow Task\OLE DB Destination 1">
+    design-time-name="Package\SQL Server Data Flow Task\Sucursal OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
