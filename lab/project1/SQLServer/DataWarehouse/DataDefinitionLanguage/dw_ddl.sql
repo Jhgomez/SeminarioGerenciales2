@@ -117,14 +117,14 @@ CREATE TABLE project1.[dim_producto] (
 GO
 
 CREATE TABLE project1.[dim_marca] (
-	[id] INTEGER NOT NULL UNIQUE,
+	[id] INTEGER NOT NULL IDENTITY UNIQUE,
 	[nombre] VARCHAR NOT NULL,
 	PRIMARY KEY([id])
 );
 GO
 
 CREATE TABLE project1.[dim_categoria] (
-	[id] INTEGER NOT NULL UNIQUE,
+	[id] INTEGER NOT NULL IDENTITY UNIQUE,
 	[nombre] NVARCHAR NOT NULL,
 	PRIMARY KEY([id])
 );
@@ -150,12 +150,13 @@ CREATE TABLE project1.[dim_cliente] (
 	[id_codigo] INTEGER NOT NULL UNIQUE,
 	[nombre] NVARCHAR NOT NULL,
 	[direccion] NVARCHAR NOT NULL,
+	[numero] INTEGER NOT NULL,
 	PRIMARY KEY([id_codigo])
 );
 GO
 
 CREATE TABLE project1.[dim_tipo_cliente] (
-	[id] INTEGER NOT NULL UNIQUE,
+	[id] INTEGER NOT NULL IDENTITY UNIQUE,
 	[tipo] CHAR NOT NULL,
 	PRIMARY KEY([id])
 );
