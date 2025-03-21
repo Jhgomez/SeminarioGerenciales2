@@ -130,7 +130,7 @@ Repeat same process with sales(ventas) file
 
 ## Ventas
 
-1. En el "codigo de cliente" removere espacios vacios al inico y final, los nulos y vacios para standarizar los datos, para los nulos y los vacios el valor por defecto sera "0", ademas para poder usar este valor como llave primaria removere la letra inicial
+1. En el "codigo de cliente" removere espacios vacios al inico y final, los nulos y vacios para standarizar los datos, para los nulos y los vacios el valor por defecto sera "0000", ademas para poder usar este valor como llave primaria removere la letra inicial
 
 2. En el "nombre de cliente" todos sus caracteres estaran en minusculas y removere espacios vacios al inicio y al final, para estandarizar minusculas en todo el data warehouse(tentativamente se quitaran tildes)
 
@@ -138,13 +138,13 @@ Repeat same process with sales(ventas) file
 
 4. La "direccion de cliente" tendra caracteres en minusculas y removere comillas simples y dobles, espacios vacios al inicio y final, para estandarizar minusculas en todo el data warehouse(tentativamente se quitaran tildes)
 
-5. En el "numero de cliente" removere espacios vacios al inicio y al final y nulos y si el valor es nulo o diferente a un numero entonces pondre ceros
+5. En el "numero de cliente" removere espacios vacios al inicio y al final y nulos y si el valor es nulo o diferente a un numero entonces pondre cero
 
 6. En el "nombre vendedor" volvere todas las letras minuscula(tentativamente se quitaran tildes)
 
-7. En el "codigo vendedor" volvere todas las letras minuscula(tentativamente se quitaran tildes)
+7. En el "codigo vendedor" quitare espacios en blanco al inicio y al final, y removere la primera letra para poder usar el valor como numerio en una llave primaria y los valores vacios o nulos tendran por defecto "0000"
 
-7. En "vacacionista" se sustituira 1 por "vacacionista" y cualquier 1 por "fijo", nulos y vacios seran "indefinido" esto nos cubrira los nulos y valores no validos
+7. En "vacacionista" se sustituira 1 por "vacacionista" y cualquier 1 por "fijo", nulos y vacios seran "indefinido" esto nos cubrira los nulos y valores no validos y esto se insertara en una columna nueva llamada "TipoVendedor", este cambio se hace con la mejorar la legibilidad del analisis
 
 8. En el "nombre de producto" todos sus caracteres estaran en minusculas y removere espacios vacios al inicio y al final, para estandarizar minusculas en todo el data warehouse(tentativamente se quitaran tildes)
 
