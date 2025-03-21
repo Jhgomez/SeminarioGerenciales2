@@ -10,7 +10,7 @@
       DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=pivot_tables;Provider=SQLOLEDB.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Package-{98C57A51-84EA-4227-A027-3C0B5C92217B}localhost.pivot_tables.sa;">
       <DTS:Password
         DTS:Name="Password"
-        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAYoi0jq72rEKxD2TKlPWIGwAAAAACAAAAAAAQZgAAAAEAACAAAAA3egL6JBkEvSneJb4pK1mHv4Aj2HqtkfxaXxzZeDb82gAAAAAOgAAAAAIAACAAAACqUyUvfd+VclfU6CEARzcFdIzGNYq/xm+nNkuJ+U0iAYAAAADrB/7j1hVvadpgKQV42c++pnKWpttK0sFsqLIblJ1v7QPIEB2k+G4TTkf8juCJw+eDI/WkhR9hXC5H29y0otohaBqnK+nePHhr8z58Z5LGYbqDqNqxIRdG5zVhkm52GCCTpSnmquv4ZjjGmGM924YM70z3XGoN9WFa5Wmf8XGdtEAAAACt5fWt6VIQj5dNuBT6xopFK6DR8mMndwYOXMZ8WD6jUAwzZvdUh+RVeQ+amR40XbpvOxUSHi0aQnZzzGs1C3zP</DTS:Password>
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAYoi0jq72rEKxD2TKlPWIGwAAAAACAAAAAAAQZgAAAAEAACAAAADEOjb8TfpvPNmmQGp6DxH8Mx1k4a2qv9h/syrRnhQrtgAAAAAOgAAAAAIAACAAAAC0omn5IsYIik999v/ePxjUxKv5+QN5v3ZdJpiETH2gGoAAAABOc4Bqp5ArHUdTBewMomiNaQplpPbrEbt9Z/XZWBE1v1PYPJ8O4XVR01HPZ/UfMpq/kRp4z1mfVD9s1DN5tbXl0XHqdQ3cNKxO7Vyg4btp+krl93pDlVqUYmoE5ZGMBqzixsZrn3CFpR9JrJNwAP6/i0TPOTmXONSY+/KjajHCzUAAAABU4JHOJrH78DS7OWRyzNeMJRagL00T5uzU8OM4czesaEVcSeJ7x3FhI+B8oSMWHoxCiZ56nBvVcxxLI2rU2BCc</DTS:Password>
     </DTS:ConnectionManager>
   </DTS:ObjectData>
 </DTS:ConnectionManager>
