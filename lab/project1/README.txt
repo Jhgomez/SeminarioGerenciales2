@@ -160,3 +160,7 @@ Repeat same process with sales(ventas) file
 
 14. En el "departamento" removere espacios vacios al incio y final, valores nulos y vacios seran por defecto "sin departamento" y todo sera minusculas(tentativamente se quitaran tildes)
 
+
+669
+
+357
