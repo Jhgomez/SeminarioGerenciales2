@@ -61,7 +61,7 @@ IF OBJECT_ID('project1.dim_vendedor', 'U') IS NOT NULL
 GO
 
 CREATE TABLE project1.[fact_compras] (
-	[id] INTEGER NOT NULL UNIQUE,
+	[id] INTEGER NOT NULL IDENTITY UNIQUE,
 	[sk_proveedor] INTEGER NOT NULL,
 	[sk_categoria_prod] INTEGER NOT NULL,
 	[sk_marca_prod] INTEGER NOT NULL,
@@ -76,10 +76,10 @@ GO
 
 CREATE TABLE project1.[dim_proveedor] (
 	[id_codigo] INTEGER NOT NULL UNIQUE,
-	[nombre] NCHAR NOT NULL,
-	[direccion] NVARCHAR NOT NULL,
+	[nombre] NCHAR(192) NOT NULL,
+	[direccion] NVARCHAR(256) NOT NULL,
 	[numero] INTEGER NOT NULL,
-	[web] CHAR NOT NULL,
+	[web] CHAR(4) NOT NULL,
 	PRIMARY KEY([id_codigo])
 );
 GO
@@ -100,38 +100,38 @@ GO
 
 CREATE TABLE project1.[dim_sucursal] (
 	[id_codigo] INTEGER NOT NULL UNIQUE,
-	[nombre] VARCHAR NOT NULL,
-	[direccion] NVARCHAR NOT NULL,
-	[region] VARCHAR NOT NULL,
-	[departamento] VARCHAR NOT NULL,
+	[nombre] VARCHAR(48) NOT NULL,
+	[direccion] NVARCHAR(256) NOT NULL,
+	[region] VARCHAR(24) NOT NULL,
+	[departamento] VARCHAR(40) NOT NULL,
 	PRIMARY KEY([id_codigo])
 );
 GO
 
 CREATE TABLE project1.[dim_producto] (
-	[id] INTEGER NOT NULL,
-	[codigo] VARCHAR NOT NULL UNIQUE,
-	[nombre] NVARCHAR NOT NULL,
+	[id] INTEGER IDENTITY NOT NULL,
+	[codigo] VARCHAR(24) NOT NULL UNIQUE,
+	[nombre] NVARCHAR(256) NOT NULL,
 	PRIMARY KEY([id])
 );
 GO
 
 CREATE TABLE project1.[dim_marca] (
 	[id] INTEGER NOT NULL IDENTITY UNIQUE,
-	[nombre] VARCHAR NOT NULL,
+	[nombre] VARCHAR(32) NOT NULL,
 	PRIMARY KEY([id])
 );
 GO
 
 CREATE TABLE project1.[dim_categoria] (
 	[id] INTEGER NOT NULL IDENTITY UNIQUE,
-	[nombre] NVARCHAR NOT NULL,
+	[nombre] NVARCHAR(96) NOT NULL,
 	PRIMARY KEY([id])
 );
 GO
 
 CREATE TABLE project1.[fact_ventas] (
-	[id] INTEGER NOT NULL UNIQUE,
+	[id] INTEGER NOT NULL IDENTITY UNIQUE,
 	[sk_categoria_prod] INTEGER NOT NULL,
 	[sk_marca_prod] INTEGER NOT NULL,
 	[sk_producto] INTEGER NOT NULL,
@@ -148,8 +148,8 @@ GO
 
 CREATE TABLE project1.[dim_cliente] (
 	[id_codigo] INTEGER NOT NULL UNIQUE,
-	[nombre] NVARCHAR NOT NULL,
-	[direccion] NVARCHAR NOT NULL,
+	[nombre] NVARCHAR(192) NOT NULL,
+	[direccion] NVARCHAR(256) NOT NULL,
 	[numero] INTEGER NOT NULL,
 	PRIMARY KEY([id_codigo])
 );
@@ -157,15 +157,15 @@ GO
 
 CREATE TABLE project1.[dim_tipo_cliente] (
 	[id] INTEGER NOT NULL IDENTITY UNIQUE,
-	[tipo] CHAR NOT NULL,
+	[tipo] CHAR(8) NOT NULL,
 	PRIMARY KEY([id])
 );
 GO
 
 CREATE TABLE project1.[dim_vendedor] (
 	[id_codigo] INTEGER NOT NULL UNIQUE,
-	[Nombre] NVARCHAR NOT NULL,
-	[tipo] VARCHAR NOT NULL,
+	[Nombre] NVARCHAR(96) NOT NULL,
+	[tipo] VARCHAR(16) NOT NULL,
 	PRIMARY KEY([id_codigo])
 );
 GO
