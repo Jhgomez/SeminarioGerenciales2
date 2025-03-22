@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="374"
-  DTS:VersionGUID="{BD04A745-0251-44CB-8523-00382DB49C63}">
+  DTS:VersionBuild="384"
+  DTS:VersionGUID="{2399B8A9-9E76-4137-AB69-5BDFDAD7C047}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -375,7 +375,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAYoi0jq72rEKxD2TKlPWIGwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAC29ECXySTwkvTBv5y8n8IXpoyJNiphCjYuRwjQ+k1KJQAAAAAOgAAAAAIAACAAAAAhIH8Ue+z0lLdwFaDaWfmmvuBwb2qf5euhS5HXs9Lx1iAAAAD3wuWW0atU4hPzZuZtoC//Sadl84lpk3aBN1MfcQP/pUAAAADjVAcG9ZVrBClokdOKmtPiSXVdBq/YtKOu+BmwhQUW0ewy8jVyh9cofCqwCaZ6vJz/Mna+g4pOEpZc0J3sy1wL</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAYoi0jq72rEKxD2TKlPWIGwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADHZ5muqUR7B9UuhYTw/6a0zP2ipMFlDOMXRFKqzZmg/wAAAAAOgAAAAAIAACAAAAAoCgFxUAnw8P7AAxUq9V5aL3j7jUETPAanq/ukc5tzryAAAACw/WwV0RCHs65u5IFaB46+FZp6cUdbJpi6Wm8ZRKnNykAAAACWn2iav53XLP+4kejQ/DiHiHV2Z3KSTW9yTuDKLTB2HmMGQoXiynWKDBeOFs2Dph9ZSxSMWqBEQblHeA9iENQ4</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -754,6 +754,13 @@
                       cachedLength="256"
                       cachedName="DireccionSucursal"
                       lineageId="Package\SQL Server Data Flow Task\Compras Sources Union All.Outputs[Union All Output 1].Columns[DireccionSucursal]" />
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Compras Data Conversion.Inputs[Data Conversion Input].Columns[NombreProducto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="256"
+                      cachedName="NombreProducto"
+                      lineageId="Package\SQL Server Data Flow Task\Compras Sources Union All.Outputs[Union All Output 1].Columns[NombreProducto]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -902,6 +909,27 @@
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
                           name="SourceInputColumnLineageID">#{Package\SQL Server Data Flow Task\Compras Sources Union All.Outputs[Union All Output 1].Columns[DireccionSucursal]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Compras Data Conversion.Outputs[Data Conversion Output].Columns[PNombreProucto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="192"
+                      lineageId="Package\SQL Server Data Flow Task\Compras Data Conversion.Outputs[Data Conversion Output].Columns[PNombreProucto]"
+                      name="PNombreProucto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL Server Data Flow Task\Compras Sources Union All.Outputs[Union All Output 1].Columns[NombreProducto]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -1653,9 +1681,16 @@
                 </output>
                 <output
                   refId="Package\SQL Server Data Flow Task\Compras Fecha Multicast.Outputs[Multicast Output 3]"
-                  dangling="true"
                   deleteOutputOnPathDetached="true"
                   name="Multicast Output 3"
+                  synchronousInputId="Package\SQL Server Data Flow Task\Compras Fecha Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SQL Server Data Flow Task\Compras Fecha Multicast.Outputs[Multicast Output 4]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 4"
                   synchronousInputId="Package\SQL Server Data Flow Task\Compras Fecha Multicast.Inputs[Multicast Input 1]">
                   <externalMetadataColumns />
                 </output>
@@ -1722,6 +1757,13 @@
                       cachedLength="256"
                       cachedName="DireccionSucursal"
                       lineageId="Package\SQL Server Data Flow Task\Compras Sources Union All.Outputs[Union All Output 1].Columns[DireccionSucursal]" />
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Compras Fix Data Conversion.Inputs[Data Conversion Input].Columns[NombreProducto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="256"
+                      cachedName="NombreProducto"
+                      lineageId="Package\SQL Server Data Flow Task\Compras Sources Union All.Outputs[Union All Output 1].Columns[NombreProducto]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1870,6 +1912,27 @@
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
                           name="SourceInputColumnLineageID">#{Package\SQL Server Data Flow Task\Compras Sources Union All.Outputs[Union All Output 1].Columns[DireccionSucursal]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Compras Fix Data Conversion.Outputs[Data Conversion Output].Columns[CNombreProducto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="192"
+                      lineageId="Package\SQL Server Data Flow Task\Compras Fix Data Conversion.Outputs[Data Conversion Output].Columns[CNombreProducto]"
+                      name="CNombreProducto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL Server Data Flow Task\Compras Sources Union All.Outputs[Union All Output 1].Columns[NombreProducto]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -2264,6 +2327,20 @@
                           name="OutputColumnLineageID">#{Package\SQL Server Data Flow Task\Compras Fixes Union All.Outputs[Union All Output 1].Columns[PDireccionSucursal]}</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Compras Fixes Union All.Inputs[Union All Input 1].Columns[PNombreProucto]"
+                      cachedDataType="wstr"
+                      cachedLength="192"
+                      cachedName="PNombreProucto"
+                      lineageId="Package\SQL Server Data Flow Task\Compras Data Conversion.Outputs[Data Conversion Output].Columns[PNombreProucto]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SQL Server Data Flow Task\Compras Fixes Union All.Outputs[Union All Output 1].Columns[PNombreProucto]}</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -2621,6 +2698,20 @@
                           name="OutputColumnLineageID">#{Package\SQL Server Data Flow Task\Compras Fixes Union All.Outputs[Union All Output 1].Columns[PDireccionSucursal]}</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Compras Fixes Union All.Inputs[Union All Input 2].Columns[CNombreProducto]"
+                      cachedDataType="wstr"
+                      cachedLength="192"
+                      cachedName="CNombreProducto"
+                      lineageId="Package\SQL Server Data Flow Task\Compras Fix Data Conversion.Outputs[Data Conversion Output].Columns[CNombreProducto]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SQL Server Data Flow Task\Compras Fixes Union All.Outputs[Union All Output 1].Columns[PNombreProucto]}</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -2794,6 +2885,12 @@
                       length="512"
                       lineageId="Package\SQL Server Data Flow Task\Compras Fixes Union All.Outputs[Union All Output 1].Columns[PDireccionSucursal]"
                       name="PDireccionSucursal" />
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Compras Fixes Union All.Outputs[Union All Output 1].Columns[PNombreProucto]"
+                      dataType="wstr"
+                      length="192"
+                      lineageId="Package\SQL Server Data Flow Task\Compras Fixes Union All.Outputs[Union All Output 1].Columns[PNombreProucto]"
+                      name="PNombreProucto" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -4356,6 +4453,135 @@
               </outputs>
             </component>
             <component
+              refId="Package\SQL Server Data Flow Task\Compras Producto Aggregate"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+              name="Compras Producto Aggregate"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\SQL Server Data Flow Task\Compras Producto Aggregate.Inputs[Aggregate Input 1]"
+                  name="Aggregate Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Compras Producto Aggregate.Inputs[Aggregate Input 1].Columns[CodProducto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="24"
+                      cachedName="CodProducto"
+                      lineageId="Package\SQL Server Data Flow Task\Compras Fixes Union All.Outputs[Union All Output 1].Columns[CodProducto]" />
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Compras Producto Aggregate.Inputs[Aggregate Input 1].Columns[PNombreProucto]"
+                      cachedDataType="wstr"
+                      cachedLength="192"
+                      cachedName="PNombreProucto"
+                      lineageId="Package\SQL Server Data Flow Task\Compras Fixes Union All.Outputs[Union All Output 1].Columns[PNombreProucto]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SQL Server Data Flow Task\Compras Producto Aggregate.Outputs[Aggregate Output 1]"
+                  name="Aggregate Output 1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Compras Producto Aggregate.Outputs[Aggregate Output 1].Columns[CodProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      lineageId="Package\SQL Server Data Flow Task\Compras Producto Aggregate.Outputs[Aggregate Output 1].Columns[CodProducto]"
+                      name="CodProducto">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\SQL Server Data Flow Task\Compras Fixes Union All.Outputs[Union All Output 1].Columns[CodProducto]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Compras Producto Aggregate.Outputs[Aggregate Output 1].Columns[PNombreProucto]"
+                      dataType="wstr"
+                      length="192"
+                      lineageId="Package\SQL Server Data Flow Task\Compras Producto Aggregate.Outputs[Aggregate Output 1].Columns[PNombreProucto]"
+                      name="PNombreProucto">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\SQL Server Data Flow Task\Compras Fixes Union All.Outputs[Union All Output 1].Columns[PNombreProucto]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\SQL Server Data Flow Task\Compras Script Component"
               componentClassID="Microsoft.ManagedComponentHost"
               contactInfo="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum.;Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;13"
@@ -4924,7 +5150,7 @@ namespace SC_817ba1d4dfaf4387876b9a47ff6e56ed.Properties {
     <msb:CodeName>SC_817ba1d4dfaf4387876b9a47ff6e56ed</msb:CodeName>
     <msb:Language>msBuild</msb:Language>
     <msb:DisplayName>SC_817ba1d4dfaf4387876b9a47ff6e56ed</msb:DisplayName>
-    <msb:ProjectId>{98A1D7C9-924F-42F0-B6B2-081BBC6137C8}</msb:ProjectId>
+    <msb:ProjectId>{8443572C-B35E-4E87-8E03-87E3084041AC}</msb:ProjectId>
   </msb:PropertyGroup>
   <msb:ItemGroup>
     <msb:Project Include="SC_817ba1d4dfaf4387876b9a47ff6e56ed.csproj" />
@@ -5071,7 +5297,7 @@ namespace SC_817ba1d4dfaf4387876b9a47ff6e56ed.Properties {
                     <arrayElement
                       dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
-ZGUuDQ0KJAAAAAAAAABQRQAATAEDANtp3GcAAAAAAAAAAOAAIiALATAAABgAAAAIAAAAAAAAQjcA
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDACoC3mcAAAAAAAAAAOAAIiALATAAABgAAAAIAAAAAAAAQjcA
 AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
 ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAPA2AABPAAAAAEAAAEgEAAAAAAAAAAAAAAAAAAAA
 AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -5168,8 +5394,8 @@ IABwAHIAbwBwAGUAcgB0AHkAIABjAGEAbgBuAG8AdAAgAGIAZQAgAHMAZQB0ACAAdABvACAARgBh
 AGwAcwBlAC4AIABBAHMAcwBpAGcAbgAgAGEAIAB2AGEAbAB1AGUAIAB0AG8AIAB0AGgAZQAgAGMA
 bwBsAHUAbQBuACAAaQBuAHMAdABlAGEAZAAuAAAPSQBuAHAAdQB0ACAAMAAAcVMAQwBfADgAMQA3
 AGIAYQAxAGQANABkAGYAYQBmADQAMwA4ADcAOAA3ADYAYgA5AGEANAA3AGYAZgA2AGUANQA2AGUA
-ZAAuAFAAcgBvAHAAZQByAHQAaQBlAHMALgBSAGUAcwBvAHUAcgBjAGUAcwAA3L64XB7YmES6K3Cn
-FrmlEQAEIAEBCAMgAAEFIAEBEREEIAEBDgUgAQERYQYHAhE5ETkEAAASXQwABQIODhJxEXUQETkG
+ZAAuAFAAcgBvAHAAZQByAHQAaQBlAHMALgBSAGUAcwBvAHUAcgBjAGUAcwAAy+NNv5fMWkqu7hRG
+IDLyKQAEIAEBCAMgAAEFIAEBEREEIAEBDgUgAQERYQYHAhE5ETkEAAASXQwABQIODhJxEXUQETkG
 IAMBCAgIBCABDg4FBwIOET0EAAECDgUAAgIODgYAAw4ODg4MAAQCDhGAgRJxEBE9AwcBDgkgAwES
 RR0IEkkDBhJFAwYdCAQgAQ4IBSACAQgcBCABAggDIAACByACAg4RgIkFIAEdCAgIAAESgI0RgJEF
 IAASgJUHIAIBDhKAlQi3elxWGTTgiQiJhF3NgIDMkQMGEhQDBhIYAwYSTQMGElkDBhJdAwYSIAUg
@@ -7832,6 +8058,213 @@ where [refTable].[id] = ? and [refTable].[fecha] = ? and [refTable].[anio] = ? a
               </outputs>
             </component>
             <component
+              refId="Package\SQL Server Data Flow Task\Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [project1].[dim_producto]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [project1].[dim_producto]) [refTable]
+where [refTable].[codigo] = ? and [refTable].[nombre] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="codigo" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="nombre" dataType="DT_WSTR" length="1" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\SQL Server Data Flow Task\Producto Aggregate.Outputs[Aggregate Output 1].Columns[CodProducto]};#{Package\SQL Server Data Flow Task\Producto Aggregate.Outputs[Aggregate Output 1].Columns[PNombreProucto]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SQL Server Data Flow Task\Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.seminario.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.seminario.sa]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\SQL Server Data Flow Task\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Lookup.Inputs[Lookup Input].Columns[CodProducto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CodProducto"
+                      lineageId="Package\SQL Server Data Flow Task\Producto Aggregate.Outputs[Aggregate Output 1].Columns[CodProducto]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">codigo</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Lookup.Inputs[Lookup Input].Columns[PNombreProucto]"
+                      cachedDataType="wstr"
+                      cachedLength="192"
+                      cachedName="PNombreProucto"
+                      lineageId="Package\SQL Server Data Flow Task\Producto Aggregate.Outputs[Aggregate Output 1].Columns[PNombreProucto]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">nombre</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SQL Server Data Flow Task\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\SQL Server Data Flow Task\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\SQL Server Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">id</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[codigo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="1"
+                      lineageId="Package\SQL Server Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[codigo]"
+                      name="codigo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">codigo</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[nombre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="1"
+                      lineageId="Package\SQL Server Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[nombre]"
+                      name="nombre"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">nombre</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SQL Server Data Flow Task\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\SQL Server Data Flow Task\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SQL Server Data Flow Task\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\SQL Server Data Flow Task\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SQL Server Data Flow Task\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SQL Server Data Flow Task\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\SQL Server Data Flow Task\OLE DB Compras Derived Column"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -8062,6 +8495,380 @@ where [refTable].[id] = ? and [refTable].[fecha] = ? and [refTable].[anio] = ? a
                       lineageId="Package\SQL Server Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SQL Server Data Flow Task\Producto Aggregate"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+              name="Producto Aggregate"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\SQL Server Data Flow Task\Producto Aggregate.Inputs[Aggregate Input 1]"
+                  name="Aggregate Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Producto Aggregate.Inputs[Aggregate Input 1].Columns[CodProducto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CodProducto"
+                      lineageId="Package\SQL Server Data Flow Task\Producto Union All.Outputs[Union All Output 1].Columns[CodProducto]" />
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Producto Aggregate.Inputs[Aggregate Input 1].Columns[PNombreProucto]"
+                      cachedDataType="wstr"
+                      cachedLength="192"
+                      cachedName="PNombreProucto"
+                      lineageId="Package\SQL Server Data Flow Task\Producto Union All.Outputs[Union All Output 1].Columns[PNombreProucto]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SQL Server Data Flow Task\Producto Aggregate.Outputs[Aggregate Output 1]"
+                  name="Aggregate Output 1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Producto Aggregate.Outputs[Aggregate Output 1].Columns[CodProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\SQL Server Data Flow Task\Producto Aggregate.Outputs[Aggregate Output 1].Columns[CodProducto]"
+                      name="CodProducto">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\SQL Server Data Flow Task\Producto Union All.Outputs[Union All Output 1].Columns[CodProducto]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Producto Aggregate.Outputs[Aggregate Output 1].Columns[PNombreProucto]"
+                      dataType="wstr"
+                      length="192"
+                      lineageId="Package\SQL Server Data Flow Task\Producto Aggregate.Outputs[Aggregate Output 1].Columns[PNombreProucto]"
+                      name="PNombreProucto">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\SQL Server Data Flow Task\Producto Union All.Outputs[Union All Output 1].Columns[PNombreProucto]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SQL Server Data Flow Task\Producto OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Producto OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[project1].[dim_producto]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SQL Server Data Flow Task\Producto OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.seminario.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.seminario.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\SQL Server Data Flow Task\Producto OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Producto OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CodProducto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CodProducto"
+                      externalMetadataColumnId="Package\SQL Server Data Flow Task\Producto OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[codigo]"
+                      lineageId="Package\SQL Server Data Flow Task\Producto Aggregate.Outputs[Aggregate Output 1].Columns[CodProducto]" />
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Producto OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PNombreProucto]"
+                      cachedDataType="wstr"
+                      cachedLength="192"
+                      cachedName="PNombreProucto"
+                      externalMetadataColumnId="Package\SQL Server Data Flow Task\Producto OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nombre]"
+                      lineageId="Package\SQL Server Data Flow Task\Producto Aggregate.Outputs[Aggregate Output 1].Columns[PNombreProucto]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SQL Server Data Flow Task\Producto OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\SQL Server Data Flow Task\Producto OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[codigo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="codigo" />
+                    <externalMetadataColumn
+                      refId="Package\SQL Server Data Flow Task\Producto OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nombre]"
+                      dataType="wstr"
+                      length="1"
+                      name="nombre" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SQL Server Data Flow Task\Producto OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\SQL Server Data Flow Task\Producto OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Producto OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SQL Server Data Flow Task\Producto OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Producto OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SQL Server Data Flow Task\Producto OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SQL Server Data Flow Task\Producto Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Producto Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\SQL Server Data Flow Task\Producto Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Producto Union All.Inputs[Union All Input 1].Columns[CodProducto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="24"
+                      cachedName="CodProducto"
+                      lineageId="Package\SQL Server Data Flow Task\Compras Producto Aggregate.Outputs[Aggregate Output 1].Columns[CodProducto]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SQL Server Data Flow Task\Producto Union All.Outputs[Union All Output 1].Columns[CodProducto]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Producto Union All.Inputs[Union All Input 1].Columns[PNombreProucto]"
+                      cachedDataType="wstr"
+                      cachedLength="192"
+                      cachedName="PNombreProucto"
+                      lineageId="Package\SQL Server Data Flow Task\Compras Producto Aggregate.Outputs[Aggregate Output 1].Columns[PNombreProucto]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SQL Server Data Flow Task\Producto Union All.Outputs[Union All Output 1].Columns[PNombreProucto]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\SQL Server Data Flow Task\Producto Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Producto Union All.Inputs[Union All Input 2].Columns[CodProducto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CodProducto"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Prodcuto Aggregate.Outputs[Aggregate Output 1].Columns[CodProducto]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SQL Server Data Flow Task\Producto Union All.Outputs[Union All Output 1].Columns[CodProducto]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Producto Union All.Inputs[Union All Input 2].Columns[PNombreProducto]"
+                      cachedDataType="wstr"
+                      cachedLength="192"
+                      cachedName="PNombreProducto"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Prodcuto Aggregate.Outputs[Aggregate Output 1].Columns[PNombreProducto]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SQL Server Data Flow Task\Producto Union All.Outputs[Union All Output 1].Columns[PNombreProucto]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\SQL Server Data Flow Task\Producto Union All.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SQL Server Data Flow Task\Producto Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Producto Union All.Outputs[Union All Output 1].Columns[CodProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\SQL Server Data Flow Task\Producto Union All.Outputs[Union All Output 1].Columns[CodProducto]"
+                      name="CodProducto" />
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Producto Union All.Outputs[Union All Output 1].Columns[PNombreProucto]"
+                      dataType="wstr"
+                      length="192"
+                      lineageId="Package\SQL Server Data Flow Task\Producto Union All.Outputs[Union All Output 1].Columns[PNombreProucto]"
+                      name="PNombreProucto" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -10158,6 +10965,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       cachedLength="256"
                       cachedName="DireccionSucursal"
                       lineageId="Package\SQL Server Data Flow Task\Ventas Sources Union All.Outputs[Union All Output 1].Columns[DireccionSucursal]" />
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Ventas Data Conversion.Inputs[Data Conversion Input].Columns[NombreProducto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="256"
+                      cachedName="NombreProducto"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Sources Union All.Outputs[Union All Output 1].Columns[NombreProducto]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -10326,6 +11140,27 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
                           name="SourceInputColumnLineageID">#{Package\SQL Server Data Flow Task\Ventas Sources Union All.Outputs[Union All Output 1].Columns[DireccionSucursal]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Ventas Data Conversion.Outputs[Data Conversion Output].Columns[PNombreProducto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="192"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Data Conversion.Outputs[Data Conversion Output].Columns[PNombreProducto]"
+                      name="PNombreProducto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL Server Data Flow Task\Ventas Sources Union All.Outputs[Union All Output 1].Columns[NombreProducto]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -10943,9 +11778,16 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                 </output>
                 <output
                   refId="Package\SQL Server Data Flow Task\Ventas Fecha Multicast.Outputs[Multicast Output 1]"
-                  dangling="true"
                   deleteOutputOnPathDetached="true"
                   name="Multicast Output 1"
+                  synchronousInputId="Package\SQL Server Data Flow Task\Ventas Fecha Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SQL Server Data Flow Task\Ventas Fecha Multicast.Outputs[Multicast Output 4]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 4"
                   synchronousInputId="Package\SQL Server Data Flow Task\Ventas Fecha Multicast.Inputs[Multicast Input 1]">
                   <externalMetadataColumns />
                 </output>
@@ -11019,6 +11861,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       cachedLength="256"
                       cachedName="DireccionSucursal"
                       lineageId="Package\SQL Server Data Flow Task\Ventas Sources Union All.Outputs[Union All Output 1].Columns[DireccionSucursal]" />
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Ventas Fix Data Conversion.Inputs[Data Conversion Input].Columns[NombreProducto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="256"
+                      cachedName="NombreProducto"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Sources Union All.Outputs[Union All Output 1].Columns[NombreProducto]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -11187,6 +12036,27 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
                           name="SourceInputColumnLineageID">#{Package\SQL Server Data Flow Task\Ventas Sources Union All.Outputs[Union All Output 1].Columns[DireccionSucursal]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Ventas Fix Data Conversion.Outputs[Data Conversion Output].Columns[CNombreProducto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="192"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Fix Data Conversion.Outputs[Data Conversion Output].Columns[CNombreProducto]"
+                      name="CNombreProducto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\SQL Server Data Flow Task\Ventas Sources Union All.Outputs[Union All Output 1].Columns[NombreProducto]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -11653,6 +12523,20 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                           name="OutputColumnLineageID">#{Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[NombreProducto]}</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Ventas Fixes Union All.Inputs[Union All Input 1].Columns[PNombreProducto]"
+                      cachedDataType="wstr"
+                      cachedLength="192"
+                      cachedName="PNombreProducto"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Data Conversion.Outputs[Data Conversion Output].Columns[PNombreProducto]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[PNombreProducto]}</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -12082,6 +12966,20 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                           name="OutputColumnLineageID">#{Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[NombreProducto]}</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Ventas Fixes Union All.Inputs[Union All Input 2].Columns[CNombreProducto]"
+                      cachedDataType="wstr"
+                      cachedLength="192"
+                      cachedName="CNombreProducto"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Fix Data Conversion.Outputs[Data Conversion Output].Columns[CNombreProducto]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[PNombreProducto]}</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -12287,6 +13185,12 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       length="256"
                       lineageId="Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[NombreProducto]"
                       name="NombreProducto" />
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[PNombreProducto]"
+                      dataType="wstr"
+                      length="192"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[PNombreProducto]"
+                      name="PNombreProducto" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -13404,6 +14308,135 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       lineageId="Package\SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SQL Server Data Flow Task\Ventas Prodcuto Aggregate"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+              name="Ventas Prodcuto Aggregate"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\SQL Server Data Flow Task\Ventas Prodcuto Aggregate.Inputs[Aggregate Input 1]"
+                  name="Aggregate Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Ventas Prodcuto Aggregate.Inputs[Aggregate Input 1].Columns[CodProducto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CodProducto"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[CodProducto]" />
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Ventas Prodcuto Aggregate.Inputs[Aggregate Input 1].Columns[PNombreProducto]"
+                      cachedDataType="wstr"
+                      cachedLength="192"
+                      cachedName="PNombreProducto"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[PNombreProducto]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SQL Server Data Flow Task\Ventas Prodcuto Aggregate.Outputs[Aggregate Output 1]"
+                  name="Aggregate Output 1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Ventas Prodcuto Aggregate.Outputs[Aggregate Output 1].Columns[CodProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Prodcuto Aggregate.Outputs[Aggregate Output 1].Columns[CodProducto]"
+                      name="CodProducto">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[CodProducto]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Ventas Prodcuto Aggregate.Outputs[Aggregate Output 1].Columns[PNombreProducto]"
+                      dataType="wstr"
+                      length="192"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Prodcuto Aggregate.Outputs[Aggregate Output 1].Columns[PNombreProducto]"
+                      name="PNombreProducto">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[PNombreProducto]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -16034,30 +17067,45 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               name="Aggregate Output 1"
               startId="Package\SQL Server Data Flow Task\Vemtas Fecha Aggregate.Outputs[Aggregate Output 1]" />
             <path
-              refId="Package\SQL Server Data Flow Task.Paths[Aggregate Output 11]"
-              endId="Package\SQL Server Data Flow Task\Sucursal Union All.Inputs[Union All Input 2]"
+              refId="Package\SQL Server Data Flow Task.Paths[Aggregate Output 17]"
+              endId="Package\SQL Server Data Flow Task\Producto Union All.Inputs[Union All Input 2]"
               name="Aggregate Output 1"
-              startId="Package\SQL Server Data Flow Task\Ventas Sucursal Aggregate.Outputs[Aggregate Output 1]" />
+              startId="Package\SQL Server Data Flow Task\Ventas Prodcuto Aggregate.Outputs[Aggregate Output 1]" />
             <path
-              refId="Package\SQL Server Data Flow Task.Paths[Aggregate Output 12]"
-              endId="Package\SQL Server Data Flow Task\Sucursal Union All.Inputs[Union All Input 1]"
+              refId="Package\SQL Server Data Flow Task.Paths[Aggregate Output 18]"
+              endId="Package\SQL Server Data Flow Task\Lookup.Inputs[Lookup Input]"
               name="Aggregate Output 1"
-              startId="Package\SQL Server Data Flow Task\Compras Sucursal Aggregate.Outputs[Aggregate Output 1]" />
+              startId="Package\SQL Server Data Flow Task\Producto Aggregate.Outputs[Aggregate Output 1]" />
+            <path
+              refId="Package\SQL Server Data Flow Task.Paths[Aggregate Output 15]"
+              endId="Package\SQL Server Data Flow Task\Fechas Union All.Inputs[Union All Input 1]"
+              name="Aggregate Output 1"
+              startId="Package\SQL Server Data Flow Task\Compras Fecha Aggregate.Outputs[Aggregate Output 1]" />
+            <path
+              refId="Package\SQL Server Data Flow Task.Paths[Aggregate Output 16]"
+              endId="Package\SQL Server Data Flow Task\Producto Union All.Inputs[Union All Input 1]"
+              name="Aggregate Output 1"
+              startId="Package\SQL Server Data Flow Task\Compras Producto Aggregate.Outputs[Aggregate Output 1]" />
             <path
               refId="Package\SQL Server Data Flow Task.Paths[Aggregate Output 13]"
               endId="Package\SQL Server Data Flow Task\Sucursal Lookup.Inputs[Lookup Input]"
               name="Aggregate Output 1"
               startId="Package\SQL Server Data Flow Task\Sucursal Aggregate.Outputs[Aggregate Output 1]" />
             <path
+              refId="Package\SQL Server Data Flow Task.Paths[Aggregate Output 11]"
+              endId="Package\SQL Server Data Flow Task\Sucursal Union All.Inputs[Union All Input 2]"
+              name="Aggregate Output 1"
+              startId="Package\SQL Server Data Flow Task\Ventas Sucursal Aggregate.Outputs[Aggregate Output 1]" />
+            <path
               refId="Package\SQL Server Data Flow Task.Paths[Aggregate Output 14]"
               endId="Package\SQL Server Data Flow Task\Fechs Lookup.Inputs[Lookup Input]"
               name="Aggregate Output 1"
               startId="Package\SQL Server Data Flow Task\Fechas Aggregate.Outputs[Aggregate Output 1]" />
             <path
-              refId="Package\SQL Server Data Flow Task.Paths[Aggregate Output 15]"
-              endId="Package\SQL Server Data Flow Task\Fechas Union All.Inputs[Union All Input 1]"
+              refId="Package\SQL Server Data Flow Task.Paths[Aggregate Output 12]"
+              endId="Package\SQL Server Data Flow Task\Sucursal Union All.Inputs[Union All Input 1]"
               name="Aggregate Output 1"
-              startId="Package\SQL Server Data Flow Task\Compras Fecha Aggregate.Outputs[Aggregate Output 1]" />
+              startId="Package\SQL Server Data Flow Task\Compras Sucursal Aggregate.Outputs[Aggregate Output 1]" />
             <path
               refId="Package\SQL Server Data Flow Task.Paths[Data Conversion Error Output]"
               endId="Package\SQL Server Data Flow Task\Venetas Script Component.Inputs[Input 0]"
@@ -16094,10 +17142,15 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               name="Data Conversion Output"
               startId="Package\SQL Server Data Flow Task\Ventas Data Conversion.Outputs[Data Conversion Output]" />
             <path
-              refId="Package\SQL Server Data Flow Task.Paths[Derived Column Output5]"
-              endId="Package\SQL Server Data Flow Task\Vemtas Fecha Aggregate.Inputs[Aggregate Input 1]"
+              refId="Package\SQL Server Data Flow Task.Paths[Derived Column Output6]"
+              endId="Package\SQL Server Data Flow Task\Compras Data Conversion.Inputs[Data Conversion Input]"
               name="Derived Column Output"
-              startId="Package\SQL Server Data Flow Task\Ventas Fecha Derived Columns.Outputs[Derived Column Output]" />
+              startId="Package\SQL Server Data Flow Task\Compras Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\SQL Server Data Flow Task.Paths[Derived Column Output2]"
+              endId="Package\SQL Server Data Flow Task\Ventas Sources Union All.Inputs[Union All Input 3]"
+              name="Derived Column Output"
+              startId="Package\SQL Server Data Flow Task\Verntas Flat Derived Column.Outputs[Derived Column Output]" />
             <path
               refId="Package\SQL Server Data Flow Task.Paths[Derived Column Output4]"
               endId="Package\SQL Server Data Flow Task\Compras Fecha Aggregate.Inputs[Aggregate Input 1]"
@@ -16109,25 +17162,20 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               name="Derived Column Output"
               startId="Package\SQL Server Data Flow Task\Ventas Derived Column.Outputs[Derived Column Output]" />
             <path
-              refId="Package\SQL Server Data Flow Task.Paths[Derived Column Output6]"
-              endId="Package\SQL Server Data Flow Task\Compras Data Conversion.Inputs[Data Conversion Input]"
-              name="Derived Column Output"
-              startId="Package\SQL Server Data Flow Task\Compras Derived Column.Outputs[Derived Column Output]" />
-            <path
               refId="Package\SQL Server Data Flow Task.Paths[Derived Column Output1]"
               endId="Package\SQL Server Data Flow Task\Compras Sources Union All.Inputs[Union All Input 1]"
               name="Derived Column Output"
               startId="Package\SQL Server Data Flow Task\OLE DB Compras Derived Column.Outputs[Derived Column Output]" />
             <path
+              refId="Package\SQL Server Data Flow Task.Paths[Derived Column Output5]"
+              endId="Package\SQL Server Data Flow Task\Vemtas Fecha Aggregate.Inputs[Aggregate Input 1]"
+              name="Derived Column Output"
+              startId="Package\SQL Server Data Flow Task\Ventas Fecha Derived Columns.Outputs[Derived Column Output]" />
+            <path
               refId="Package\SQL Server Data Flow Task.Paths[Derived Column Output]"
               endId="Package\SQL Server Data Flow Task\Compras Sources Union All.Inputs[Union All Input 3]"
               name="Derived Column Output"
               startId="Package\SQL Server Data Flow Task\Compras Flat Derived Column.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\SQL Server Data Flow Task.Paths[Derived Column Output2]"
-              endId="Package\SQL Server Data Flow Task\Ventas Sources Union All.Inputs[Union All Input 3]"
-              name="Derived Column Output"
-              startId="Package\SQL Server Data Flow Task\Verntas Flat Derived Column.Outputs[Derived Column Output]" />
             <path
               refId="Package\SQL Server Data Flow Task.Paths[Flat File Source Output]"
               endId="Package\SQL Server Data Flow Task\Verntas Flat Derived Column.Inputs[Derived Column Input]"
@@ -16138,6 +17186,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               endId="Package\SQL Server Data Flow Task\Compras Flat Derived Column.Inputs[Derived Column Input]"
               name="Flat File Source Output"
               startId="Package\SQL Server Data Flow Task\Flat File Source.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\SQL Server Data Flow Task.Paths[Lookup No Match Output2]"
+              endId="Package\SQL Server Data Flow Task\Producto OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\SQL Server Data Flow Task\Lookup.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\SQL Server Data Flow Task.Paths[Lookup No Match Output]"
               endId="Package\SQL Server Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
@@ -16154,6 +17207,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               name="Multicast Output 1"
               startId="Package\SQL Server Data Flow Task\Compras Fecha Multicast.Outputs[Multicast Output 1]" />
             <path
+              refId="Package\SQL Server Data Flow Task.Paths[Multicast Output 11]"
+              endId="Package\SQL Server Data Flow Task\Ventas Prodcuto Aggregate.Inputs[Aggregate Input 1]"
+              name="Multicast Output 1"
+              startId="Package\SQL Server Data Flow Task\Ventas Fecha Multicast.Outputs[Multicast Output 1]" />
+            <path
               refId="Package\SQL Server Data Flow Task.Paths[Multicast Output 2]"
               endId="Package\SQL Server Data Flow Task\Ventas Sucursal Aggregate.Inputs[Aggregate Input 1]"
               name="Multicast Output 2"
@@ -16163,6 +17221,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               endId="Package\SQL Server Data Flow Task\Compras Sucursal Aggregate.Inputs[Aggregate Input 1]"
               name="Multicast Output 2"
               startId="Package\SQL Server Data Flow Task\Compras Fecha Multicast.Outputs[Multicast Output 2]" />
+            <path
+              refId="Package\SQL Server Data Flow Task.Paths[Multicast Output 31]"
+              endId="Package\SQL Server Data Flow Task\Compras Producto Aggregate.Inputs[Aggregate Input 1]"
+              name="Multicast Output 3"
+              startId="Package\SQL Server Data Flow Task\Compras Fecha Multicast.Outputs[Multicast Output 3]" />
             <path
               refId="Package\SQL Server Data Flow Task.Paths[Multicast Output 3]"
               endId="Package\SQL Server Data Flow Task\Ventas Fecha Derived Columns.Inputs[Derived Column Input]"
@@ -16179,30 +17242,25 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               name="ODBC Source Output"
               startId="Package\SQL Server Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output]" />
             <path
-              refId="Package\SQL Server Data Flow Task.Paths[OLE DB Source Output]"
-              endId="Package\SQL Server Data Flow Task\Ventas Sources Union All.Inputs[Union All Input 1]"
-              name="OLE DB Source Output"
-              startId="Package\SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Output]" />
-            <path
               refId="Package\SQL Server Data Flow Task.Paths[OLE DB Source Output1]"
               endId="Package\SQL Server Data Flow Task\OLE DB Compras Derived Column.Inputs[Derived Column Input]"
               name="OLE DB Source Output"
               startId="Package\SQL Server Data Flow Task\Compras OLE DB Source.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\SQL Server Data Flow Task.Paths[Output 0]"
-              endId="Package\SQL Server Data Flow Task\Ventas Fix Data Conversion.Inputs[Data Conversion Input]"
-              name="Output 0"
-              startId="Package\SQL Server Data Flow Task\Venetas Script Component.Outputs[Output 0]" />
+              refId="Package\SQL Server Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\SQL Server Data Flow Task\Ventas Sources Union All.Inputs[Union All Input 1]"
+              name="OLE DB Source Output"
+              startId="Package\SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\SQL Server Data Flow Task.Paths[Output 01]"
               endId="Package\SQL Server Data Flow Task\Compras Fix Data Conversion.Inputs[Data Conversion Input]"
               name="Output 0"
               startId="Package\SQL Server Data Flow Task\Compras Script Component.Outputs[Output 0]" />
             <path
-              refId="Package\SQL Server Data Flow Task.Paths[Union All Output 1]"
-              endId="Package\SQL Server Data Flow Task\Sucursal Aggregate.Inputs[Aggregate Input 1]"
-              name="Union All Output 1"
-              startId="Package\SQL Server Data Flow Task\Sucursal Union All.Outputs[Union All Output 1]" />
+              refId="Package\SQL Server Data Flow Task.Paths[Output 0]"
+              endId="Package\SQL Server Data Flow Task\Ventas Fix Data Conversion.Inputs[Data Conversion Input]"
+              name="Output 0"
+              startId="Package\SQL Server Data Flow Task\Venetas Script Component.Outputs[Output 0]" />
             <path
               refId="Package\SQL Server Data Flow Task.Paths[Union All Output 11]"
               endId="Package\SQL Server Data Flow Task\Ventas Fecha Multicast.Inputs[Multicast Input 1]"
@@ -16214,11 +17272,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               name="Union All Output 1"
               startId="Package\SQL Server Data Flow Task\Fechas Union All.Outputs[Union All Output 1]" />
             <path
-              refId="Package\SQL Server Data Flow Task.Paths[Union All Output 13]"
-              endId="Package\SQL Server Data Flow Task\Compras Derived Column.Inputs[Derived Column Input]"
-              name="Union All Output 1"
-              startId="Package\SQL Server Data Flow Task\Compras Sources Union All.Outputs[Union All Output 1]" />
-            <path
               refId="Package\SQL Server Data Flow Task.Paths[Union All Output 14]"
               endId="Package\SQL Server Data Flow Task\Compras Fecha Multicast.Inputs[Multicast Input 1]"
               name="Union All Output 1"
@@ -16228,6 +17281,21 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               endId="Package\SQL Server Data Flow Task\Ventas Derived Column.Inputs[Derived Column Input]"
               name="Union All Output 1"
               startId="Package\SQL Server Data Flow Task\Ventas Sources Union All.Outputs[Union All Output 1]" />
+            <path
+              refId="Package\SQL Server Data Flow Task.Paths[Union All Output 16]"
+              endId="Package\SQL Server Data Flow Task\Producto Aggregate.Inputs[Aggregate Input 1]"
+              name="Union All Output 1"
+              startId="Package\SQL Server Data Flow Task\Producto Union All.Outputs[Union All Output 1]" />
+            <path
+              refId="Package\SQL Server Data Flow Task.Paths[Union All Output 1]"
+              endId="Package\SQL Server Data Flow Task\Sucursal Aggregate.Inputs[Aggregate Input 1]"
+              name="Union All Output 1"
+              startId="Package\SQL Server Data Flow Task\Sucursal Union All.Outputs[Union All Output 1]" />
+            <path
+              refId="Package\SQL Server Data Flow Task.Paths[Union All Output 13]"
+              endId="Package\SQL Server Data Flow Task\Compras Derived Column.Inputs[Derived Column Input]"
+              name="Union All Output 1"
+              startId="Package\SQL Server Data Flow Task\Compras Sources Union All.Outputs[Union All Output 1]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -16929,30 +17997,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SQL Server Data Flow Task.Paths[Data Conversion Error Output1]"
-          TopLeft="936.41110235392,346.15833156224">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="50.7971979122888,0"
-              Start="0,0"
-              End="43.2971979122888,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="43.2971979122888,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-44.4377877626056,5,132.1727734375,11.43359375"
-              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17683,6 +18727,258 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="216,41.6"
+          Id="Package\SQL Server Data Flow Task\Compras Producto Aggregate"
+          TopLeft="911.29627607027,1396.13332931152" />
+        <NodeLayout
+          Size="205.6,41.6"
+          Id="Package\SQL Server Data Flow Task\Ventas Prodcuto Aggregate"
+          TopLeft="1386.40736089463,1402.08888482288" />
+        <EdgeLayout
+          Id="Package\SQL Server Data Flow Task.Paths[Multicast Output 31]"
+          TopLeft="827.866662842036,596.933331585593">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="191.429613228234,799.199997725928"
+              Start="0,0"
+              End="191.429613228234,791.699997725928">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,319.56275211576" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,319.56275211576"
+                    Point2="0,323.56275211576"
+                    Point3="4,323.56275211576" />
+                  <mssgle:LineSegment
+                    End="187.429613228234,323.56275211576" />
+                  <mssgle:CubicBezierSegment
+                    Point1="187.429613228234,323.56275211576"
+                    Point2="191.429613228234,323.56275211576"
+                    Point3="191.429613228234,327.56275211576" />
+                  <mssgle:LineSegment
+                    End="191.429613228234,791.699997725928" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SQL Server Data Flow Task.Paths[Multicast Output 11]"
+          TopLeft="1628.53328088124,592.133332381116">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-139.325919986612,809.955552441765"
+              Start="0,0"
+              End="-139.325919986612,802.455552441765">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,324.118164223217" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,324.118164223217"
+                    Point2="0,328.118164223217"
+                    Point3="-4,328.118164223217" />
+                  <mssgle:LineSegment
+                    End="-135.325919986612,328.118164223217" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-135.325919986612,328.118164223217"
+                    Point2="-139.325919986612,328.118164223217"
+                    Point3="-139.325919986612,332.118164223217" />
+                  <mssgle:LineSegment
+                    End="-139.325919986612,802.455552441765" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\SQL Server Data Flow Task\Producto Union All"
+          TopLeft="1190.59255930414,1473.18518274772" />
+        <EdgeLayout
+          Id="Package\SQL Server Data Flow Task.Paths[Aggregate Output 16]"
+          TopLeft="1019.29627607027,1437.73332931152">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="227.562949900533,35.4518534362012"
+              Start="0,0"
+              End="227.562949900533,27.9518534362012">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.0665821380503" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.0665821380503"
+                    Point2="0,21.0665821380503"
+                    Point3="4,21.0665821380503" />
+                  <mssgle:LineSegment
+                    End="223.562949900533,21.0665821380503" />
+                  <mssgle:CubicBezierSegment
+                    Point1="223.562949900533,21.0665821380503"
+                    Point2="227.562949900533,21.0665821380503"
+                    Point3="227.562949900533,25.0665821380503" />
+                  <mssgle:LineSegment
+                    End="227.562949900533,27.9518534362012" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SQL Server Data Flow Task.Paths[Aggregate Output 17]"
+          TopLeft="1489.20736089463,1443.68888482288">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-190.081468257162,29.4962979248417"
+              Start="0,0"
+              End="-190.081468257162,21.9962979248417">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.5276078053386" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.5276078053386"
+                    Point2="0,17.5276078053386"
+                    Point3="-4,17.5276078053386" />
+                  <mssgle:LineSegment
+                    End="-186.081468257162,17.5276078053386" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-186.081468257162,17.5276078053386"
+                    Point2="-190.081468257162,17.5276078053386"
+                    Point3="-190.081468257162,21.5276078053386" />
+                  <mssgle:LineSegment
+                    End="-190.081468257162,21.9962979248417" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\SQL Server Data Flow Task\Producto Aggregate"
+          TopLeft="1190.77775061075,1537.85184927377" />
+        <EdgeLayout
+          Id="Package\SQL Server Data Flow Task.Paths[Union All Output 16]"
+          TopLeft="1274.48515495745,1514.78518274772">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23.0666665260442"
+              Start="0,0"
+              End="0,15.5666665260442">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.5666665260442" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\SQL Server Data Flow Task\Lookup"
+          TopLeft="1222.70367512015,1605.40740499003" />
+        <EdgeLayout
+          Id="Package\SQL Server Data Flow Task.Paths[Aggregate Output 18]"
+          TopLeft="1277.54071286545,1579.45184927377">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25.9555557162676"
+              Start="0,0"
+              End="0,18.4555557162676">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.4555557162676" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SQL Server Data Flow Task.Paths[Data Conversion Error Output1]"
+          TopLeft="936.41110235392,346.158331562239">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="50.7971979122888,0"
+              Start="0,0"
+              End="43.2971979122888,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="43.2971979122888,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-44.4377877626056,5,132.1727734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="216,41.6"
+          Id="Package\SQL Server Data Flow Task\Producto OLE DB Destination"
+          TopLeft="1172.03700481098,1672.59259004799" />
+        <EdgeLayout
+          Id="Package\SQL Server Data Flow Task.Paths[Lookup No Match Output2]"
+          TopLeft="1279.57033996556,1647.00740499003">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25.5851850579556"
+              Start="0,0"
+              End="0,18.0851850579556">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.0851850579556" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,3.23790502897782,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -17747,6 +19043,42 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\SQL Server Data Flow Task\Sucursal OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SQL Server Data Flow Task\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[project1].[dim_producto]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SQL Server Data Flow Task\Producto OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
