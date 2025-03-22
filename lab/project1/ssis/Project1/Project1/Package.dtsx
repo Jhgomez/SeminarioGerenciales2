@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="464"
-  DTS:VersionGUID="{CB7BBBC7-F8F5-437A-A62D-BD46B2DD044E}">
+  DTS:VersionBuild="470"
+  DTS:VersionGUID="{6A42A164-AB92-4570-BC03-DB685D68218E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -375,7 +375,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAYoi0jq72rEKxD2TKlPWIGwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADXI/H3X58kI0ABCttFZPIFwheEzEVwGP4CvdacBqJb6AAAAAAOgAAAAAIAACAAAAAAExrl33KADhuGJsDI0TzDSu3V0YrMgfg5DDDuJuzJviAAAABbr35x/orDfiu7gk0218tDNHa9eEbO7BHUHngkm6fM2kAAAAB6YRLNteD93QslSqtzFySgCluiez6aogtT6vECfE+MlFTh3JSDU7GO3rd6CQxtwETJ1XRjctTSsDzMUS36EPqt</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAYoi0jq72rEKxD2TKlPWIGwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAB0Jzyy8pIbJ3CGyr2q6mA6xbi4Hq7uTO5zcrJgLMEQEwAAAAAOgAAAAAIAACAAAABnUTuToxIuAnxtkuUY/BPNzcjcX0gLexUegGICAXAQ3SAAAAAynquJp3NEI1ya7t0yagGAaBTxZH8h87Su8deMp3YXyEAAAACamBavCKr/DAI6QmYEeHZfYdkRdMVMV/BAvEXlmNq8/MX7mM2AeccL7pArDOyysLo4WI0qDcNjludpOfcG5oxE</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -2840,17 +2840,17 @@ where [refTable].[nombre] = ? and [refTable].[direccion] = ? and [refTable].[num
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\SQL Server Data Flow Task\Compras Fecha Multicast.Outputs[Multicast Output 1]"
+                  refId="Package\SQL Server Data Flow Task\Compras Fecha Multicast.Outputs[Multicast Output 7]"
                   deleteOutputOnPathDetached="true"
-                  name="Multicast Output 1"
+                  name="Multicast Output 7"
                   synchronousInputId="Package\SQL Server Data Flow Task\Compras Fecha Multicast.Inputs[Multicast Input 1]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\SQL Server Data Flow Task\Compras Fecha Multicast.Outputs[Multicast Output 7]"
+                  refId="Package\SQL Server Data Flow Task\Compras Fecha Multicast.Outputs[Multicast Output 1]"
                   dangling="true"
                   deleteOutputOnPathDetached="true"
-                  name="Multicast Output 7"
+                  name="Multicast Output 1"
                   synchronousInputId="Package\SQL Server Data Flow Task\Compras Fecha Multicast.Inputs[Multicast Input 1]">
                   <externalMetadataColumns />
                 </output>
@@ -10649,6 +10649,389 @@ where [refTable].[nombre] = ?</property>
               </outputs>
             </component>
             <component
+              refId="Package\SQL Server Data Flow Task\Pivot Compras Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Pivot Compras Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [project1].[pivot_fact_compras]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [project1].[pivot_fact_compras]) [refTable]
+where [refTable].[cod_producto] = ? and [refTable].[marca_prod] = ? and [refTable].[sucursal] = ? and [refTable].[unidades] = ? and [refTable].[costo_unitario] = ? and [refTable].[nombre_proveedor] = ? and [refTable].[categoria_prod] = ? and [refTable].[fecha] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="categoria_prod" dataType="DT_WSTR" length="96" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="marca_prod" dataType="DT_STR" length="32" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="cod_producto" dataType="DT_STR" length="24" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="sucursal" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="fecha" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="nombre_proveedor" dataType="DT_WSTR" length="192" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="costo_unitario" dataType="DT_NUMERIC" length="0" precision="18" scale="2" codePage="0"/&gt;&lt;referenceColumn name="unidades" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\SQL Server Data Flow Task\Compras Fixes Union All.Outputs[Union All Output 1].Columns[CodProducto]};#{Package\SQL Server Data Flow Task\Compras Fixes Union All.Outputs[Union All Output 1].Columns[MarcaProducto]};#{Package\SQL Server Data Flow Task\Compras Fixes Union All.Outputs[Union All Output 1].Columns[PSodSucursal]};#{Package\SQL Server Data Flow Task\Compras Fixes Union All.Outputs[Union All Output 1].Columns[PUnidades]};#{Package\SQL Server Data Flow Task\Compras Fixes Union All.Outputs[Union All Output 1].Columns[PCostoU]};#{Package\SQL Server Data Flow Task\Compras Fixes Union All.Outputs[Union All Output 1].Columns[PNewNombreProveedor]};#{Package\SQL Server Data Flow Task\Compras Fixes Union All.Outputs[Union All Output 1].Columns[PCategoria]};#{Package\SQL Server Data Flow Task\Compras Fecha Derived Columns.Outputs[Derived Column Output].Columns[Fecha_ID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.seminario.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.seminario.sa]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Inputs[Lookup Input].Columns[PCategoria]"
+                      cachedDataType="wstr"
+                      cachedLength="96"
+                      cachedName="PCategoria"
+                      lineageId="Package\SQL Server Data Flow Task\Compras Fixes Union All.Outputs[Union All Output 1].Columns[PCategoria]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">categoria_prod</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Inputs[Lookup Input].Columns[MarcaProducto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="32"
+                      cachedName="MarcaProducto"
+                      lineageId="Package\SQL Server Data Flow Task\Compras Fixes Union All.Outputs[Union All Output 1].Columns[MarcaProducto]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">marca_prod</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Inputs[Lookup Input].Columns[PSodSucursal]"
+                      cachedDataType="i4"
+                      cachedName="PSodSucursal"
+                      lineageId="Package\SQL Server Data Flow Task\Compras Fixes Union All.Outputs[Union All Output 1].Columns[PSodSucursal]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">sucursal</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Inputs[Lookup Input].Columns[Fecha_ID]"
+                      cachedDataType="i4"
+                      cachedName="Fecha_ID"
+                      lineageId="Package\SQL Server Data Flow Task\Compras Fecha Derived Columns.Outputs[Derived Column Output].Columns[Fecha_ID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">fecha</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Inputs[Lookup Input].Columns[PNewNombreProveedor]"
+                      cachedDataType="wstr"
+                      cachedLength="192"
+                      cachedName="PNewNombreProveedor"
+                      lineageId="Package\SQL Server Data Flow Task\Compras Fixes Union All.Outputs[Union All Output 1].Columns[PNewNombreProveedor]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">nombre_proveedor</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Inputs[Lookup Input].Columns[PCostoU]"
+                      cachedDataType="numeric"
+                      cachedName="PCostoU"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      lineageId="Package\SQL Server Data Flow Task\Compras Fixes Union All.Outputs[Union All Output 1].Columns[PCostoU]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">costo_unitario</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Inputs[Lookup Input].Columns[PUnidades]"
+                      cachedDataType="i4"
+                      cachedName="PUnidades"
+                      lineageId="Package\SQL Server Data Flow Task\Compras Fixes Union All.Outputs[Union All Output 1].Columns[PUnidades]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">unidades</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Inputs[Lookup Input].Columns[CodProducto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="24"
+                      cachedName="CodProducto"
+                      lineageId="Package\SQL Server Data Flow Task\Compras Fixes Union All.Outputs[Union All Output 1].Columns[CodProducto]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">cod_producto</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Outputs[Lookup Match Output].Columns[categoria_prod]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="96"
+                      lineageId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Outputs[Lookup Match Output].Columns[categoria_prod]"
+                      name="categoria_prod"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">categoria_prod</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Outputs[Lookup Match Output].Columns[marca_prod]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="32"
+                      lineageId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Outputs[Lookup Match Output].Columns[marca_prod]"
+                      name="marca_prod"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">marca_prod</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Outputs[Lookup Match Output].Columns[cod_producto]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="24"
+                      lineageId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Outputs[Lookup Match Output].Columns[cod_producto]"
+                      name="cod_producto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">cod_producto</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Outputs[Lookup Match Output].Columns[sucursal]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Outputs[Lookup Match Output].Columns[sucursal]"
+                      name="sucursal"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">sucursal</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Outputs[Lookup Match Output].Columns[fecha]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Outputs[Lookup Match Output].Columns[fecha]"
+                      name="fecha"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">fecha</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Outputs[Lookup Match Output].Columns[nombre_proveedor]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="192"
+                      lineageId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Outputs[Lookup Match Output].Columns[nombre_proveedor]"
+                      name="nombre_proveedor"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">nombre_proveedor</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Outputs[Lookup Match Output].Columns[costo_unitario]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Outputs[Lookup Match Output].Columns[costo_unitario]"
+                      name="costo_unitario"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">costo_unitario</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Outputs[Lookup Match Output].Columns[unidades]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Outputs[Lookup Match Output].Columns[unidades]"
+                      name="unidades"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">unidades</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\SQL Server Data Flow Task\Pivot Fact Compras OLE DB Destination 1"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
@@ -10840,6 +11223,766 @@ where [refTable].[nombre] = ?</property>
                       refId="Package\SQL Server Data Flow Task\Pivot Fact Compras OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\SQL Server Data Flow Task\Pivot Fact Compras OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Pivot Ventas Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [project1].[pivot_fact_ventas]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [project1].[pivot_fact_ventas]) [refTable]
+where [refTable].[tipo_cliente] = ? and [refTable].[cod_producto] = ? and [refTable].[marca_prod] = ? and [refTable].[cliente] = ? and [refTable].[vendedor] = ? and [refTable].[sucursal] = ? and [refTable].[unidades] = ? and [refTable].[precio_unitario] = ? and [refTable].[categoria_prod] = ? and [refTable].[tipo_vendedor] = ? and [refTable].[nombre_vendedor] = ? and [refTable].[fecha] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="categoria_prod" dataType="DT_WSTR" length="96" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="marca_prod" dataType="DT_STR" length="32" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="cod_producto" dataType="DT_STR" length="24" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="sucursal" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="fecha" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="vendedor" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="nombre_vendedor" dataType="DT_WSTR" length="96" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="tipo_vendedor" dataType="DT_STR" length="16" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="cliente" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="tipo_cliente" dataType="DT_STR" length="8" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="precio_unitario" dataType="DT_NUMERIC" length="0" precision="18" scale="2" codePage="0"/&gt;&lt;referenceColumn name="unidades" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[TipoCliente]};#{Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[CodProducto]};#{Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[MarcaProducto]};#{Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[PCodigoCliente]};#{Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[PCodVendedor]};#{Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[PSodSucursal]};#{Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[PUnidades]};#{Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[PPrecioUnitario]};#{Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[CCategoria]};#{Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[PTipoVendedor]};#{Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[PNombreVendedor]};#{Package\SQL Server Data Flow Task\Ventas Fecha Derived Columns.Outputs[Derived Column Output].Columns[Fecha_ID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.seminario.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.seminario.sa]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Inputs[Lookup Input].Columns[CCategoria]"
+                      cachedDataType="wstr"
+                      cachedLength="96"
+                      cachedName="CCategoria"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[CCategoria]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">categoria_prod</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Inputs[Lookup Input].Columns[MarcaProducto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MarcaProducto"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[MarcaProducto]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">marca_prod</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Inputs[Lookup Input].Columns[CodProducto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CodProducto"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[CodProducto]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">cod_producto</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Inputs[Lookup Input].Columns[PSodSucursal]"
+                      cachedDataType="i4"
+                      cachedName="PSodSucursal"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[PSodSucursal]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">sucursal</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Inputs[Lookup Input].Columns[Fecha_ID]"
+                      cachedDataType="i4"
+                      cachedName="Fecha_ID"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Fecha Derived Columns.Outputs[Derived Column Output].Columns[Fecha_ID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">fecha</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Inputs[Lookup Input].Columns[PCodVendedor]"
+                      cachedDataType="i4"
+                      cachedName="PCodVendedor"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[PCodVendedor]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">vendedor</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Inputs[Lookup Input].Columns[PNombreVendedor]"
+                      cachedDataType="wstr"
+                      cachedLength="96"
+                      cachedName="PNombreVendedor"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[PNombreVendedor]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">nombre_vendedor</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Inputs[Lookup Input].Columns[PTipoVendedor]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="16"
+                      cachedName="PTipoVendedor"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[PTipoVendedor]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">tipo_vendedor</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Inputs[Lookup Input].Columns[PCodigoCliente]"
+                      cachedDataType="i4"
+                      cachedName="PCodigoCliente"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[PCodigoCliente]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">cliente</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Inputs[Lookup Input].Columns[TipoCliente]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TipoCliente"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[TipoCliente]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">tipo_cliente</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Inputs[Lookup Input].Columns[PPrecioUnitario]"
+                      cachedDataType="numeric"
+                      cachedName="PPrecioUnitario"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[PPrecioUnitario]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">precio_unitario</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Inputs[Lookup Input].Columns[PUnidades]"
+                      cachedDataType="i4"
+                      cachedName="PUnidades"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[PUnidades]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">unidades</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Outputs[Lookup Match Output].Columns[categoria_prod]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="96"
+                      lineageId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Outputs[Lookup Match Output].Columns[categoria_prod]"
+                      name="categoria_prod"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">categoria_prod</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Outputs[Lookup Match Output].Columns[marca_prod]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="32"
+                      lineageId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Outputs[Lookup Match Output].Columns[marca_prod]"
+                      name="marca_prod"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">marca_prod</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Outputs[Lookup Match Output].Columns[cod_producto]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="24"
+                      lineageId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Outputs[Lookup Match Output].Columns[cod_producto]"
+                      name="cod_producto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">cod_producto</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Outputs[Lookup Match Output].Columns[sucursal]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Outputs[Lookup Match Output].Columns[sucursal]"
+                      name="sucursal"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">sucursal</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Outputs[Lookup Match Output].Columns[fecha]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Outputs[Lookup Match Output].Columns[fecha]"
+                      name="fecha"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">fecha</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Outputs[Lookup Match Output].Columns[vendedor]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Outputs[Lookup Match Output].Columns[vendedor]"
+                      name="vendedor"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">vendedor</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Outputs[Lookup Match Output].Columns[nombre_vendedor]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="96"
+                      lineageId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Outputs[Lookup Match Output].Columns[nombre_vendedor]"
+                      name="nombre_vendedor"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">nombre_vendedor</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Outputs[Lookup Match Output].Columns[tipo_vendedor]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="16"
+                      lineageId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Outputs[Lookup Match Output].Columns[tipo_vendedor]"
+                      name="tipo_vendedor"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">tipo_vendedor</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Outputs[Lookup Match Output].Columns[cliente]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Outputs[Lookup Match Output].Columns[cliente]"
+                      name="cliente"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">cliente</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Outputs[Lookup Match Output].Columns[tipo_cliente]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="8"
+                      lineageId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Outputs[Lookup Match Output].Columns[tipo_cliente]"
+                      name="tipo_cliente"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">tipo_cliente</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Outputs[Lookup Match Output].Columns[precio_unitario]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Outputs[Lookup Match Output].Columns[precio_unitario]"
+                      name="precio_unitario"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">precio_unitario</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Outputs[Lookup Match Output].Columns[unidades]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Outputs[Lookup Match Output].Columns[unidades]"
+                      name="unidades"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">unidades</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Pivot Ventas OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[project1].[pivot_fact_ventas]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.seminario.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.seminario.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Fecha_ID]"
+                      cachedDataType="i4"
+                      cachedName="Fecha_ID"
+                      externalMetadataColumnId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fecha]"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Fecha Derived Columns.Outputs[Derived Column Output].Columns[Fecha_ID]" />
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CCategoria]"
+                      cachedDataType="wstr"
+                      cachedLength="96"
+                      cachedName="CCategoria"
+                      externalMetadataColumnId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[categoria_prod]"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[CCategoria]" />
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MarcaProducto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MarcaProducto"
+                      externalMetadataColumnId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[marca_prod]"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[MarcaProducto]" />
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CodProducto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CodProducto"
+                      externalMetadataColumnId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cod_producto]"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[CodProducto]" />
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PSodSucursal]"
+                      cachedDataType="i4"
+                      cachedName="PSodSucursal"
+                      externalMetadataColumnId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sucursal]"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[PSodSucursal]" />
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PCodVendedor]"
+                      cachedDataType="i4"
+                      cachedName="PCodVendedor"
+                      externalMetadataColumnId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[vendedor]"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[PCodVendedor]" />
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PNombreVendedor]"
+                      cachedDataType="wstr"
+                      cachedLength="96"
+                      cachedName="PNombreVendedor"
+                      externalMetadataColumnId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nombre_vendedor]"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[PNombreVendedor]" />
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PTipoVendedor]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="16"
+                      cachedName="PTipoVendedor"
+                      externalMetadataColumnId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[tipo_vendedor]"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[PTipoVendedor]" />
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CodigoCliente]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CodigoCliente"
+                      externalMetadataColumnId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cliente]"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[CodigoCliente]" />
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TipoCliente]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TipoCliente"
+                      externalMetadataColumnId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[tipo_cliente]"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[TipoCliente]" />
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PPrecioUnitario]"
+                      cachedDataType="numeric"
+                      cachedName="PPrecioUnitario"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[precio_unitario]"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[PPrecioUnitario]" />
+                    <inputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PUnidades]"
+                      cachedDataType="i4"
+                      cachedName="PUnidades"
+                      externalMetadataColumnId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unidades]"
+                      lineageId="Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1].Columns[PUnidades]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[categoria_prod]"
+                      dataType="wstr"
+                      length="96"
+                      name="categoria_prod" />
+                    <externalMetadataColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[marca_prod]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      name="marca_prod" />
+                    <externalMetadataColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cod_producto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      name="cod_producto" />
+                    <externalMetadataColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sucursal]"
+                      dataType="i4"
+                      name="sucursal" />
+                    <externalMetadataColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fecha]"
+                      dataType="i4"
+                      name="fecha" />
+                    <externalMetadataColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[vendedor]"
+                      dataType="i4"
+                      name="vendedor" />
+                    <externalMetadataColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nombre_vendedor]"
+                      dataType="wstr"
+                      length="96"
+                      name="nombre_vendedor" />
+                    <externalMetadataColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[tipo_vendedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="tipo_vendedor" />
+                    <externalMetadataColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cliente]"
+                      dataType="i4"
+                      name="cliente" />
+                    <externalMetadataColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[tipo_cliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="tipo_cliente" />
+                    <externalMetadataColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[precio_unitario]"
+                      dataType="numeric"
+                      name="precio_unitario"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unidades]"
+                      dataType="i4"
+                      name="unidades" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -16537,9 +17680,16 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                 </output>
                 <output
                   refId="Package\SQL Server Data Flow Task\Ventas Fecha Multicast.Outputs[Multicast Output 3]"
-                  dangling="true"
                   deleteOutputOnPathDetached="true"
                   name="Multicast Output 3"
+                  synchronousInputId="Package\SQL Server Data Flow Task\Ventas Fecha Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SQL Server Data Flow Task\Ventas Fecha Multicast.Outputs[Multicast Output 10]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 10"
                   synchronousInputId="Package\SQL Server Data Flow Task\Ventas Fecha Multicast.Inputs[Multicast Input 1]">
                   <externalMetadataColumns />
                 </output>
@@ -22241,11 +23391,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               name="Aggregate Output 1"
               startId="Package\SQL Server Data Flow Task\Vemtas Fecha Aggregate.Outputs[Aggregate Output 1]" />
             <path
-              refId="Package\SQL Server Data Flow Task.Paths[Aggregate Output 117]"
-              endId="Package\SQL Server Data Flow Task\Categoria Union All.Inputs[Union All Input 1]"
-              name="Aggregate Output 1"
-              startId="Package\SQL Server Data Flow Task\Comprss Categoria Aggregate.Outputs[Aggregate Output 1]" />
-            <path
               refId="Package\SQL Server Data Flow Task.Paths[Aggregate Output 116]"
               endId="Package\SQL Server Data Flow Task\Categoria Lookup.Inputs[Lookup Input]"
               name="Aggregate Output 1"
@@ -22281,15 +23426,15 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               name="Aggregate Output 1"
               startId="Package\SQL Server Data Flow Task\Cliente Aggregate.Outputs[Aggregate Output 1]" />
             <path
+              refId="Package\SQL Server Data Flow Task.Paths[Aggregate Output 117]"
+              endId="Package\SQL Server Data Flow Task\Categoria Union All.Inputs[Union All Input 1]"
+              name="Aggregate Output 1"
+              startId="Package\SQL Server Data Flow Task\Comprss Categoria Aggregate.Outputs[Aggregate Output 1]" />
+            <path
               refId="Package\SQL Server Data Flow Task.Paths[Aggregate Output 19]"
               endId="Package\SQL Server Data Flow Task\Marca Lookup.Inputs[Lookup Input]"
               name="Aggregate Output 1"
               startId="Package\SQL Server Data Flow Task\Marca Aggregate.Outputs[Aggregate Output 1]" />
-            <path
-              refId="Package\SQL Server Data Flow Task.Paths[Aggregate Output 18]"
-              endId="Package\SQL Server Data Flow Task\Producto Union All.Inputs[Union All Input 2]"
-              name="Aggregate Output 1"
-              startId="Package\SQL Server Data Flow Task\Ventas Prodcuto Aggregate.Outputs[Aggregate Output 1]" />
             <path
               refId="Package\SQL Server Data Flow Task.Paths[Aggregate Output 17]"
               endId="Package\SQL Server Data Flow Task\Producto Union All.Inputs[Union All Input 1]"
@@ -22325,6 +23470,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               endId="Package\SQL Server Data Flow Task\Vendedor Lookup.Inputs[Lookup Input]"
               name="Aggregate Output 1"
               startId="Package\SQL Server Data Flow Task\Vendedor Aggregate.Outputs[Aggregate Output 1]" />
+            <path
+              refId="Package\SQL Server Data Flow Task.Paths[Aggregate Output 18]"
+              endId="Package\SQL Server Data Flow Task\Producto Union All.Inputs[Union All Input 2]"
+              name="Aggregate Output 1"
+              startId="Package\SQL Server Data Flow Task\Ventas Prodcuto Aggregate.Outputs[Aggregate Output 1]" />
             <path
               refId="Package\SQL Server Data Flow Task.Paths[Aggregate Output 118]"
               endId="Package\SQL Server Data Flow Task\Proveedor Script Component.Inputs[Input 0]"
@@ -22366,6 +23516,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               name="Data Conversion Output"
               startId="Package\SQL Server Data Flow Task\Compras Data Conversion.Outputs[Data Conversion Output]" />
             <path
+              refId="Package\SQL Server Data Flow Task.Paths[Derived Column Output4]"
+              endId="Package\SQL Server Data Flow Task\Ventas Fecha Multicast.Inputs[Multicast Input 1]"
+              name="Derived Column Output"
+              startId="Package\SQL Server Data Flow Task\Ventas Fecha Derived Columns.Outputs[Derived Column Output]" />
+            <path
               refId="Package\SQL Server Data Flow Task.Paths[Derived Column Output6]"
               endId="Package\SQL Server Data Flow Task\Ventas Data Conversion.Inputs[Data Conversion Input]"
               name="Derived Column Output"
@@ -22376,15 +23531,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               name="Derived Column Output"
               startId="Package\SQL Server Data Flow Task\Compras Fecha Derived Columns.Outputs[Derived Column Output]" />
             <path
-              refId="Package\SQL Server Data Flow Task.Paths[Derived Column Output3]"
-              endId="Package\SQL Server Data Flow Task\Compras Data Conversion.Inputs[Data Conversion Input]"
+              refId="Package\SQL Server Data Flow Task.Paths[Derived Column Output2]"
+              endId="Package\SQL Server Data Flow Task\Ventas Sources Union All.Inputs[Union All Input 3]"
               name="Derived Column Output"
-              startId="Package\SQL Server Data Flow Task\Compras Derived Column.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\SQL Server Data Flow Task.Paths[Derived Column Output4]"
-              endId="Package\SQL Server Data Flow Task\Ventas Fecha Multicast.Inputs[Multicast Input 1]"
-              name="Derived Column Output"
-              startId="Package\SQL Server Data Flow Task\Ventas Fecha Derived Columns.Outputs[Derived Column Output]" />
+              startId="Package\SQL Server Data Flow Task\Verntas Flat Derived Column.Outputs[Derived Column Output]" />
             <path
               refId="Package\SQL Server Data Flow Task.Paths[Derived Column Output1]"
               endId="Package\SQL Server Data Flow Task\Compras Sources Union All.Inputs[Union All Input 1]"
@@ -22396,10 +23546,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               name="Derived Column Output"
               startId="Package\SQL Server Data Flow Task\Compras Flat Derived Column.Outputs[Derived Column Output]" />
             <path
-              refId="Package\SQL Server Data Flow Task.Paths[Derived Column Output2]"
-              endId="Package\SQL Server Data Flow Task\Ventas Sources Union All.Inputs[Union All Input 3]"
+              refId="Package\SQL Server Data Flow Task.Paths[Derived Column Output3]"
+              endId="Package\SQL Server Data Flow Task\Compras Data Conversion.Inputs[Data Conversion Input]"
               name="Derived Column Output"
-              startId="Package\SQL Server Data Flow Task\Verntas Flat Derived Column.Outputs[Derived Column Output]" />
+              startId="Package\SQL Server Data Flow Task\Compras Derived Column.Outputs[Derived Column Output]" />
             <path
               refId="Package\SQL Server Data Flow Task.Paths[Flat File Source Output]"
               endId="Package\SQL Server Data Flow Task\Compras Flat Derived Column.Inputs[Derived Column Input]"
@@ -22416,40 +23566,45 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               name="Lookup Error Output"
               startId="Package\SQL Server Data Flow Task\Lookup.Outputs[Lookup Error Output]" />
             <path
+              refId="Package\SQL Server Data Flow Task.Paths[Lookup No Match Output7]"
+              endId="Package\SQL Server Data Flow Task\Categoria OLE DB Destination 1.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\SQL Server Data Flow Task\Categoria Lookup.Outputs[Lookup No Match Output]" />
+            <path
               refId="Package\SQL Server Data Flow Task.Paths[Lookup No Match Output6]"
               endId="Package\SQL Server Data Flow Task\Cliente OLE DB Destination.Inputs[OLE DB Destination Input]"
               name="Lookup No Match Output"
               startId="Package\SQL Server Data Flow Task\Cliente Lookup.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\SQL Server Data Flow Task.Paths[Lookup No Match Output9]"
+              endId="Package\SQL Server Data Flow Task\Pivot Fact Compras OLE DB Destination 1.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\SQL Server Data Flow Task.Paths[Lookup No Match Output8]"
               endId="Package\SQL Server Data Flow Task\Tiop Cliente OLE DB Destination 1.Inputs[OLE DB Destination Input]"
               name="Lookup No Match Output"
               startId="Package\SQL Server Data Flow Task\Tipo Cliente Lookup 2.Outputs[Lookup No Match Output]" />
             <path
-              refId="Package\SQL Server Data Flow Task.Paths[Lookup No Match Output7]"
-              endId="Package\SQL Server Data Flow Task\Categoria OLE DB Destination 1.Inputs[OLE DB Destination Input]"
-              name="Lookup No Match Output"
-              startId="Package\SQL Server Data Flow Task\Categoria Lookup.Outputs[Lookup No Match Output]" />
-            <path
               refId="Package\SQL Server Data Flow Task.Paths[Lookup No Match Output5]"
               endId="Package\SQL Server Data Flow Task\Proveedor OLE DB Destination.Inputs[OLE DB Destination Input]"
               name="Lookup No Match Output"
               startId="Package\SQL Server Data Flow Task\Proveedor Lookup.Outputs[Lookup No Match Output]" />
-            <path
-              refId="Package\SQL Server Data Flow Task.Paths[Lookup No Match Output2]"
-              endId="Package\SQL Server Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
-              name="Lookup No Match Output"
-              startId="Package\SQL Server Data Flow Task\Fechs Lookup.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\SQL Server Data Flow Task.Paths[Lookup No Match Output3]"
               endId="Package\SQL Server Data Flow Task\Marca OLE DB Destination.Inputs[OLE DB Destination Input]"
               name="Lookup No Match Output"
               startId="Package\SQL Server Data Flow Task\Marca Lookup.Outputs[Lookup No Match Output]" />
             <path
-              refId="Package\SQL Server Data Flow Task.Paths[Lookup No Match Output4]"
-              endId="Package\SQL Server Data Flow Task\Sucursal OLE DB Destination.Inputs[OLE DB Destination Input]"
+              refId="Package\SQL Server Data Flow Task.Paths[Lookup No Match Output10]"
+              endId="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination.Inputs[OLE DB Destination Input]"
               name="Lookup No Match Output"
-              startId="Package\SQL Server Data Flow Task\Sucursal Lookup.Outputs[Lookup No Match Output]" />
+              startId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\SQL Server Data Flow Task.Paths[Lookup No Match Output2]"
+              endId="Package\SQL Server Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\SQL Server Data Flow Task\Fechs Lookup.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\SQL Server Data Flow Task.Paths[Lookup No Match Output1]"
               endId="Package\SQL Server Data Flow Task\Vewndedor OLE DB Destination.Inputs[OLE DB Destination Input]"
@@ -22461,12 +23616,12 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               name="Lookup No Match Output"
               startId="Package\SQL Server Data Flow Task\Lookup.Outputs[Lookup No Match Output]" />
             <path
-              refId="Package\SQL Server Data Flow Task.Paths[Multicast Output 1]"
-              endId="Package\SQL Server Data Flow Task\Pivot Fact Compras OLE DB Destination 1.Inputs[OLE DB Destination Input]"
-              name="Multicast Output 1"
-              startId="Package\SQL Server Data Flow Task\Compras Fecha Multicast.Outputs[Multicast Output 1]" />
+              refId="Package\SQL Server Data Flow Task.Paths[Lookup No Match Output4]"
+              endId="Package\SQL Server Data Flow Task\Sucursal OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\SQL Server Data Flow Task\Sucursal Lookup.Outputs[Lookup No Match Output]" />
             <path
-              refId="Package\SQL Server Data Flow Task.Paths[Multicast Output 11]"
+              refId="Package\SQL Server Data Flow Task.Paths[Multicast Output 1]"
               endId="Package\SQL Server Data Flow Task\Ventas Prodcuto Aggregate.Inputs[Aggregate Input 1]"
               name="Multicast Output 1"
               startId="Package\SQL Server Data Flow Task\Ventas Fecha Multicast.Outputs[Multicast Output 1]" />
@@ -22480,6 +23635,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               endId="Package\SQL Server Data Flow Task\Ventas Sucursal Aggregate.Inputs[Aggregate Input 1]"
               name="Multicast Output 2"
               startId="Package\SQL Server Data Flow Task\Ventas Fecha Multicast.Outputs[Multicast Output 2]" />
+            <path
+              refId="Package\SQL Server Data Flow Task.Paths[Multicast Output 31]"
+              endId="Package\SQL Server Data Flow Task\Pivot Ventas Lookup.Inputs[Lookup Input]"
+              name="Multicast Output 3"
+              startId="Package\SQL Server Data Flow Task\Ventas Fecha Multicast.Outputs[Multicast Output 3]" />
             <path
               refId="Package\SQL Server Data Flow Task.Paths[Multicast Output 3]"
               endId="Package\SQL Server Data Flow Task\Compras Producto Aggregate.Inputs[Aggregate Input 1]"
@@ -22521,30 +23681,35 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               name="Multicast Output 7"
               startId="Package\SQL Server Data Flow Task\Ventas Fecha Multicast.Outputs[Multicast Output 7]" />
             <path
-              refId="Package\SQL Server Data Flow Task.Paths[Multicast Output 81]"
-              endId="Package\SQL Server Data Flow Task\Compras Fecha Aggregate.Inputs[Aggregate Input 1]"
-              name="Multicast Output 8"
-              startId="Package\SQL Server Data Flow Task\Compras Fecha Multicast.Outputs[Multicast Output 8]" />
+              refId="Package\SQL Server Data Flow Task.Paths[Multicast Output 71]"
+              endId="Package\SQL Server Data Flow Task\Pivot Compras Lookup.Inputs[Lookup Input]"
+              name="Multicast Output 7"
+              startId="Package\SQL Server Data Flow Task\Compras Fecha Multicast.Outputs[Multicast Output 7]" />
             <path
               refId="Package\SQL Server Data Flow Task.Paths[Multicast Output 8]"
               endId="Package\SQL Server Data Flow Task\Tipo Cliente Aggregate.Inputs[Aggregate Input 1]"
               name="Multicast Output 8"
               startId="Package\SQL Server Data Flow Task\Ventas Fecha Multicast.Outputs[Multicast Output 8]" />
             <path
+              refId="Package\SQL Server Data Flow Task.Paths[Multicast Output 81]"
+              endId="Package\SQL Server Data Flow Task\Compras Fecha Aggregate.Inputs[Aggregate Input 1]"
+              name="Multicast Output 8"
+              startId="Package\SQL Server Data Flow Task\Compras Fecha Multicast.Outputs[Multicast Output 8]" />
+            <path
               refId="Package\SQL Server Data Flow Task.Paths[Multicast Output 9]"
               endId="Package\SQL Server Data Flow Task\Vemtas Fecha Aggregate.Inputs[Aggregate Input 1]"
               name="Multicast Output 9"
               startId="Package\SQL Server Data Flow Task\Ventas Fecha Multicast.Outputs[Multicast Output 9]" />
             <path
-              refId="Package\SQL Server Data Flow Task.Paths[ODBC Source Output]"
-              endId="Package\SQL Server Data Flow Task\Ventas Sources Union All.Inputs[Union All Input 2]"
-              name="ODBC Source Output"
-              startId="Package\SQL Server Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output]" />
-            <path
               refId="Package\SQL Server Data Flow Task.Paths[ODBC Source Output1]"
               endId="Package\SQL Server Data Flow Task\Compras Sources Union All.Inputs[Union All Input 2]"
               name="ODBC Source Output"
               startId="Package\SQL Server Data Flow Task\Compras ODBC Source.Outputs[ODBC Source Output]" />
+            <path
+              refId="Package\SQL Server Data Flow Task.Paths[ODBC Source Output]"
+              endId="Package\SQL Server Data Flow Task\Ventas Sources Union All.Inputs[Union All Input 2]"
+              name="ODBC Source Output"
+              startId="Package\SQL Server Data Flow Task\Ventas ODBC Source.Outputs[ODBC Source Output]" />
             <path
               refId="Package\SQL Server Data Flow Task.Paths[OLE DB Destination Error Output]"
               endId="Package\SQL Server Data Flow Task\Vendendor Ignore Data Conversion.Inputs[Data Conversion Input]"
@@ -22561,60 +23726,60 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               name="OLE DB Source Output"
               startId="Package\SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\SQL Server Data Flow Task.Paths[Output 02]"
-              endId="Package\SQL Server Data Flow Task\Proveedor Lookup.Inputs[Lookup Input]"
-              name="Output 0"
-              startId="Package\SQL Server Data Flow Task\Proveedor Script Component.Outputs[Output 0]" />
-            <path
               refId="Package\SQL Server Data Flow Task.Paths[Output 0]"
               endId="Package\SQL Server Data Flow Task\Compras Fix Data Conversion.Inputs[Data Conversion Input]"
               name="Output 0"
               startId="Package\SQL Server Data Flow Task\Compras Script Component.Outputs[Output 0]" />
+            <path
+              refId="Package\SQL Server Data Flow Task.Paths[Output 02]"
+              endId="Package\SQL Server Data Flow Task\Proveedor Lookup.Inputs[Lookup Input]"
+              name="Output 0"
+              startId="Package\SQL Server Data Flow Task\Proveedor Script Component.Outputs[Output 0]" />
             <path
               refId="Package\SQL Server Data Flow Task.Paths[Output 01]"
               endId="Package\SQL Server Data Flow Task\Ventas Fix Data Conversion.Inputs[Data Conversion Input]"
               name="Output 0"
               startId="Package\SQL Server Data Flow Task\Venetas Script Component.Outputs[Output 0]" />
             <path
-              refId="Package\SQL Server Data Flow Task.Paths[Union All Output 16]"
-              endId="Package\SQL Server Data Flow Task\Compras Derived Column.Inputs[Derived Column Input]"
+              refId="Package\SQL Server Data Flow Task.Paths[Union All Output 1]"
+              endId="Package\SQL Server Data Flow Task\Producto Aggregate.Inputs[Aggregate Input 1]"
               name="Union All Output 1"
-              startId="Package\SQL Server Data Flow Task\Compras Sources Union All.Outputs[Union All Output 1]" />
-            <path
-              refId="Package\SQL Server Data Flow Task.Paths[Union All Output 15]"
-              endId="Package\SQL Server Data Flow Task\Compras Fecha Derived Columns.Inputs[Derived Column Input]"
-              name="Union All Output 1"
-              startId="Package\SQL Server Data Flow Task\Compras Fixes Union All.Outputs[Union All Output 1]" />
-            <path
-              refId="Package\SQL Server Data Flow Task.Paths[Union All Output 14]"
-              endId="Package\SQL Server Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
-              name="Union All Output 1"
-              startId="Package\SQL Server Data Flow Task\Fechas Union All.Outputs[Union All Output 1]" />
-            <path
-              refId="Package\SQL Server Data Flow Task.Paths[Union All Output 17]"
-              endId="Package\SQL Server Data Flow Task\Ventas Fecha Derived Columns.Inputs[Derived Column Input]"
-              name="Union All Output 1"
-              startId="Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1]" />
-            <path
-              refId="Package\SQL Server Data Flow Task.Paths[Union All Output 12]"
-              endId="Package\SQL Server Data Flow Task\Ventas Derived Column.Inputs[Derived Column Input]"
-              name="Union All Output 1"
-              startId="Package\SQL Server Data Flow Task\Ventas Sources Union All.Outputs[Union All Output 1]" />
+              startId="Package\SQL Server Data Flow Task\Producto Union All.Outputs[Union All Output 1]" />
             <path
               refId="Package\SQL Server Data Flow Task.Paths[Union All Output 11]"
               endId="Package\SQL Server Data Flow Task\Categoria Aggregate.Inputs[Aggregate Input 1]"
               name="Union All Output 1"
               startId="Package\SQL Server Data Flow Task\Categoria Union All.Outputs[Union All Output 1]" />
             <path
-              refId="Package\SQL Server Data Flow Task.Paths[Union All Output 1]"
-              endId="Package\SQL Server Data Flow Task\Producto Aggregate.Inputs[Aggregate Input 1]"
+              refId="Package\SQL Server Data Flow Task.Paths[Union All Output 12]"
+              endId="Package\SQL Server Data Flow Task\Ventas Derived Column.Inputs[Derived Column Input]"
               name="Union All Output 1"
-              startId="Package\SQL Server Data Flow Task\Producto Union All.Outputs[Union All Output 1]" />
+              startId="Package\SQL Server Data Flow Task\Ventas Sources Union All.Outputs[Union All Output 1]" />
             <path
               refId="Package\SQL Server Data Flow Task.Paths[Union All Output 13]"
               endId="Package\SQL Server Data Flow Task\Marca Aggregate.Inputs[Aggregate Input 1]"
               name="Union All Output 1"
               startId="Package\SQL Server Data Flow Task\Marca Union All.Outputs[Union All Output 1]" />
+            <path
+              refId="Package\SQL Server Data Flow Task.Paths[Union All Output 14]"
+              endId="Package\SQL Server Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+              name="Union All Output 1"
+              startId="Package\SQL Server Data Flow Task\Fechas Union All.Outputs[Union All Output 1]" />
+            <path
+              refId="Package\SQL Server Data Flow Task.Paths[Union All Output 15]"
+              endId="Package\SQL Server Data Flow Task\Compras Fecha Derived Columns.Inputs[Derived Column Input]"
+              name="Union All Output 1"
+              startId="Package\SQL Server Data Flow Task\Compras Fixes Union All.Outputs[Union All Output 1]" />
+            <path
+              refId="Package\SQL Server Data Flow Task.Paths[Union All Output 16]"
+              endId="Package\SQL Server Data Flow Task\Compras Derived Column.Inputs[Derived Column Input]"
+              name="Union All Output 1"
+              startId="Package\SQL Server Data Flow Task\Compras Sources Union All.Outputs[Union All Output 1]" />
+            <path
+              refId="Package\SQL Server Data Flow Task.Paths[Union All Output 17]"
+              endId="Package\SQL Server Data Flow Task\Ventas Fecha Derived Columns.Inputs[Derived Column Input]"
+              name="Union All Output 1"
+              startId="Package\SQL Server Data Flow Task\Ventas Fixes Union All.Outputs[Union All Output 1]" />
             <path
               refId="Package\SQL Server Data Flow Task.Paths[Union All Output 18]"
               endId="Package\SQL Server Data Flow Task\Sucursal Aggregate.Inputs[Aggregate Input 1]"
@@ -22924,7 +24089,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         <NodeLayout
           Size="226.4,41.6"
           Id="Package\SQL Server Data Flow Task\Vewndedor OLE DB Destination"
-          TopLeft="2439.36663147095,612.799999095996" />
+          TopLeft="2523.36663147095,612.799999095996" />
         <NodeLayout
           Size="200.8,41.6"
           Id="Package\SQL Server Data Flow Task\Compras Data Conversion"
@@ -22948,7 +24113,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         <NodeLayout
           Size="273.6,41.6"
           Id="Package\SQL Server Data Flow Task\Pivot Fact Compras OLE DB Destination 1"
-          TopLeft="657.629622546979,776.614812597662" />
+          TopLeft="591.417504952529,768.893600530142" />
         <NodeLayout
           Size="192.8,41.6"
           Id="Package\SQL Server Data Flow Task\Marca Ventas Aggregate"
@@ -22968,7 +24133,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         <NodeLayout
           Size="206.4,41.6"
           Id="Package\SQL Server Data Flow Task\Cliente OLE DB Destination"
-          TopLeft="2427.41661828964,480.999998734395" />
+          TopLeft="2511.41661828964,480.999998734395" />
         <NodeLayout
           Size="212,41.6"
           Id="Package\SQL Server Data Flow Task\Proveedor Script Component"
@@ -22984,7 +24149,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         <NodeLayout
           Size="179.2,41.6"
           Id="Package\SQL Server Data Flow Task\Tipo Cliente Lookup 2"
-          TopLeft="2243.03700830171,753.851850217949" />
+          TopLeft="2299.03700830171,753.851850217949" />
         <NodeLayout
           Size="217.6,41.6"
           Id="Package\SQL Server Data Flow Task\Compras Fix Data Conversion"
@@ -23004,11 +24169,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         <NodeLayout
           Size="161.6,41.6"
           Id="Package\SQL Server Data Flow Task\Cliente Aggregate"
-          TopLeft="2048.44434776627,482.249999163798" />
+          TopLeft="2132.44434776627,482.249999163798" />
         <NodeLayout
           Size="184.8,41.6"
           Id="Package\SQL Server Data Flow Task\Tipo Cliente Aggregate"
-          TopLeft="2029.2222065898,755.777776130482" />
+          TopLeft="2085.2222065898,755.777776130482" />
         <NodeLayout
           Size="222.4,41.6"
           Id="Package\SQL Server Data Flow Task\Proveedor OLE DB Destination"
@@ -23032,7 +24197,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         <NodeLayout
           Size="148,41.6"
           Id="Package\SQL Server Data Flow Task\Cliente Lookup"
-          TopLeft="2250.51846438683,480.074073002662" />
+          TopLeft="2334.51846438683,480.074073002662" />
         <NodeLayout
           Size="151.2,41.6"
           Id="Package\SQL Server Data Flow Task\Flat File Source"
@@ -23044,7 +24209,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         <NodeLayout
           Size="238.4,41.6"
           Id="Package\SQL Server Data Flow Task\Tiop Cliente OLE DB Destination 1"
-          TopLeft="2458.14810787822,753.55555350648" />
+          TopLeft="2514.14810787822,753.55555350648" />
         <NodeLayout
           Size="179.2,41.6"
           Id="Package\SQL Server Data Flow Task\Ventas ODBC Source"
@@ -23088,7 +24253,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         <NodeLayout
           Size="241.6,41.6"
           Id="Package\SQL Server Data Flow Task\Vendendor Ignore Data Conversion"
-          TopLeft="2426.29996735404,682.999998607834" />
+          TopLeft="2510.29996735404,682.999998607834" />
         <NodeLayout
           Size="171.2,41.6"
           Id="Package\SQL Server Data Flow Task\OLE DB Destination"
@@ -23144,7 +24309,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         <NodeLayout
           Size="160,41.6"
           Id="Package\SQL Server Data Flow Task\Vendedor Lookup"
-          TopLeft="2245.592542154,615.999999296886" />
+          TopLeft="2329.592542154,615.999999296886" />
         <NodeLayout
           Size="156.8,41.6"
           Id="Package\SQL Server Data Flow Task\Fechas Union All"
@@ -23172,7 +24337,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         <NodeLayout
           Size="174.4,41.6"
           Id="Package\SQL Server Data Flow Task\Vendedor Aggregate"
-          TopLeft="2038.16662272894,616.777775718658" />
+          TopLeft="2122.16662272894,616.777775718658" />
         <NodeLayout
           Size="224.8,41.6"
           Id="Package\SQL Server Data Flow Task\Ventas Fecha Derived Columns"
@@ -23507,7 +24672,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\SQL Server Data Flow Task.Paths[OLE DB Destination Error Output]"
-          TopLeft="2549.83329941249,654.399999095996">
+          TopLeft="2633.83329941249,654.399999095996">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -23525,7 +24690,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-81.8700390625,2.549999755919,163.740078125,16"
+              BoundingBox="-81.8700390625,2.54999975591898,163.740078125,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -23619,30 +24784,30 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\SQL Server Data Flow Task.Paths[Multicast Output 8]"
-          TopLeft="1946.26661421458,652.133332381116">
+          TopLeft="1950.5142332622,652.133332381116">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="175.355592375223,103.644443749366"
+              EndConnector="227.107973327604,103.644443749366"
               Start="0,0"
-              End="175.355592375223,96.144443749366">
+              End="227.107973327604,96.144443749366">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.5441641476781" />
+                    End="0,20.9094238354321" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,23.5441641476781"
-                    Point2="0,27.5441641476781"
-                    Point3="4,27.5441641476781" />
+                    Point1="0,20.9094238354321"
+                    Point2="0,24.9094238354321"
+                    Point3="4,24.9094238354321" />
                   <mssgle:LineSegment
-                    End="171.355592375223,27.5441641476781" />
+                    End="223.107973327604,24.9094238354321" />
                   <mssgle:CubicBezierSegment
-                    Point1="171.355592375223,27.5441641476781"
-                    Point2="175.355592375223,27.5441641476781"
-                    Point3="175.355592375223,31.5441641476781" />
+                    Point1="223.107973327604,24.9094238354321"
+                    Point2="227.107973327604,24.9094238354321"
+                    Point3="227.107973327604,28.9094238354321" />
                   <mssgle:LineSegment
-                    End="175.355592375223,96.144443749366" />
+                    End="227.107973327604,96.144443749366" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -23657,14 +24822,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="58.1666751810299,0"
+              EndConnector="142.16667518103,0"
               Start="0,0"
-              End="50.6666751810299,0">
+              End="134.66667518103,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="50.6666751810299,0" />
+                    End="134.66667518103,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -23701,9 +24866,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="212.711066885027,-86.683333217318"
+              EndConnector="296.711066885027,-86.683333217318"
               Start="0,0"
-              End="212.711066885027,-79.183333217318">
+              End="296.711066885027,-79.183333217318">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -23714,13 +24879,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                     Point2="0,-35.1159715842071"
                     Point3="4,-35.1159715842071" />
                   <mssgle:LineSegment
-                    End="208.711066885027,-35.1159715842071" />
+                    End="292.711066885027,-35.1159715842071" />
                   <mssgle:CubicBezierSegment
-                    Point1="208.711066885027,-35.1159715842071"
-                    Point2="212.711066885027,-35.1159715842071"
-                    Point3="212.711066885027,-39.1159715842071" />
+                    Point1="292.711066885027,-35.1159715842071"
+                    Point2="296.711066885027,-35.1159715842071"
+                    Point3="296.711066885027,-39.1159715842071" />
                   <mssgle:LineSegment
-                    End="212.711066885027,-79.183333217318" />
+                    End="296.711066885027,-79.183333217318" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -23956,7 +25121,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\SQL Server Data Flow Task.Paths[Multicast Output 11]"
+          Id="Package\SQL Server Data Flow Task.Paths[Multicast Output 1]"
           TopLeft="1857.06661421458,652.133332381116">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -23990,42 +25155,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\SQL Server Data Flow Task.Paths[Multicast Output 1]"
-          TopLeft="1048.5333295087,644.933331585593">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-254.103706961724,131.681481012069"
-              Start="0,0"
-              End="-254.103706961724,124.181481012069">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.8955924681982" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,30.8955924681982"
-                    Point2="0,34.8955924681982"
-                    Point3="-4,34.8955924681982" />
-                  <mssgle:LineSegment
-                    End="-250.103706961724,34.8955924681982" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-250.103706961724,34.8955924681982"
-                    Point2="-254.103706961724,34.8955924681982"
-                    Point3="-254.103706961724,38.8955924681982" />
-                  <mssgle:LineSegment
-                    End="-254.103706961724,124.181481012069" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\SQL Server Data Flow Task.Paths[Lookup No Match Output8]"
-          TopLeft="2422.23700830171,774.503701862214">
+          TopLeft="2478.23700830171,774.503701862214">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -24043,7 +25174,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-41.6008369304954,5,111.6127734375,11.609375"
+              BoundingBox="-41.6008369304955,5,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -24073,7 +25204,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\SQL Server Data Flow Task.Paths[Lookup No Match Output6]"
-          TopLeft="2398.51846438683,501.337035868528">
+          TopLeft="2482.51846438683,501.337035868528">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -24193,7 +25324,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\SQL Server Data Flow Task.Paths[Lookup No Match Output1]"
-          TopLeft="2405.592542154,635.199999196441">
+          TopLeft="2489.592542154,635.199999196441">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -24911,7 +26042,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\SQL Server Data Flow Task.Paths[Aggregate Output 110]"
-          TopLeft="2210.04434776627,501.96203608323">
+          TopLeft="2294.04434776627,501.96203608323">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -25135,18 +26266,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\SQL Server Data Flow Task.Paths[Aggregate Output 12]"
-          TopLeft="2214.0222065898,775.614813174215">
+          TopLeft="2270.0222065898,775.614813174215">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="29.014801711912,0"
+              EndConnector="29.0148017119118,0"
               Start="0,0"
-              End="21.514801711912,0">
+              End="21.5148017119118,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="21.514801711912,0" />
+                    End="21.5148017119118,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -25157,7 +26288,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\SQL Server Data Flow Task.Paths[Aggregate Output 11]"
-          TopLeft="2212.56662272894,637.188887507772">
+          TopLeft="2296.56662272894,637.188887507772">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -25209,6 +26340,146 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="183.2,41.6"
+          Id="Package\SQL Server Data Flow Task\Pivot Compras Lookup"
+          TopLeft="830.909049881229,679.296967064949" />
+        <EdgeLayout
+          Id="Package\SQL Server Data Flow Task.Paths[Multicast Output 71]"
+          TopLeft="1048.5333295087,644.933331585593">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-126.024279627474,34.3636354793563"
+              Start="0,0"
+              End="-126.024279627474,26.8636354793563">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,5.1063634020294" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,5.1063634020294"
+                    Point2="0,9.1063634020294"
+                    Point3="-4,9.1063634020294" />
+                  <mssgle:LineSegment
+                    End="-122.024279627474,9.1063634020294" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-122.024279627474,9.1063634020294"
+                    Point2="-126.024279627474,9.1063634020294"
+                    Point3="-126.024279627474,13.1063634020294" />
+                  <mssgle:LineSegment
+                    End="-126.024279627474,26.8636354793563" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SQL Server Data Flow Task.Paths[Lookup No Match Output9]"
+          TopLeft="922.509049881229,720.896967064949">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-194.291544928701,47.9966334651924"
+              Start="0,0"
+              End="-194.291544928701,40.4966334651924">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.9983167325962" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.9983167325962"
+                    Point2="0,23.9983167325962"
+                    Point3="-4,23.9983167325962" />
+                  <mssgle:LineSegment
+                    End="-190.291544928701,23.9983167325962" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-190.291544928701,23.9983167325962"
+                    Point2="-194.291544928701,23.9983167325962"
+                    Point3="-194.291544928701,27.9983167325962" />
+                  <mssgle:LineSegment
+                    End="-194.291544928701,40.4966334651924" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-152.9521591831,28.9983167325962,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="173.6,41.6"
+          Id="Package\SQL Server Data Flow Task\Pivot Ventas Lookup"
+          TopLeft="2055.23608909913,1073.5227251646" />
+        <EdgeLayout
+          Id="Package\SQL Server Data Flow Task.Paths[Multicast Output 31]"
+          TopLeft="1925.02851897648,652.133332381116">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="217.007570122649,421.38939278348"
+              Start="0,0"
+              End="217.007570122649,413.88939278348">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,152.334977191558" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,152.334977191558"
+                    Point2="0,156.334977191558"
+                    Point3="4,156.334977191558" />
+                  <mssgle:LineSegment
+                    End="213.007570122649,156.334977191558" />
+                  <mssgle:CubicBezierSegment
+                    Point1="213.007570122649,156.334977191558"
+                    Point2="217.007570122649,156.334977191558"
+                    Point3="217.007570122649,160.334977191558" />
+                  <mssgle:LineSegment
+                    End="217.007570122649,413.88939278348" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="232.8,41.6"
+          Id="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination"
+          TopLeft="2030.65473154512,1165.04761709325" />
+        <EdgeLayout
+          Id="Package\SQL Server Data Flow Task.Paths[Lookup No Match Output10]"
+          TopLeft="2144.54541032213,1115.1227251646">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49.9248919286526"
+              Start="0,0"
+              End="0,42.4248919286526">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.4248919286526" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,15.4077584643263,111.6127734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -25548,6 +26819,65 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SQL Server Data Flow Task\Pivot Compras Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[project1].[pivot_fact_compras]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SQL Server Data Flow Task\Pivot Ventas Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[project1].[pivot_fact_ventas]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SQL Server Data Flow Task\Pivot Ventas OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
