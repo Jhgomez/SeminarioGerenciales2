@@ -62,7 +62,8 @@ GO
 
 CREATE TABLE project1.[fact_compras] (
 	[id] INTEGER NOT NULL IDENTITY UNIQUE,
-	[sk_proveedor] INTEGER NOT NULL,
+	[sk_proveedor_codigo] INTEGER NOT NULL,
+	[sk_proveedor_nombre] NVARCHAR(192) NOT NULL,
 	[sk_categoria_prod] INTEGER NOT NULL,
 	[sk_marca_prod] INTEGER NOT NULL,
 	[sk_fecha] INTEGER NOT NULL,
@@ -75,12 +76,12 @@ CREATE TABLE project1.[fact_compras] (
 GO
 
 CREATE TABLE project1.[dim_proveedor] (
-	[id_codigo] INTEGER NOT NULL UNIQUE,
-	[nombre] NCHAR(192) NOT NULL,
+	[id_codigo] INTEGER NOT NULL,
+	[nombre] NVARCHAR(192) NOT NULL,
 	[direccion] NVARCHAR(256) NOT NULL,
 	[numero] INTEGER NOT NULL,
 	[web] CHAR(4) NOT NULL,
-	PRIMARY KEY([id_codigo])
+	PRIMARY KEY([id_codigo], [nombre])
 );
 GO
 
@@ -171,7 +172,7 @@ CREATE TABLE project1.[dim_vendedor] (
 GO
 
 ALTER TABLE project1.[fact_compras]
-ADD FOREIGN KEY([sk_proveedor]) REFERENCES project1.[dim_proveedor]([id_codigo])
+ADD FOREIGN KEY([sk_proveedor_codigo], [sk_proveedor_nombre]) REFERENCES project1.[dim_proveedor]([id_codigo], [nombre])
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 GO
 
@@ -239,3 +240,5 @@ ALTER TABLE project1.[fact_ventas]
 ADD FOREIGN KEY([sk_cliente]) REFERENCES project1.[dim_cliente]([id_codigo])
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 GO
+
+select * from project1.dim_proveedor
