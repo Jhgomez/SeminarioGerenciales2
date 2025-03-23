@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="529"
-  DTS:VersionGUID="{21C90BAC-80F7-41BB-9D2F-B9D467A1E52B}">
+  DTS:VersionBuild="533"
+  DTS:VersionGUID="{17A475AE-161D-4B5A-84B7-64A246EF7C78}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -375,7 +375,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAYoi0jq72rEKxD2TKlPWIGwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAD2z0s8wT2DaZEvj6AgVLOmMq3e8ukVpM47wHt8YBxlvgAAAAAOgAAAAAIAACAAAAA1c41EOdFnc775ZlhY2f+EqpijzBoqJ2patvd+MG7bICAAAADsTySi/R83MDjiLmO3k4T9NjZyN4RdyusdZspQeYVH5EAAAACFxBFgmEGlZiq4O1BjIOa/+XPXslx60nNUgQu4Ohna5TER0HXgppUBcJoyi5HNrT5IEKOF4hh/kKGh25CHzni8</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAYoi0jq72rEKxD2TKlPWIGwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAC9/hhlYfQlVbQiH+Xsd/xkmRZDU5Ywqyctoex6uO9DEAAAAAAOgAAAAAIAACAAAADJa1jbjuYZXU+//ORoRIg4vqEhU8hgxPeQ21C1Q9G7fCAAAAByIOfDa0wr+KrPjHbYK1HNijgKIKv3iIau843TXqsx+EAAAACoklaQa+iYxu26FzVIHPFmG/qYYs/QF17FVayXyhJNQjRYws9rx+un8kFnLXX6ciYn3jAzWlAq96KiBr3vNOwV</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -23960,6 +23960,164 @@ where [refTable].[nombre] = ?</property>
               </outputs>
             </component>
             <component
+              refId="Package\Fact Tables SQL Server Data Flow Task\Categoria key map Lookup 2"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Categoria key map Lookup 2"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [project1].[dim_categoria]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [project1].[dim_categoria]) [refTable]
+where [refTable].[nombre] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="nombre" dataType="DT_WSTR" length="96" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Fact Tables SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Output].Columns[categoria_prod]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Categoria key map Lookup 2.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.seminario.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.seminario.sa]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Categoria key map Lookup 2.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fact Tables SQL Server Data Flow Task\Categoria key map Lookup 2.Inputs[Lookup Input].Columns[categoria_prod]"
+                      cachedDataType="wstr"
+                      cachedLength="96"
+                      cachedName="categoria_prod"
+                      lineageId="Package\Fact Tables SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Output].Columns[categoria_prod]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">nombre</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Categoria key map Lookup 2.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Fact Tables SQL Server Data Flow Task\Categoria key map Lookup 2.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact Tables SQL Server Data Flow Task\Categoria key map Lookup 2.Outputs[Lookup Match Output].Columns[sk_categoria_prod]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Fact Tables SQL Server Data Flow Task\Categoria key map Lookup 2.Outputs[Lookup Match Output].Columns[sk_categoria_prod]"
+                      name="sk_categoria_prod"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">id</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Categoria key map Lookup 2.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Fact Tables SQL Server Data Flow Task\Categoria key map Lookup 2.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Categoria key map Lookup 2.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Fact Tables SQL Server Data Flow Task\Categoria key map Lookup 2.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact Tables SQL Server Data Flow Task\Categoria key map Lookup 2.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fact Tables SQL Server Data Flow Task\Categoria key map Lookup 2.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fact Tables SQL Server Data Flow Task\Categoria key map Lookup 2.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fact Tables SQL Server Data Flow Task\Categoria key map Lookup 2.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Fact Tables SQL Server Data Flow Task\Compras Merge Join 1"
               componentClassID="Microsoft.MergeJoin"
               contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
@@ -25663,25 +25821,160 @@ where [refTable].[nombre] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Fact Tables SQL Server Data Flow Task\Multicast 1"
-              componentClassID="Microsoft.Multicast"
-              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
-              name="Multicast 1">
+              refId="Package\Fact Tables SQL Server Data Flow Task\Marca Key Map Lookup 2"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Marca Key Map Lookup 2"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [project1].[dim_marca]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [project1].[dim_marca]) [refTable]
+where [refTable].[nombre] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="nombre" dataType="DT_STR" length="32" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Fact Tables SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Output].Columns[marca_prod]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Marca Key Map Lookup 2.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.seminario.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.seminario.sa]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
               <inputs>
                 <input
-                  refId="Package\Fact Tables SQL Server Data Flow Task\Multicast 1.Inputs[Multicast Input 1]"
-                  name="Multicast Input 1">
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Marca Key Map Lookup 2.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fact Tables SQL Server Data Flow Task\Marca Key Map Lookup 2.Inputs[Lookup Input].Columns[marca_prod]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="32"
+                      cachedName="marca_prod"
+                      lineageId="Package\Fact Tables SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Output].Columns[marca_prod]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">nombre</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Fact Tables SQL Server Data Flow Task\Multicast 1.Outputs[Multicast Output 1]"
-                  dangling="true"
-                  deleteOutputOnPathDetached="true"
-                  name="Multicast Output 1"
-                  synchronousInputId="Package\Fact Tables SQL Server Data Flow Task\Multicast 1.Inputs[Multicast Input 1]">
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Marca Key Map Lookup 2.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Fact Tables SQL Server Data Flow Task\Marca Key Map Lookup 2.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact Tables SQL Server Data Flow Task\Marca Key Map Lookup 2.Outputs[Lookup Match Output].Columns[sk_marca_prod]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Fact Tables SQL Server Data Flow Task\Marca Key Map Lookup 2.Outputs[Lookup Match Output].Columns[sk_marca_prod]"
+                      name="sk_marca_prod"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">id</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Marca Key Map Lookup 2.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Fact Tables SQL Server Data Flow Task\Marca Key Map Lookup 2.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Marca Key Map Lookup 2.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Fact Tables SQL Server Data Flow Task\Marca Key Map Lookup 2.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact Tables SQL Server Data Flow Task\Marca Key Map Lookup 2.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fact Tables SQL Server Data Flow Task\Marca Key Map Lookup 2.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fact Tables SQL Server Data Flow Task\Marca Key Map Lookup 2.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fact Tables SQL Server Data Flow Task\Marca Key Map Lookup 2.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
                   <externalMetadataColumns />
                 </output>
               </outputs>
@@ -25838,6 +26131,165 @@ where [refTable].[codigo] = ?</property>
                       refId="Package\Fact Tables SQL Server Data Flow Task\Producto Key Map Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Fact Tables SQL Server Data Flow Task\Producto Key Map Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fact Tables SQL Server Data Flow Task\Producto Key Map Lookup 2"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Producto Key Map Lookup 2"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [project1].[dim_producto]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [project1].[dim_producto]) [refTable]
+where [refTable].[codigo] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="codigo" dataType="DT_STR" length="24" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="nombre" dataType="DT_WSTR" length="256" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Fact Tables SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_producto]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Producto Key Map Lookup 2.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.seminario.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.seminario.sa]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Producto Key Map Lookup 2.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fact Tables SQL Server Data Flow Task\Producto Key Map Lookup 2.Inputs[Lookup Input].Columns[cod_producto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="24"
+                      cachedName="cod_producto"
+                      lineageId="Package\Fact Tables SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_producto]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">codigo</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Producto Key Map Lookup 2.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Fact Tables SQL Server Data Flow Task\Producto Key Map Lookup 2.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact Tables SQL Server Data Flow Task\Producto Key Map Lookup 2.Outputs[Lookup Match Output].Columns[sk_producto]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Fact Tables SQL Server Data Flow Task\Producto Key Map Lookup 2.Outputs[Lookup Match Output].Columns[sk_producto]"
+                      name="sk_producto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">id</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Producto Key Map Lookup 2.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Fact Tables SQL Server Data Flow Task\Producto Key Map Lookup 2.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Producto Key Map Lookup 2.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Fact Tables SQL Server Data Flow Task\Producto Key Map Lookup 2.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact Tables SQL Server Data Flow Task\Producto Key Map Lookup 2.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fact Tables SQL Server Data Flow Task\Producto Key Map Lookup 2.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fact Tables SQL Server Data Flow Task\Producto Key Map Lookup 2.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fact Tables SQL Server Data Flow Task\Producto Key Map Lookup 2.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -27385,6 +27837,593 @@ where [refTable].[nombre] = ?</property>
               </outputs>
             </component>
             <component
+              refId="Package\Fact Tables SQL Server Data Flow Task\Required Sort 5"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Required Sort 5"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Required Sort 5.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Required Sort 5.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fact Tables SQL Server Data Flow Task\Required Sort 6"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Required Sort 6"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Required Sort 6.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Required Sort 6.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fact Tables SQL Server Data Flow Task\Required Sort 7"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Required Sort 7"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Required Sort 7.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Required Sort 7.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fact Tables SQL Server Data Flow Task\Required Sort 8"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Required Sort 8"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Required Sort 8.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Required Sort 8.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fact Tables SQL Server Data Flow Task\Required Sort 9"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Required Sort 9"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Required Sort 9.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Required Sort 9.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fact Tables SQL Server Data Flow Task\Tipo Cliente Key Map Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Tipo Cliente Key Map Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [project1].[dim_tipo_cliente]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [project1].[dim_tipo_cliente]) [refTable]
+where [refTable].[tipo] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="tipo" dataType="DT_STR" length="8" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Fact Tables SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Output].Columns[tipo_cliente]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Tipo Cliente Key Map Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.seminario.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.seminario.sa]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Tipo Cliente Key Map Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fact Tables SQL Server Data Flow Task\Tipo Cliente Key Map Lookup.Inputs[Lookup Input].Columns[tipo_cliente]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="tipo_cliente"
+                      lineageId="Package\Fact Tables SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Output].Columns[tipo_cliente]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">tipo</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Tipo Cliente Key Map Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Fact Tables SQL Server Data Flow Task\Tipo Cliente Key Map Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact Tables SQL Server Data Flow Task\Tipo Cliente Key Map Lookup.Outputs[Lookup Match Output].Columns[sk_tipo_cliente]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Fact Tables SQL Server Data Flow Task\Tipo Cliente Key Map Lookup.Outputs[Lookup Match Output].Columns[sk_tipo_cliente]"
+                      name="sk_tipo_cliente"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">id</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Tipo Cliente Key Map Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Fact Tables SQL Server Data Flow Task\Tipo Cliente Key Map Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Tipo Cliente Key Map Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Fact Tables SQL Server Data Flow Task\Tipo Cliente Key Map Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact Tables SQL Server Data Flow Task\Tipo Cliente Key Map Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fact Tables SQL Server Data Flow Task\Tipo Cliente Key Map Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fact Tables SQL Server Data Flow Task\Tipo Cliente Key Map Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fact Tables SQL Server Data Flow Task\Tipo Cliente Key Map Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fact Tables SQL Server Data Flow Task\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Union All.Inputs[Union All Input 1]"
+                  dangling="true"
+                  name="Union All Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fact Tables SQL Server Data Flow Task\Vendedor Key Map Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Vendedor Key Map Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [project1].[dim_vendedor]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [project1].[dim_vendedor]) [refTable]
+where [refTable].[Nombre] = ? and [refTable].[tipo] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="id_codigo" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Nombre" dataType="DT_WSTR" length="96" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="tipo" dataType="DT_STR" length="16" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Fact Tables SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Output].Columns[nombre_vendedor]};#{Package\Fact Tables SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Output].Columns[tipo_vendedor]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Vendedor Key Map Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.seminario.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.seminario.sa]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Vendedor Key Map Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fact Tables SQL Server Data Flow Task\Vendedor Key Map Lookup.Inputs[Lookup Input].Columns[nombre_vendedor]"
+                      cachedDataType="wstr"
+                      cachedLength="96"
+                      cachedName="nombre_vendedor"
+                      lineageId="Package\Fact Tables SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Output].Columns[nombre_vendedor]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Nombre</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Fact Tables SQL Server Data Flow Task\Vendedor Key Map Lookup.Inputs[Lookup Input].Columns[tipo_vendedor]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="16"
+                      cachedName="tipo_vendedor"
+                      lineageId="Package\Fact Tables SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Output].Columns[tipo_vendedor]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">tipo</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Vendedor Key Map Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Fact Tables SQL Server Data Flow Task\Vendedor Key Map Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact Tables SQL Server Data Flow Task\Vendedor Key Map Lookup.Outputs[Lookup Match Output].Columns[sk_vendedor]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Fact Tables SQL Server Data Flow Task\Vendedor Key Map Lookup.Outputs[Lookup Match Output].Columns[sk_vendedor]"
+                      name="sk_vendedor"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">id</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Vendedor Key Map Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Fact Tables SQL Server Data Flow Task\Vendedor Key Map Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Vendedor Key Map Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Fact Tables SQL Server Data Flow Task\Vendedor Key Map Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact Tables SQL Server Data Flow Task\Vendedor Key Map Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fact Tables SQL Server Data Flow Task\Vendedor Key Map Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fact Tables SQL Server Data Flow Task\Vendedor Key Map Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fact Tables SQL Server Data Flow Task\Vendedor Key Map Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fact Tables SQL Server Data Flow Task\Ventas Multicast"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Ventas Multicast">
+              <inputs>
+                <input
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Ventas Multicast.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Ventas Multicast.Outputs[Multicast Output 1]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\Fact Tables SQL Server Data Flow Task\Ventas Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Ventas Multicast.Outputs[Multicast Output 2]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 2"
+                  synchronousInputId="Package\Fact Tables SQL Server Data Flow Task\Ventas Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Ventas Multicast.Outputs[Multicast Output 3]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 3"
+                  synchronousInputId="Package\Fact Tables SQL Server Data Flow Task\Ventas Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Ventas Multicast.Outputs[Multicast Output 4]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 4"
+                  synchronousInputId="Package\Fact Tables SQL Server Data Flow Task\Ventas Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Ventas Multicast.Outputs[Multicast Output 5]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 5"
+                  synchronousInputId="Package\Fact Tables SQL Server Data Flow Task\Ventas Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fact Tables SQL Server Data Flow Task\Ventas Multicast.Outputs[Multicast Output 6]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 6"
+                  synchronousInputId="Package\Fact Tables SQL Server Data Flow Task\Ventas Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Fact Tables SQL Server Data Flow Task\Ventas OLE DB Source"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
@@ -27565,6 +28604,15 @@ where [refTable].[nombre] = ?</property>
                       lineageId="Package\Fact Tables SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Output].Columns[unidades]"
                       name="unidades"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fact Tables SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Output].Columns[id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fact Tables SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[id]"
+                      lineageId="Package\Fact Tables SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Output].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -27628,6 +28676,10 @@ where [refTable].[nombre] = ?</property>
                       refId="Package\Fact Tables SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[unidades]"
                       dataType="i4"
                       name="unidades" />
+                    <externalMetadataColumn
+                      refId="Package\Fact Tables SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -27635,6 +28687,18 @@ where [refTable].[nombre] = ?</property>
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact Tables SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fact Tables SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fact Tables SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fact Tables SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
                     <outputColumn
                       refId="Package\Fact Tables SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Error Output].Columns[categoria_prod]"
                       dataType="wstr"
@@ -27708,17 +28772,10 @@ where [refTable].[nombre] = ?</property>
                       lineageId="Package\Fact Tables SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Error Output].Columns[unidades]"
                       name="unidades" />
                     <outputColumn
-                      refId="Package\Fact Tables SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\Fact Tables SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Error Output].Columns[id]"
                       dataType="i4"
-                      lineageId="Package\Fact Tables SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Fact Tables SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Fact Tables SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
+                      lineageId="Package\Fact Tables SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Error Output].Columns[id]"
+                      name="id" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -27752,6 +28809,11 @@ where [refTable].[nombre] = ?</property>
               name="Lookup No Match Output"
               startId="Package\Fact Tables SQL Server Data Flow Task\Fact Compras Lookup.Outputs[Lookup No Match Output]" />
             <path
+              refId="Package\Fact Tables SQL Server Data Flow Task.Paths[Merge Join Output]"
+              endId="Package\Fact Tables SQL Server Data Flow Task\Compras Merge Join 2.Inputs[Merge Join Left Input]"
+              name="Merge Join Output"
+              startId="Package\Fact Tables SQL Server Data Flow Task\Compras Merge Join 1.Outputs[Merge Join Output]" />
+            <path
               refId="Package\Fact Tables SQL Server Data Flow Task.Paths[Merge Join Output1]"
               endId="Package\Fact Tables SQL Server Data Flow Task\Compras Merge Join 3.Inputs[Merge Join Left Input]"
               name="Merge Join Output"
@@ -27762,25 +28824,45 @@ where [refTable].[nombre] = ?</property>
               name="Merge Join Output"
               startId="Package\Fact Tables SQL Server Data Flow Task\Compras Merge Join 3.Outputs[Merge Join Output]" />
             <path
-              refId="Package\Fact Tables SQL Server Data Flow Task.Paths[Merge Join Output]"
-              endId="Package\Fact Tables SQL Server Data Flow Task\Compras Merge Join 2.Inputs[Merge Join Left Input]"
-              name="Merge Join Output"
-              startId="Package\Fact Tables SQL Server Data Flow Task\Compras Merge Join 1.Outputs[Merge Join Output]" />
-            <path
               refId="Package\Fact Tables SQL Server Data Flow Task.Paths[Multicast Output 1]"
               endId="Package\Fact Tables SQL Server Data Flow Task\Proveedor Key map Lookup.Inputs[Lookup Input]"
               name="Multicast Output 1"
               startId="Package\Fact Tables SQL Server Data Flow Task\Compras Multicast.Outputs[Multicast Output 1]" />
+            <path
+              refId="Package\Fact Tables SQL Server Data Flow Task.Paths[Multicast Output 11]"
+              endId="Package\Fact Tables SQL Server Data Flow Task\Categoria key map Lookup 2.Inputs[Lookup Input]"
+              name="Multicast Output 1"
+              startId="Package\Fact Tables SQL Server Data Flow Task\Ventas Multicast.Outputs[Multicast Output 1]" />
+            <path
+              refId="Package\Fact Tables SQL Server Data Flow Task.Paths[Multicast Output 2]"
+              endId="Package\Fact Tables SQL Server Data Flow Task\Marca Key Map Lookup 2.Inputs[Lookup Input]"
+              name="Multicast Output 2"
+              startId="Package\Fact Tables SQL Server Data Flow Task\Ventas Multicast.Outputs[Multicast Output 2]" />
             <path
               refId="Package\Fact Tables SQL Server Data Flow Task.Paths[Multicast Output 3]"
               endId="Package\Fact Tables SQL Server Data Flow Task\Marca Key Map Lookup.Inputs[Lookup Input]"
               name="Multicast Output 3"
               startId="Package\Fact Tables SQL Server Data Flow Task\Compras Multicast.Outputs[Multicast Output 3]" />
             <path
+              refId="Package\Fact Tables SQL Server Data Flow Task.Paths[Multicast Output 31]"
+              endId="Package\Fact Tables SQL Server Data Flow Task\Producto Key Map Lookup 2.Inputs[Lookup Input]"
+              name="Multicast Output 3"
+              startId="Package\Fact Tables SQL Server Data Flow Task\Ventas Multicast.Outputs[Multicast Output 3]" />
+            <path
               refId="Package\Fact Tables SQL Server Data Flow Task.Paths[Multicast Output 4]"
               endId="Package\Fact Tables SQL Server Data Flow Task\Producto Key Map Lookup.Inputs[Lookup Input]"
               name="Multicast Output 4"
               startId="Package\Fact Tables SQL Server Data Flow Task\Compras Multicast.Outputs[Multicast Output 4]" />
+            <path
+              refId="Package\Fact Tables SQL Server Data Flow Task.Paths[Multicast Output 41]"
+              endId="Package\Fact Tables SQL Server Data Flow Task\Vendedor Key Map Lookup.Inputs[Lookup Input]"
+              name="Multicast Output 4"
+              startId="Package\Fact Tables SQL Server Data Flow Task\Ventas Multicast.Outputs[Multicast Output 4]" />
+            <path
+              refId="Package\Fact Tables SQL Server Data Flow Task.Paths[Multicast Output 51]"
+              endId="Package\Fact Tables SQL Server Data Flow Task\Tipo Cliente Key Map Lookup.Inputs[Lookup Input]"
+              name="Multicast Output 5"
+              startId="Package\Fact Tables SQL Server Data Flow Task\Ventas Multicast.Outputs[Multicast Output 5]" />
             <path
               refId="Package\Fact Tables SQL Server Data Flow Task.Paths[Multicast Output 5]"
               endId="Package\Fact Tables SQL Server Data Flow Task\Categoria key map Lookup.Inputs[Lookup Input]"
@@ -27788,7 +28870,7 @@ where [refTable].[nombre] = ?</property>
               startId="Package\Fact Tables SQL Server Data Flow Task\Compras Multicast.Outputs[Multicast Output 5]" />
             <path
               refId="Package\Fact Tables SQL Server Data Flow Task.Paths[OLE DB Source Output]"
-              endId="Package\Fact Tables SQL Server Data Flow Task\Multicast 1.Inputs[Multicast Input 1]"
+              endId="Package\Fact Tables SQL Server Data Flow Task\Ventas Multicast.Inputs[Multicast Input 1]"
               name="OLE DB Source Output"
               startId="Package\Fact Tables SQL Server Data Flow Task\Ventas OLE DB Source.Outputs[OLE DB Source Output]" />
             <path
@@ -27797,20 +28879,20 @@ where [refTable].[nombre] = ?</property>
               name="OLE DB Source Output"
               startId="Package\Fact Tables SQL Server Data Flow Task\Compras OLE DB Source.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\Fact Tables SQL Server Data Flow Task.Paths[Sort Output]"
-              endId="Package\Fact Tables SQL Server Data Flow Task\Compras Merge Join 3.Inputs[Merge Join Right Input]"
+              refId="Package\Fact Tables SQL Server Data Flow Task.Paths[Sort Output2]"
+              endId="Package\Fact Tables SQL Server Data Flow Task\Compras Merge Join 1.Inputs[Merge Join Right Input]"
               name="Sort Output"
-              startId="Package\Fact Tables SQL Server Data Flow Task\Required Sort 4.Outputs[Sort Output]" />
+              startId="Package\Fact Tables SQL Server Data Flow Task\Required Sort 2.Outputs[Sort Output]" />
             <path
               refId="Package\Fact Tables SQL Server Data Flow Task.Paths[Sort Output1]"
               endId="Package\Fact Tables SQL Server Data Flow Task\Compras Merge Join 1.Inputs[Merge Join Left Input]"
               name="Sort Output"
               startId="Package\Fact Tables SQL Server Data Flow Task\Required Sort 1.Outputs[Sort Output]" />
             <path
-              refId="Package\Fact Tables SQL Server Data Flow Task.Paths[Sort Output2]"
-              endId="Package\Fact Tables SQL Server Data Flow Task\Compras Merge Join 1.Inputs[Merge Join Right Input]"
+              refId="Package\Fact Tables SQL Server Data Flow Task.Paths[Sort Output]"
+              endId="Package\Fact Tables SQL Server Data Flow Task\Compras Merge Join 3.Inputs[Merge Join Right Input]"
               name="Sort Output"
-              startId="Package\Fact Tables SQL Server Data Flow Task\Required Sort 2.Outputs[Sort Output]" />
+              startId="Package\Fact Tables SQL Server Data Flow Task\Required Sort 4.Outputs[Sort Output]" />
             <path
               refId="Package\Fact Tables SQL Server Data Flow Task.Paths[Sort Output3]"
               endId="Package\Fact Tables SQL Server Data Flow Task\Compras Merge Join 2.Inputs[Merge Join Right Input]"
@@ -28508,30 +29590,6 @@ where [refTable].[nombre] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Union All Output 1]"
-          TopLeft="1528.11513094327,1812.69090700348">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,22.5818183133094"
-              Start="0,0"
-              End="0,15.0818183133094">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.0818183133094" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Dimensions SQL Server Data Flow Task.Paths[Union All Output 17]"
           TopLeft="1864.81551424238,208.866665503515">
           <EdgeLayout.Curve>
@@ -28700,6 +29758,54 @@ where [refTable].[nombre] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Union All Output 1]"
+          TopLeft="1528.11513094327,1812.69090700348">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,22.5818183133094"
+              Start="0,0"
+              End="0,15.0818183133094">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.0818183133094" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Output 02]"
+          TopLeft="547.738080063155,624.139284592353">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-32.3259769866921,0"
+              Start="0,0"
+              End="-24.8259769866921,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-24.8259769866921,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Dimensions SQL Server Data Flow Task.Paths[Output 01]"
           TopLeft="1343.45829965154,367.249997735471">
           <EdgeLayout.Curve>
@@ -28737,30 +29843,6 @@ where [refTable].[nombre] = ?</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,20.2166654628346" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Output 02]"
-          TopLeft="547.738080063155,624.139284592353">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-32.3259769866921,0"
-              Start="0,0"
-              End="-24.8259769866921,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-24.8259769866921,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -28928,30 +30010,6 @@ where [refTable].[nombre] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Multicast Output 8]"
-          TopLeft="1209.19999617537,626.966664988233">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="37.3333205845619,0"
-              Start="0,0"
-              End="29.8333205845619,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="29.8333205845619,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Dimensions SQL Server Data Flow Task.Paths[Multicast Output 81]"
           TopLeft="1950.5142332622,652.133332381116">
           <EdgeLayout.Curve>
@@ -28988,6 +30046,54 @@ where [refTable].[nombre] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Multicast Output 8]"
+          TopLeft="1209.19999617537,626.966664988233">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="37.3333205845619,0"
+              Start="0,0"
+              End="29.8333205845619,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="29.8333205845619,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Multicast Output 71]"
+          TopLeft="1979.99994754791,634.455554049887">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="142.16667518103,0"
+              Start="0,0"
+              End="134.66667518103,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="134.66667518103,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Dimensions SQL Server Data Flow Task.Paths[Multicast Output 7]"
           TopLeft="1048.5333295087,644.933331585593">
           <EdgeLayout.Curve>
@@ -29013,30 +30119,6 @@ where [refTable].[nombre] = ?</property>
                     Point3="-126.024279627474,13.1063634020294" />
                   <mssgle:LineSegment
                     End="-126.024279627474,26.8636354793563" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Multicast Output 71]"
-          TopLeft="1979.99994754791,634.455554049887">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="142.16667518103,0"
-              Start="0,0"
-              End="134.66667518103,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="134.66667518103,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -29420,122 +30502,38 @@ where [refTable].[nombre] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Lookup No Match Output2]"
-          TopLeft="1519.94996892487,1325.06666450911">
+          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Lookup No Match Output10]"
+          TopLeft="922.509049881229,720.896967064949">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,28.1999998734402"
+              EndConnector="-194.291544928701,47.9966334651924"
               Start="0,0"
-              End="0,20.6999998734402">
+              End="-194.291544928701,40.4966334651924">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.6999998734402" />
+                    End="0,19.9983167325962" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.9983167325962"
+                    Point2="0,23.9983167325962"
+                    Point3="-4,23.9983167325962" />
+                  <mssgle:LineSegment
+                    End="-190.291544928701,23.9983167325962" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-190.291544928701,23.9983167325962"
+                    Point2="-194.291544928701,23.9983167325962"
+                    Point3="-194.291544928701,27.9983167325962" />
+                  <mssgle:LineSegment
+                    End="-194.291544928701,40.4966334651924" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-55.80638671875,4.5453124367201,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Lookup No Match Output3]"
-          TopLeft="1530.57270883254,1941.35757387287">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,24.4606060222502"
-              Start="0,0"
-              End="0,16.9606060222502">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.9606060222502" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-55.80638671875,2.6756155111251,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Lookup No Match Output]"
-          TopLeft="2489.592542154,635.199999196441">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="33.7740893169466,0"
-              Start="0,0"
-              End="26.2740893169466,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="26.2740893169466,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-42.6693420602767,5,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Lookup No Match Output1]"
-          TopLeft="1503.86664526694,993.066664509111">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,30.6666666425601"
-              Start="0,0"
-              End="0,23.1666666425601">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.1666666425601" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-55.80638671875,5.77864582128005,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Lookup No Match Output4]"
-          TopLeft="2144.54541032213,1115.1227251646">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,49.9248919286526"
-              Start="0,0"
-              End="0,42.4248919286526">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,42.4248919286526" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-55.80638671875,15.4077584643263,111.6127734375,11.609375"
+              BoundingBox="-152.9521591831,28.9983167325962,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -29560,6 +30558,54 @@ where [refTable].[nombre] = ?</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-41.6008369304954,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Lookup No Match Output8]"
+          TopLeft="2482.51846438683,501.337035868528">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="28.8981539028023,0"
+              Start="0,0"
+              End="21.3981539028023,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="21.3981539028023,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-45.1073097673489,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Lookup No Match Output7]"
+          TopLeft="1533.03330760814,2253.09999724279">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.8166670810019"
+              Start="0,0"
+              End="0,22.3166670810019">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.3166670810019" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,5.35364604050095,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -29612,86 +30658,122 @@ where [refTable].[nombre] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Lookup No Match Output10]"
-          TopLeft="922.509049881229,720.896967064949">
+          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Lookup No Match Output4]"
+          TopLeft="2144.54541032213,1115.1227251646">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-194.291544928701,47.9966334651924"
+              EndConnector="0,49.9248919286526"
               Start="0,0"
-              End="-194.291544928701,40.4966334651924">
+              End="0,42.4248919286526">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.9983167325962" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.9983167325962"
-                    Point2="0,23.9983167325962"
-                    Point3="-4,23.9983167325962" />
-                  <mssgle:LineSegment
-                    End="-190.291544928701,23.9983167325962" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-190.291544928701,23.9983167325962"
-                    Point2="-194.291544928701,23.9983167325962"
-                    Point3="-194.291544928701,27.9983167325962" />
-                  <mssgle:LineSegment
-                    End="-194.291544928701,40.4966334651924" />
+                    End="0,42.4248919286526" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-152.9521591831,28.9983167325962,111.6127734375,11.609375"
+              BoundingBox="-55.80638671875,15.4077584643263,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Lookup No Match Output8]"
-          TopLeft="2482.51846438683,501.337035868528">
+          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Lookup No Match Output3]"
+          TopLeft="1530.57270883254,1941.35757387287">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="28.8981539028023,0"
+              EndConnector="0,24.4606060222502"
               Start="0,0"
-              End="21.3981539028023,0">
+              End="0,16.9606060222502">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="21.3981539028023,0" />
+                    End="0,16.9606060222502" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-45.1073097673489,5,111.6127734375,11.609375"
+              BoundingBox="-55.80638671875,2.6756155111251,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Lookup No Match Output7]"
-          TopLeft="1533.03330760814,2253.09999724279">
+          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Lookup No Match Output2]"
+          TopLeft="1519.94996892487,1325.06666450911">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,29.8166670810019"
+              EndConnector="0,28.1999998734402"
               Start="0,0"
-              End="0,22.3166670810019">
+              End="0,20.6999998734402">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.3166670810019" />
+                    End="0,20.6999998734402" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-55.80638671875,5.35364604050095,111.6127734375,11.609375"
+              BoundingBox="-55.80638671875,4.5453124367201,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Lookup No Match Output1]"
+          TopLeft="1503.86664526694,993.066664509111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.6666666425601"
+              Start="0,0"
+              End="0,23.1666666425601">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.1666666425601" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,5.77864582128005,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Lookup No Match Output]"
+          TopLeft="2489.592542154,635.199999196441">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="33.7740893169466,0"
+              Start="0,0"
+              End="26.2740893169466,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="26.2740893169466,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-42.6693420602767,5,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -29768,78 +30850,6 @@ where [refTable].[nombre] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Derived Column Output1]"
-          TopLeft="1853.26105174585,565.227788472644">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,45.305543908472"
-              Start="0,0"
-              End="0,37.805543908472">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,37.805543908472" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Derived Column Output2]"
-          TopLeft="1085.01665808401,296.577776905916">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,28.488888483092"
-              Start="0,0"
-              End="0,20.988888483092">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.988888483092" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Derived Column Output]"
-          TopLeft="1112.4499772571,573.050010445763">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,30.28332113983"
-              Start="0,0"
-              End="0,22.78332113983">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.78332113983" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Dimensions SQL Server Data Flow Task.Paths[Derived Column Output6]"
           TopLeft="833.199997268121,141.199999385277">
           <EdgeLayout.Curve>
@@ -29876,19 +30886,31 @@ where [refTable].[nombre] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Derived Column Output3]"
-          TopLeft="1866.87383820763,287.319695569131">
+          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Derived Column Output5]"
+          TopLeft="2075.14280133446,121.504761293483">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,24.430303368665"
+              EndConnector="-162.90949263357,45.7619042100319"
               Start="0,0"
-              End="0,16.930303368665">
+              End="-162.90949263357,38.2619042100319">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.930303368665" />
+                    End="0,26.0984336414975" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.0984336414975"
+                    Point2="0,30.0984336414975"
+                    Point3="-4,30.0984336414975" />
+                  <mssgle:LineSegment
+                    End="-158.90949263357,30.0984336414975" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-158.90949263357,30.0984336414975"
+                    Point2="-162.90949263357,30.0984336414975"
+                    Point3="-162.90949263357,34.0984336414975" />
+                  <mssgle:LineSegment
+                    End="-162.90949263357,38.2619042100319" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -29936,31 +30958,91 @@ where [refTable].[nombre] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Derived Column Output5]"
-          TopLeft="2075.14280133446,121.504761293483">
+          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Derived Column Output3]"
+          TopLeft="1866.87383820763,287.319695569131">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-162.90949263357,45.7619042100319"
+              EndConnector="0,24.430303368665"
               Start="0,0"
-              End="-162.90949263357,38.2619042100319">
+              End="0,16.930303368665">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.0984336414975" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26.0984336414975"
-                    Point2="0,30.0984336414975"
-                    Point3="-4,30.0984336414975" />
+                    End="0,16.930303368665" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Derived Column Output2]"
+          TopLeft="1085.01665808401,296.577776905916">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28.488888483092"
+              Start="0,0"
+              End="0,20.988888483092">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-158.90949263357,30.0984336414975" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-158.90949263357,30.0984336414975"
-                    Point2="-162.90949263357,30.0984336414975"
-                    Point3="-162.90949263357,34.0984336414975" />
+                    End="0,20.988888483092" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Derived Column Output1]"
+          TopLeft="1853.26105174585,565.227788472644">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45.305543908472"
+              Start="0,0"
+              End="0,37.805543908472">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-162.90949263357,38.2619042100319" />
+                    End="0,37.805543908472" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="1112.4499772571,573.050010445763">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.28332113983"
+              Start="0,0"
+              End="0,22.78332113983">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.78332113983" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -30110,30 +31192,6 @@ where [refTable].[nombre] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Data Conversion Error Output]"
-          TopLeft="1188.41110235392,346.158331562239">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="50.7971979122888,0"
-              Start="0,0"
-              End="43.2971979122888,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="43.2971979122888,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-44.4377877626056,5,132.1727734375,11.43359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Dimensions SQL Server Data Flow Task.Paths[Data Conversion Error Output1]"
           TopLeft="1773.74995663141,336.141665822177">
           <EdgeLayout.Curve>
@@ -30158,6 +31216,30 @@ where [refTable].[nombre] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Data Conversion Error Output]"
+          TopLeft="1188.41110235392,346.158331562239">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="50.7971979122888,0"
+              Start="0,0"
+              End="43.2971979122888,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="43.2971979122888,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-44.4377877626056,5,132.1727734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Dimensions SQL Server Data Flow Task.Paths[Aggregate Output 118]"
           TopLeft="791.0277483266,621.590474954143">
           <EdgeLayout.Curve>
@@ -30171,270 +31253,6 @@ where [refTable].[nombre] = ?</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="-23.7896682634446,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Aggregate Output 18]"
-          TopLeft="1741.20736089463,1443.68888482288">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-190.081468257162,29.4962979248417"
-              Start="0,0"
-              End="-190.081468257162,21.9962979248417">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,13.5276078053386" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,13.5276078053386"
-                    Point2="0,17.5276078053386"
-                    Point3="-4,17.5276078053386" />
-                  <mssgle:LineSegment
-                    End="-186.081468257162,17.5276078053386" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-186.081468257162,17.5276078053386"
-                    Point2="-190.081468257162,17.5276078053386"
-                    Point3="-190.081468257162,21.5276078053386" />
-                  <mssgle:LineSegment
-                    End="-190.081468257162,21.9962979248417" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Aggregate Output 11]"
-          TopLeft="2296.56662272894,637.188887507772">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="33.0259194250634,0"
-              Start="0,0"
-              End="25.5259194250634,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="25.5259194250634,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Aggregate Output 12]"
-          TopLeft="2270.0222065898,775.614813174215">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="29.0148017119118,0"
-              Start="0,0"
-              End="21.5148017119118,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="21.5148017119118,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Aggregate Output 13]"
-          TopLeft="1515.39997377396,1260.26666454527">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,23.1999999638404"
-              Start="0,0"
-              End="0,15.6999999638404">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.6999999638404" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Aggregate Output 14]"
-          TopLeft="1845.52009648,1735.15735095188">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-295.2776941754,35.9335560516001"
-              Start="0,0"
-              End="-295.2776941754,28.4335560516001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.3355489056376" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.3355489056376"
-                    Point2="0,21.3355489056376"
-                    Point3="-4,21.3355489056376" />
-                  <mssgle:LineSegment
-                    End="-291.2776941754,21.3355489056376" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-291.2776941754,21.3355489056376"
-                    Point2="-295.2776941754,21.3355489056376"
-                    Point3="-295.2776941754,25.3355489056376" />
-                  <mssgle:LineSegment
-                    End="-295.2776941754,28.4335560516001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Aggregate Output 15]"
-          TopLeft="1160.14706051743,1733.73851980682">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="342.095341787167,37.3523871966599"
-              Start="0,0"
-              End="342.095341787167,29.8523871966599">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.1779798980168" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.1779798980168"
-                    Point2="0,22.1779798980168"
-                    Point3="4,22.1779798980168" />
-                  <mssgle:LineSegment
-                    End="338.095341787167,22.1779798980168" />
-                  <mssgle:CubicBezierSegment
-                    Point1="338.095341787167,22.1779798980168"
-                    Point2="342.095341787167,22.1779798980168"
-                    Point3="342.095341787167,26.1779798980168" />
-                  <mssgle:LineSegment
-                    End="342.095341787167,29.8523871966599" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Aggregate Output 16]"
-          TopLeft="1529.54071286545,1579.45184927377">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,25.9555557162676"
-              Start="0,0"
-              End="0,18.4555557162676">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.4555557162676" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Aggregate Output 17]"
-          TopLeft="1271.29627607027,1437.73332931152">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="227.562949900533,35.4518534362012"
-              Start="0,0"
-              End="227.562949900533,27.9518534362012">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.0665821380503" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.0665821380503"
-                    Point2="0,21.0665821380503"
-                    Point3="4,21.0665821380503" />
-                  <mssgle:LineSegment
-                    End="223.562949900533,21.0665821380503" />
-                  <mssgle:CubicBezierSegment
-                    Point1="223.562949900533,21.0665821380503"
-                    Point2="227.562949900533,21.0665821380503"
-                    Point3="227.562949900533,25.0665821380503" />
-                  <mssgle:LineSegment
-                    End="227.562949900533,27.9518534362012" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Aggregate Output 19]"
-          TopLeft="1529.63028386575,1876.87272531679">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,22.8848485560738"
-              Start="0,0"
-              End="0,15.3848485560738">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.3848485560738" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -30482,151 +31300,19 @@ where [refTable].[nombre] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Aggregate Output 110]"
-          TopLeft="2294.04434776627,501.96203608323">
+          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Aggregate Output 116]"
+          TopLeft="1530.59163553462,2183.34999722019">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="40.4741166205677,0"
+              EndConnector="0,28.1500000226006"
               Start="0,0"
-              End="32.9741166205677,0">
+              End="0,20.6500000226006">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="32.9741166205677,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Aggregate Output 111]"
-          TopLeft="1502.17140652126,928.647616803968">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,22.8190477051431"
-              Start="0,0"
-              End="0,15.3190477051431">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.3190477051431" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Aggregate Output 112]"
-          TopLeft="1624.73327277667,1127.9999960947">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-88.5999654872576,26.0666684324874"
-              Start="0,0"
-              End="-88.5999654872576,18.5666684324874">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,11.4881563890119" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,11.4881563890119"
-                    Point2="0,15.4881563890119"
-                    Point3="-4,15.4881563890119" />
-                  <mssgle:LineSegment
-                    End="-84.5999654872576,15.4881563890119" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-84.5999654872576,15.4881563890119"
-                    Point2="-88.5999654872576,15.4881563890119"
-                    Point3="-88.5999654872576,19.4881563890119" />
-                  <mssgle:LineSegment
-                    End="-88.5999654872576,18.5666684324874" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Aggregate Output 113]"
-          TopLeft="1387.03330023206,1130.73332968718">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="97.3666737240192,23.3333348400099"
-              Start="0,0"
-              End="97.3666737240192,15.8333348400099">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,9.86407856513209" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,9.86407856513209"
-                    Point2="0,13.8640785651321"
-                    Point3="4,13.8640785651321" />
-                  <mssgle:LineSegment
-                    End="93.3666737240192,13.8640785651321" />
-                  <mssgle:CubicBezierSegment
-                    Point1="93.3666737240192,13.8640785651321"
-                    Point2="97.3666737240192,13.8640785651321"
-                    Point3="97.3666737240192,17.8640785651321" />
-                  <mssgle:LineSegment
-                    End="97.3666737240192,15.8333348400099" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Aggregate Output 114]"
-          TopLeft="1348.13331675993,650.599998390873">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="119.933321404129,76.133332887359"
-              Start="0,0"
-              End="119.933321404129,68.633332887359">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,41.2185855937042" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,41.2185855937042"
-                    Point2="0,45.2185855937042"
-                    Point3="4,45.2185855937042" />
-                  <mssgle:LineSegment
-                    End="115.933321404129,45.2185855937042" />
-                  <mssgle:CubicBezierSegment
-                    Point1="115.933321404129,45.2185855937042"
-                    Point2="119.933321404129,45.2185855937042"
-                    Point3="119.933321404129,49.2185855937042" />
-                  <mssgle:LineSegment
-                    End="119.933321404129,68.633332887359" />
+                    End="0,20.6500000226006" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -30674,19 +31360,415 @@ where [refTable].[nombre] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Aggregate Output 116]"
-          TopLeft="1530.59163553462,2183.34999722019">
+          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Aggregate Output 114]"
+          TopLeft="1348.13331675993,650.599998390873">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,28.1500000226006"
+              EndConnector="119.933321404129,76.133332887359"
               Start="0,0"
-              End="0,20.6500000226006">
+              End="119.933321404129,68.633332887359">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.6500000226006" />
+                    End="0,41.2185855937042" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41.2185855937042"
+                    Point2="0,45.2185855937042"
+                    Point3="4,45.2185855937042" />
+                  <mssgle:LineSegment
+                    End="115.933321404129,45.2185855937042" />
+                  <mssgle:CubicBezierSegment
+                    Point1="115.933321404129,45.2185855937042"
+                    Point2="119.933321404129,45.2185855937042"
+                    Point3="119.933321404129,49.2185855937042" />
+                  <mssgle:LineSegment
+                    End="119.933321404129,68.633332887359" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Aggregate Output 113]"
+          TopLeft="1387.03330023206,1130.73332968718">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="97.3666737240192,23.3333348400099"
+              Start="0,0"
+              End="97.3666737240192,15.8333348400099">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.86407856513209" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.86407856513209"
+                    Point2="0,13.8640785651321"
+                    Point3="4,13.8640785651321" />
+                  <mssgle:LineSegment
+                    End="93.3666737240192,13.8640785651321" />
+                  <mssgle:CubicBezierSegment
+                    Point1="93.3666737240192,13.8640785651321"
+                    Point2="97.3666737240192,13.8640785651321"
+                    Point3="97.3666737240192,17.8640785651321" />
+                  <mssgle:LineSegment
+                    End="97.3666737240192,15.8333348400099" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Aggregate Output 112]"
+          TopLeft="1624.73327277667,1127.9999960947">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-88.5999654872576,26.0666684324874"
+              Start="0,0"
+              End="-88.5999654872576,18.5666684324874">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.4881563890119" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.4881563890119"
+                    Point2="0,15.4881563890119"
+                    Point3="-4,15.4881563890119" />
+                  <mssgle:LineSegment
+                    End="-84.5999654872576,15.4881563890119" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-84.5999654872576,15.4881563890119"
+                    Point2="-88.5999654872576,15.4881563890119"
+                    Point3="-88.5999654872576,19.4881563890119" />
+                  <mssgle:LineSegment
+                    End="-88.5999654872576,18.5666684324874" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Aggregate Output 111]"
+          TopLeft="1502.17140652126,928.647616803968">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,22.8190477051431"
+              Start="0,0"
+              End="0,15.3190477051431">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.3190477051431" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Aggregate Output 110]"
+          TopLeft="2294.04434776627,501.96203608323">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="40.4741166205677,0"
+              Start="0,0"
+              End="32.9741166205677,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="32.9741166205677,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Aggregate Output 19]"
+          TopLeft="1529.63028386575,1876.87272531679">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,22.8848485560738"
+              Start="0,0"
+              End="0,15.3848485560738">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.3848485560738" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Aggregate Output 18]"
+          TopLeft="1741.20736089463,1443.68888482288">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-190.081468257162,29.4962979248417"
+              Start="0,0"
+              End="-190.081468257162,21.9962979248417">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.5276078053386" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.5276078053386"
+                    Point2="0,17.5276078053386"
+                    Point3="-4,17.5276078053386" />
+                  <mssgle:LineSegment
+                    End="-186.081468257162,17.5276078053386" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-186.081468257162,17.5276078053386"
+                    Point2="-190.081468257162,17.5276078053386"
+                    Point3="-190.081468257162,21.5276078053386" />
+                  <mssgle:LineSegment
+                    End="-190.081468257162,21.9962979248417" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Aggregate Output 17]"
+          TopLeft="1271.29627607027,1437.73332931152">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="227.562949900533,35.4518534362012"
+              Start="0,0"
+              End="227.562949900533,27.9518534362012">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.0665821380503" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.0665821380503"
+                    Point2="0,21.0665821380503"
+                    Point3="4,21.0665821380503" />
+                  <mssgle:LineSegment
+                    End="223.562949900533,21.0665821380503" />
+                  <mssgle:CubicBezierSegment
+                    Point1="223.562949900533,21.0665821380503"
+                    Point2="227.562949900533,21.0665821380503"
+                    Point3="227.562949900533,25.0665821380503" />
+                  <mssgle:LineSegment
+                    End="227.562949900533,27.9518534362012" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Aggregate Output 16]"
+          TopLeft="1529.54071286545,1579.45184927377">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25.9555557162676"
+              Start="0,0"
+              End="0,18.4555557162676">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.4555557162676" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Aggregate Output 15]"
+          TopLeft="1160.14706051743,1733.73851980682">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="342.095341787167,37.3523871966599"
+              Start="0,0"
+              End="342.095341787167,29.8523871966599">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.1779798980168" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.1779798980168"
+                    Point2="0,22.1779798980168"
+                    Point3="4,22.1779798980168" />
+                  <mssgle:LineSegment
+                    End="338.095341787167,22.1779798980168" />
+                  <mssgle:CubicBezierSegment
+                    Point1="338.095341787167,22.1779798980168"
+                    Point2="342.095341787167,22.1779798980168"
+                    Point3="342.095341787167,26.1779798980168" />
+                  <mssgle:LineSegment
+                    End="342.095341787167,29.8523871966599" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Aggregate Output 14]"
+          TopLeft="1845.52009648,1735.15735095188">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-295.2776941754,35.9335560516001"
+              Start="0,0"
+              End="-295.2776941754,28.4335560516001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.3355489056376" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.3355489056376"
+                    Point2="0,21.3355489056376"
+                    Point3="-4,21.3355489056376" />
+                  <mssgle:LineSegment
+                    End="-291.2776941754,21.3355489056376" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-291.2776941754,21.3355489056376"
+                    Point2="-295.2776941754,21.3355489056376"
+                    Point3="-295.2776941754,25.3355489056376" />
+                  <mssgle:LineSegment
+                    End="-295.2776941754,28.4335560516001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Aggregate Output 13]"
+          TopLeft="1515.39997377396,1260.26666454527">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23.1999999638404"
+              Start="0,0"
+              End="0,15.6999999638404">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.6999999638404" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Aggregate Output 12]"
+          TopLeft="2270.0222065898,775.614813174215">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="29.0148017119118,0"
+              Start="0,0"
+              End="21.5148017119118,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="21.5148017119118,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dimensions SQL Server Data Flow Task.Paths[Aggregate Output 11]"
+          TopLeft="2296.56662272894,637.188887507772">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="33.0259194250634,0"
+              Start="0,0"
+              End="25.5259194250634,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="25.5259194250634,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -31138,13 +32220,13 @@ where [refTable].[nombre] = ?</property>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="128,41.6"
-          Id="Package\Fact Tables SQL Server Data Flow Task\Multicast 1"
-          TopLeft="853.538449952237,187.999997586012" />
+          Size="154.4,41.6"
+          Id="Package\Fact Tables SQL Server Data Flow Task\Ventas Multicast"
+          TopLeft="1668.09397378764,155.370368113746" />
         <NodeLayout
           Size="183.2,41.6"
           Id="Package\Fact Tables SQL Server Data Flow Task\Compras Merge Join 2"
-          TopLeft="276.399994814396,470.999996349215" />
+          TopLeft="275.566661526594,470.999996349215" />
         <NodeLayout
           Size="151.2,41.6"
           Id="Package\Fact Tables SQL Server Data Flow Task\Required Sort 2"
@@ -31156,7 +32238,7 @@ where [refTable].[nombre] = ?</property>
         <NodeLayout
           Size="183.2,41.6"
           Id="Package\Fact Tables SQL Server Data Flow Task\Compras Merge Join 1"
-          TopLeft="109.499990848204,404.133331838714" />
+          TopLeft="110.333324136006,404.133331838714" />
         <NodeLayout
           Size="207.2,41.6"
           Id="Package\Fact Tables SQL Server Data Flow Task\Proveedor Key map Lookup"
@@ -31172,7 +32254,7 @@ where [refTable].[nombre] = ?</property>
         <NodeLayout
           Size="151.2,41.6"
           Id="Package\Fact Tables SQL Server Data Flow Task\Required Sort 1"
-          TopLeft="18.7666623411909,319.333331841893" />
+          TopLeft="18.7666623411909,318.466665181253" />
         <NodeLayout
           Size="239.2,41.6"
           Id="Package\Fact Tables SQL Server Data Flow Task\Fact Compras OLE DB Destination"
@@ -31180,7 +32262,7 @@ where [refTable].[nombre] = ?</property>
         <NodeLayout
           Size="187.2,41.6"
           Id="Package\Fact Tables SQL Server Data Flow Task\Ventas OLE DB Source"
-          TopLeft="877.538449594609,69.9999993443489" />
+          TopLeft="1654.53842090987,90.9999992539485" />
         <NodeLayout
           Size="188,41.6"
           Id="Package\Fact Tables SQL Server Data Flow Task\Marca Key Map Lookup"
@@ -31207,9 +32289,9 @@ where [refTable].[nombre] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-341.931792632736,65.4000001857678"
+              EndConnector="-341.931792632736,65.400000185768"
               Start="0,0"
-              End="-341.931792632736,57.9000001857678">
+              End="-341.931792632736,57.900000185768">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -31226,7 +32308,7 @@ where [refTable].[nombre] = ?</property>
                     Point2="-341.931792632736,19.6377717949113"
                     Point3="-341.931792632736,23.6377717949113" />
                   <mssgle:LineSegment
-                    End="-341.931792632736,57.9000001857678" />
+                    End="-341.931792632736,57.900000185768" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -31237,18 +32319,18 @@ where [refTable].[nombre] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Fact Tables SQL Server Data Flow Task.Paths[Multicast Output 4]"
-          TopLeft="508.163071664113,186.599999091029">
+          TopLeft="508.163071664114,186.599999091029">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,66.1999987632035"
+              EndConnector="0,66.199998763204"
               Start="0,0"
-              End="0,58.6999987632035">
+              End="0,58.699998763204">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,58.6999987632035" />
+                    End="0,58.699998763204" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -31263,26 +32345,26 @@ where [refTable].[nombre] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-167.720001236796,65.1999988079068"
+              EndConnector="-167.720001236796,65.199998807907"
               Start="0,0"
-              End="-167.720001236796,57.6999988079068">
+              End="-167.720001236796,57.699998807907">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.1721024709197" />
+                    End="0,25.1721024709198" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,25.1721024709197"
-                    Point2="0,29.1721024709197"
-                    Point3="-4,29.1721024709197" />
+                    Point1="0,25.1721024709198"
+                    Point2="0,29.1721024709198"
+                    Point3="-4,29.1721024709198" />
                   <mssgle:LineSegment
-                    End="-163.720001236796,29.1721024709197" />
+                    End="-163.720001236796,29.1721024709198" />
                   <mssgle:CubicBezierSegment
-                    Point1="-163.720001236796,29.1721024709197"
-                    Point2="-167.720001236796,29.1721024709197"
-                    Point3="-167.720001236796,33.1721024709197" />
+                    Point1="-163.720001236796,29.1721024709198"
+                    Point2="-167.720001236796,29.1721024709198"
+                    Point3="-167.720001236796,33.1721024709198" />
                   <mssgle:LineSegment
-                    End="-167.720001236796,57.6999988079068" />
+                    End="-167.720001236796,57.699998807907" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -31327,13 +32409,13 @@ where [refTable].[nombre] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Fact Tables SQL Server Data Flow Task.Paths[Merge Join Output1]"
-          TopLeft="367.999994814396,512.599996349215">
+          TopLeft="367.166661526594,512.599996349215">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="159.399997839332,35.3999981671581"
+              EndConnector="160.233331127134,35.3999981671581"
               Start="0,0"
-              End="159.399997839332,27.8999981671581">
+              End="160.233331127134,27.8999981671581">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -31344,13 +32426,13 @@ where [refTable].[nombre] = ?</property>
                     Point2="0,21.05610280592"
                     Point3="4,21.05610280592" />
                   <mssgle:LineSegment
-                    End="155.399997839332,21.05610280592" />
+                    End="156.233331127134,21.05610280592" />
                   <mssgle:CubicBezierSegment
-                    Point1="155.399997839332,21.05610280592"
-                    Point2="159.399997839332,21.05610280592"
-                    Point3="159.399997839332,25.05610280592" />
+                    Point1="156.233331127134,21.05610280592"
+                    Point2="160.233331127134,21.05610280592"
+                    Point3="160.233331127134,25.05610280592" />
                   <mssgle:LineSegment
-                    End="159.399997839332,27.8999981671581" />
+                    End="160.233331127134,27.8999981671581" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -31361,30 +32443,30 @@ where [refTable].[nombre] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Fact Tables SQL Server Data Flow Task.Paths[Merge Join Output]"
-          TopLeft="201.099990848204,445.733331838714">
+          TopLeft="201.933324136006,445.733331838714">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="137.700003966192,25.2666645105014"
+              EndConnector="136.033337390588,25.266664510501"
               Start="0,0"
-              End="137.700003966192,17.7666645105014">
+              End="136.033337390588,17.766664510501">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,11.0287433062463" />
+                    End="0,11.028743306246" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,11.0287433062463"
-                    Point2="0,15.0287433062463"
-                    Point3="4,15.0287433062463" />
+                    Point1="0,11.028743306246"
+                    Point2="0,15.028743306246"
+                    Point3="4,15.028743306246" />
                   <mssgle:LineSegment
-                    End="133.700003966192,15.0287433062463" />
+                    End="132.033337390588,15.028743306246" />
                   <mssgle:CubicBezierSegment
-                    Point1="133.700003966192,15.0287433062463"
-                    Point2="137.700003966192,15.0287433062463"
-                    Point3="137.700003966192,19.0287433062463" />
+                    Point1="132.033337390588,15.028743306246"
+                    Point2="136.033337390588,15.028743306246"
+                    Point3="136.033337390588,19.028743306246" />
                   <mssgle:LineSegment
-                    End="137.700003966192,17.7666645105014" />
+                    End="136.033337390588,17.766664510501" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -31395,25 +32477,25 @@ where [refTable].[nombre] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Fact Tables SQL Server Data Flow Task.Paths[Lookup Match Output3]"
-          TopLeft="98.1666639803185,293.599999276797">
+          TopLeft="98.1666639803186,293.599999276797">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,25.7333325650959"
+              EndConnector="0,24.8666659044561"
               Start="0,0"
-              End="0,18.2333325650959">
+              End="0,17.3666659044561">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.2333325650959" />
+                    End="0,17.3666659044561" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,3.31197878254795,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,2.87864545222803,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -31423,21 +32505,21 @@ where [refTable].[nombre] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,110.683334054964"
+              EndConnector="0,110.683334054963"
               Start="0,0"
-              End="0,103.183334054964">
+              End="0,103.183334054963">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,103.183334054964" />
+                    End="0,103.183334054963" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,45.786979527482,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,45.7869795274815,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -31467,25 +32549,25 @@ where [refTable].[nombre] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Fact Tables SQL Server Data Flow Task.Paths[Lookup Match Output]"
-          TopLeft="307.869220721836,293.399997898936">
+          TopLeft="307.869220721837,293.399997898936">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,24.8000006333991"
+              EndConnector="0,24.800000633399"
               Start="0,0"
-              End="0,17.3000006333991">
+              End="0,17.300000633399">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,17.3000006333991" />
+                    End="0,17.300000633399" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,2.84531281669955,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,2.84531281669948,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -31495,26 +32577,26 @@ where [refTable].[nombre] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-116.774977309878,24.3166644400191"
+              EndConnector="-117.60831059768,24.316664440019"
               Start="0,0"
-              End="-116.774977309878,16.8166644400191">
+              End="-117.60831059768,16.816664440019">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,10.4636783292581" />
+                    End="0,10.463678329258" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,10.4636783292581"
-                    Point2="0,14.4636783292581"
-                    Point3="-4,14.4636783292581" />
+                    Point1="0,10.463678329258"
+                    Point2="0,14.463678329258"
+                    Point3="-4,14.463678329258" />
                   <mssgle:LineSegment
-                    End="-112.774977309878,14.4636783292581" />
+                    End="-113.60831059768,14.463678329258" />
                   <mssgle:CubicBezierSegment
-                    Point1="-112.774977309878,14.4636783292581"
-                    Point2="-116.774977309878,14.4636783292581"
-                    Point3="-116.774977309878,18.4636783292581" />
+                    Point1="-113.60831059768,14.463678329258"
+                    Point2="-117.60831059768,14.463678329258"
+                    Point3="-117.60831059768,18.463678329258" />
                   <mssgle:LineSegment
-                    End="-116.774977309878,16.8166644400191" />
+                    End="-117.60831059768,16.816664440019" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -31529,26 +32611,26 @@ where [refTable].[nombre] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-77.899993580083,44.3333333063789"
+              EndConnector="-77.066660292281,44.333333306379"
               Start="0,0"
-              End="-77.899993580083,36.8333333063789">
+              End="-77.066660292281,36.833333306379">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.3696969536643" />
+                    End="0,22.3696969536644" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,22.3696969536643"
-                    Point2="0,26.3696969536643"
-                    Point3="-4,26.3696969536643" />
+                    Point1="0,22.3696969536644"
+                    Point2="0,26.3696969536644"
+                    Point3="-4,26.3696969536644" />
                   <mssgle:LineSegment
-                    End="-73.899993580083,26.3696969536643" />
+                    End="-73.066660292281,26.3696969536644" />
                   <mssgle:CubicBezierSegment
-                    Point1="-73.899993580083,26.3696969536643"
-                    Point2="-77.899993580083,26.3696969536643"
-                    Point3="-77.899993580083,30.3696969536643" />
+                    Point1="-73.066660292281,26.3696969536644"
+                    Point2="-77.066660292281,26.3696969536644"
+                    Point3="-77.066660292281,30.3696969536644" />
                   <mssgle:LineSegment
-                    End="-77.899993580083,36.8333333063789" />
+                    End="-77.066660292281,36.833333306379" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -31559,30 +32641,30 @@ where [refTable].[nombre] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Fact Tables SQL Server Data Flow Task.Paths[Sort Output1]"
-          TopLeft="94.3666623411909,360.933331841893">
+          TopLeft="94.3666623411909,360.066665181253">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="77.5333285070131,43.1999999968211"
+              EndConnector="78.3666617948151,44.0666666574609"
               Start="0,0"
-              End="77.5333285070131,35.6999999968211">
+              End="78.3666617948151,36.5666666574609">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.6955844136936" />
+                    End="0,22.2110822456066" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,21.6955844136936"
-                    Point2="0,25.6955844136936"
-                    Point3="4,25.6955844136936" />
+                    Point1="0,22.2110822456066"
+                    Point2="0,26.2110822456066"
+                    Point3="4,26.2110822456066" />
                   <mssgle:LineSegment
-                    End="73.5333285070131,25.6955844136936" />
+                    End="74.3666617948151,26.2110822456066" />
                   <mssgle:CubicBezierSegment
-                    Point1="73.5333285070131,25.6955844136936"
-                    Point2="77.5333285070131,25.6955844136936"
-                    Point3="77.5333285070131,29.6955844136936" />
+                    Point1="74.3666617948151,26.2110822456066"
+                    Point2="78.3666617948151,26.2110822456066"
+                    Point3="78.3666617948151,30.2110822456066" />
                   <mssgle:LineSegment
-                    End="77.5333285070131,35.6999999968211" />
+                    End="78.3666617948151,36.5666666574609" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -31649,30 +32731,18 @@ where [refTable].[nombre] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Fact Tables SQL Server Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="971.138449594609,111.599999344349">
+          TopLeft="1746.71619734876,132.599999253949">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-53.5999996423719,76.399998241663"
+              EndConnector="0,22.7703688597975"
               Start="0,0"
-              End="-53.5999996423719,68.899998241663">
+              End="0,15.2703688597975">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.1999991208315" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,34.1999991208315"
-                    Point2="0,38.1999991208315"
-                    Point3="-4,38.1999991208315" />
-                  <mssgle:LineSegment
-                    End="-49.5999996423719,38.1999991208315" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-49.5999996423719,38.1999991208315"
-                    Point2="-53.5999996423719,38.1999991208315"
-                    Point3="-53.5999996423719,42.1999991208315" />
-                  <mssgle:LineSegment
-                    End="-53.5999996423719,68.899998241663" />
+                    End="0,15.2703688597975" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -31731,6 +32801,208 @@ where [refTable].[nombre] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="211.2,41.6"
+          Id="Package\Fact Tables SQL Server Data Flow Task\Categoria key map Lookup 2"
+          TopLeft="1207.0237490387,237.638095121005" />
+        <NodeLayout
+          Size="196,41.6"
+          Id="Package\Fact Tables SQL Server Data Flow Task\Marca Key Map Lookup 2"
+          TopLeft="1426.76447963101,238.876190350491" />
+        <NodeLayout
+          Size="208.8,41.6"
+          Id="Package\Fact Tables SQL Server Data Flow Task\Producto Key Map Lookup 2"
+          TopLeft="1633.39992487332,240.238095102925" />
+        <NodeLayout
+          Size="204,41.6"
+          Id="Package\Fact Tables SQL Server Data Flow Task\Vendedor Key Map Lookup"
+          TopLeft="1852.99182282084,242.611470168422" />
+        <NodeLayout
+          Size="214.4,41.6"
+          Id="Package\Fact Tables SQL Server Data Flow Task\Tipo Cliente Key Map Lookup"
+          TopLeft="2070.12493980241,241.592423156661" />
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\Fact Tables SQL Server Data Flow Task\Union All"
+          TopLeft="2581.86657997503,235.733331694073" />
+        <EdgeLayout
+          Id="Package\Fact Tables SQL Server Data Flow Task.Paths[Multicast Output 11]"
+          TopLeft="1696.49397378764,196.970368113746">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-383.870224748938,40.6677270072592"
+              Start="0,0"
+              End="-383.870224748938,33.1677270072592">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,6.93715385422503" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,6.93715385422503"
+                    Point2="0,10.937153854225"
+                    Point3="-4,10.937153854225" />
+                  <mssgle:LineSegment
+                    End="-379.870224748938,10.937153854225" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-379.870224748938,10.937153854225"
+                    Point2="-383.870224748938,10.937153854225"
+                    Point3="-383.870224748938,14.937153854225" />
+                  <mssgle:LineSegment
+                    End="-383.870224748938,33.1677270072592" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact Tables SQL Server Data Flow Task.Paths[Multicast Output 2]"
+          TopLeft="1720.89397378764,196.970368113746">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-196.129494156624,41.9058222367448"
+              Start="0,0"
+              End="-196.129494156624,34.4058222367448">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.0202108776933" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.0202108776933"
+                    Point2="0,17.0202108776933"
+                    Point3="-4,17.0202108776933" />
+                  <mssgle:LineSegment
+                    End="-192.129494156624,17.0202108776933" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-192.129494156624,17.0202108776933"
+                    Point2="-196.129494156624,17.0202108776933"
+                    Point3="-196.129494156624,21.0202108776933" />
+                  <mssgle:LineSegment
+                    End="-196.129494156624,34.4058222367448" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact Tables SQL Server Data Flow Task.Paths[Multicast Output 31]"
+          TopLeft="1741.54694933048,196.970368113746">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.2677269891791"
+              Start="0,0"
+              End="0,35.7677269891791">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.7677269891791" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact Tables SQL Server Data Flow Task.Paths[Multicast Output 41]"
+          TopLeft="1769.69397378764,196.970368113746">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="185.297849033209,45.6411020546758"
+              Start="0,0"
+              End="185.297849033209,38.1411020546758">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.5373091422068" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.5373091422068"
+                    Point2="0,18.5373091422068"
+                    Point3="4,18.5373091422068" />
+                  <mssgle:LineSegment
+                    End="181.297849033209,18.5373091422068" />
+                  <mssgle:CubicBezierSegment
+                    Point1="181.297849033209,18.5373091422068"
+                    Point2="185.297849033209,18.5373091422068"
+                    Point3="185.297849033209,22.5373091422068" />
+                  <mssgle:LineSegment
+                    End="185.297849033209,38.1411020546758" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact Tables SQL Server Data Flow Task.Paths[Multicast Output 51]"
+          TopLeft="1794.09397378764,196.970368113746">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="383.230966014778,44.622055042915"
+              Start="0,0"
+              End="383.230966014778,37.122055042915">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.00062843957185" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.00062843957185"
+                    Point2="0,12.0006284395718"
+                    Point3="4,12.0006284395718" />
+                  <mssgle:LineSegment
+                    End="379.230966014778,12.0006284395718" />
+                  <mssgle:CubicBezierSegment
+                    Point1="379.230966014778,12.0006284395718"
+                    Point2="383.230966014778,12.0006284395718"
+                    Point3="383.230966014778,16.0006284395718" />
+                  <mssgle:LineSegment
+                    End="383.230966014778,37.122055042915" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\Fact Tables SQL Server Data Flow Task\Required Sort 5"
+          TopLeft="1231.99999562899,307.666665322714" />
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\Fact Tables SQL Server Data Flow Task\Required Sort 6"
+          TopLeft="1442.48326382977,310.81851941683" />
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\Fact Tables SQL Server Data Flow Task\Required Sort 7"
+          TopLeft="1665.34990800396,328.266668197446" />
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\Fact Tables SQL Server Data Flow Task\Required Sort 8"
+          TopLeft="1879.93322961298,356.433334668245" />
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\Fact Tables SQL Server Data Flow Task\Required Sort 9"
+          TopLeft="2111.18321697804,332.600001500646" />
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -31877,6 +33149,121 @@ where [refTable].[nombre] = ?</property>
         <Name>UsedTableName</Name>
         <Value
           type="q3:string">[project1].[fact_compras]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fact Tables SQL Server Data Flow Task\Categoria key map Lookup 2">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[project1].[dim_categoria]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fact Tables SQL Server Data Flow Task\Marca Key Map Lookup 2">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[project1].[dim_marca]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fact Tables SQL Server Data Flow Task\Producto Key Map Lookup 2">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[project1].[dim_producto]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fact Tables SQL Server Data Flow Task\Vendedor Key Map Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[project1].[dim_vendedor]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fact Tables SQL Server Data Flow Task\Tipo Cliente Key Map Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[project1].[dim_tipo_cliente]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
