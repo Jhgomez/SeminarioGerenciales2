@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="585"
-  DTS:VersionGUID="{BDF76435-009E-400B-A692-C9CFACA65525}">
+  DTS:VersionBuild="586"
+  DTS:VersionGUID="{73BB2C21-EB5D-433F-A7C7-332C123BDF97}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -375,7 +375,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAYoi0jq72rEKxD2TKlPWIGwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACwSESfq3jH/mCKuzl49IOwuV53mefw39X+al7YQWIk5AAAAAAOgAAAAAIAACAAAABuUqWier4vvcD7vwO4mO4xT7cbjWUJ2cNzvYUeHu3DVCAAAAAqon5UPwQB96xV0c4owAYl/bF2u4yhgDOk5icDFnCx0kAAAACUSWVYPQ4ECowhgSETsOLawg9GTxz6decHwoYtldQJbkpDqY75Tl30UZACwKVp+n/SN+FEbNZFAoVcqIG8T0qf</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAYoi0jq72rEKxD2TKlPWIGwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAKlzWwfPCF8UNq/G1gdGJzdxlFe4Z/zqeQrzCo2RwtrwAAAAAOgAAAAAIAACAAAAAZZESwNTPOJBQwmQcNQbkH9WWcC999ngTcNCzjqvG3fCAAAAC/A5Jmupz3xvJ0d2w+UHu/nxRL+F/uxn8SimgevjPBNkAAAAC/WAwjJIPwIIDdyf9u4Mmf/5qlpmbEY6RLTfQdFOR6AR6XRwpRty6ersBqyaK3mc01vzuvzIMxZCg7aBEFQC8V</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -32773,11 +32773,11 @@ where [refTable].[Nombre] = ? and [refTable].[tipo] = ?</property>
         <NodeLayout
           Size="132.8,41.6"
           Id="Package\Fact Tables SQL Server Data Flow Task\Ventas Sort"
-          TopLeft="1680.09996653448,85.8666661724779" />
+          TopLeft="1392.59998224279,96.5333327788776" />
         <NodeLayout
           Size="204,41.6"
           Id="Package\Fact Tables SQL Server Data Flow Task\Vendedor Key Map Lookup"
-          TopLeft="1852.99182282084,242.611470168422" />
+          TopLeft="1565.49183852915,253.278136774822" />
         <NodeLayout
           Size="183.2,41.6"
           Id="Package\Fact Tables SQL Server Data Flow Task\Compras Merge Join 1"
@@ -32797,19 +32797,19 @@ where [refTable].[Nombre] = ? and [refTable].[tipo] = ?</property>
         <NodeLayout
           Size="138.4,41.6"
           Id="Package\Fact Tables SQL Server Data Flow Task\Merge Join 1"
-          TopLeft="1667.7666418521,367.733331911034" />
+          TopLeft="1380.26665756041,378.399998517434" />
         <NodeLayout
           Size="138.4,41.6"
           Id="Package\Fact Tables SQL Server Data Flow Task\Merge Join 3"
-          TopLeft="2104.43330760814,434.495236464587" />
+          TopLeft="1816.93332331645,445.161903070987" />
         <NodeLayout
           Size="157.6,41.6"
           Id="Package\Fact Tables SQL Server Data Flow Task\Compras Lookup"
-          TopLeft="2093.85708724388,507.999997442961" />
+          TopLeft="1806.35710295219,518.666664049361" />
         <NodeLayout
           Size="214.4,41.6"
           Id="Package\Fact Tables SQL Server Data Flow Task\Tipo Cliente Key Map Lookup"
-          TopLeft="2070.12493980241,241.592423156661" />
+          TopLeft="1782.62495551072,252.259089763061" />
         <NodeLayout
           Size="188,41.6"
           Id="Package\Fact Tables SQL Server Data Flow Task\Marca Key Map Lookup"
@@ -32829,7 +32829,7 @@ where [refTable].[Nombre] = ? and [refTable].[tipo] = ?</property>
         <NodeLayout
           Size="138.4,41.6"
           Id="Package\Fact Tables SQL Server Data Flow Task\Merge Join 2"
-          TopLeft="1880.26665318939,400.399998155832" />
+          TopLeft="1592.7666688977,411.066664762232" />
         <NodeLayout
           Size="183.2,42.4"
           Id="Package\Fact Tables SQL Server Data Flow Task\Compras Merge Join 2"
@@ -32837,7 +32837,7 @@ where [refTable].[Nombre] = ? and [refTable].[tipo] = ?</property>
         <NodeLayout
           Size="211.2,41.6"
           Id="Package\Fact Tables SQL Server Data Flow Task\Categoria key map Lookup 2"
-          TopLeft="1207.0237490387,238.504761781645" />
+          TopLeft="919.523764747006,249.171428388045" />
         <NodeLayout
           Size="207.2,41.6"
           Id="Package\Fact Tables SQL Server Data Flow Task\Proveedor Key map Lookup"
@@ -32845,23 +32845,23 @@ where [refTable].[Nombre] = ? and [refTable].[tipo] = ?</property>
         <NodeLayout
           Size="187.2,41.6"
           Id="Package\Fact Tables SQL Server Data Flow Task\Ventas OLE DB Source"
-          TopLeft="1655.37175419767,19.9333330814706" />
+          TopLeft="1367.87176990598,30.5999996878703" />
         <NodeLayout
           Size="196,41.6"
           Id="Package\Fact Tables SQL Server Data Flow Task\Marca Key Map Lookup 2"
-          TopLeft="1426.76447963101,238.876190350491" />
+          TopLeft="1139.26449533932,249.542856956891" />
         <NodeLayout
           Size="154.4,41.6"
           Id="Package\Fact Tables SQL Server Data Flow Task\Ventas Multicast"
-          TopLeft="1668.09397378764,155.370368113746" />
+          TopLeft="1380.59398949595,166.037034720146" />
         <NodeLayout
           Size="229.6,41.6"
           Id="Package\Fact Tables SQL Server Data Flow Task\Fact Ventas OLE DB Destination"
-          TopLeft="2061.23804944659,586.095235219645" />
+          TopLeft="1773.7380651549,596.761901826045" />
         <NodeLayout
           Size="129.6,41.6"
           Id="Package\Fact Tables SQL Server Data Flow Task\Merge Join"
-          TopLeft="1354.66664881839,322.866664888793" />
+          TopLeft="1067.1666645267,333.533331495193" />
         <NodeLayout
           Size="202.4,41.6"
           Id="Package\Fact Tables SQL Server Data Flow Task\Categoria key map Lookup"
@@ -32869,10 +32869,10 @@ where [refTable].[Nombre] = ? and [refTable].[tipo] = ?</property>
         <NodeLayout
           Size="208.8,41.6"
           Id="Package\Fact Tables SQL Server Data Flow Task\Producto Key Map Lookup 2"
-          TopLeft="1633.39992487332,240.238095102925" />
+          TopLeft="1345.89994058163,250.904761709325" />
         <EdgeLayout
           Id="Package\Fact Tables SQL Server Data Flow Task.Paths[Sort Output1]"
-          TopLeft="1745.89697016106,127.466666172478">
+          TopLeft="1458.39698586937,138.133332778878">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -32916,7 +32916,7 @@ where [refTable].[Nombre] = ? and [refTable].[tipo] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Fact Tables SQL Server Data Flow Task.Paths[OLE DB Source Output1]"
-          TopLeft="1747.73586036607,61.5333330814706">
+          TopLeft="1460.23587607438,72.1999996878703">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -32960,7 +32960,7 @@ where [refTable].[Nombre] = ? and [refTable].[tipo] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Fact Tables SQL Server Data Flow Task.Paths[Multicast Output 51]"
-          TopLeft="1794.09397378764,196.970368113746">
+          TopLeft="1506.59398949595,207.637034720146">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -32971,9 +32971,9 @@ where [refTable].[Nombre] = ? and [refTable].[tipo] = ?</property>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,8.00062843957185" />
+                    End="0,8.00062843957181" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,8.00062843957185"
+                    Point1="0,8.00062843957181"
                     Point2="0,12.0006284395718"
                     Point3="4,12.0006284395718" />
                   <mssgle:LineSegment
@@ -33050,7 +33050,7 @@ where [refTable].[Nombre] = ? and [refTable].[tipo] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Fact Tables SQL Server Data Flow Task.Paths[Multicast Output 4]"
-          TopLeft="1769.69397378764,196.970368113746">
+          TopLeft="1482.19398949595,207.637034720146">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -33084,7 +33084,7 @@ where [refTable].[Nombre] = ? and [refTable].[tipo] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Fact Tables SQL Server Data Flow Task.Paths[Multicast Output 31]"
-          TopLeft="1741.54694933048,196.970368113746">
+          TopLeft="1454.04696503879,207.637034720146">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -33140,7 +33140,7 @@ where [refTable].[Nombre] = ? and [refTable].[tipo] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Fact Tables SQL Server Data Flow Task.Paths[Multicast Output 2]"
-          TopLeft="1720.89397378764,196.970368113746">
+          TopLeft="1433.39398949595,207.637034720146">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -33208,7 +33208,7 @@ where [refTable].[Nombre] = ? and [refTable].[tipo] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Fact Tables SQL Server Data Flow Task.Paths[Multicast Output 1]"
-          TopLeft="1696.49397378764,196.970368113746">
+          TopLeft="1408.99398949595,207.637034720146">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -33219,9 +33219,9 @@ where [refTable].[Nombre] = ? and [refTable].[tipo] = ?</property>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,7.17023466068496" />
+                    End="0,7.170234660685" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,7.17023466068496"
+                    Point1="0,7.170234660685"
                     Point2="0,11.170234660685"
                     Point3="-4,11.170234660685" />
                   <mssgle:LineSegment
@@ -33276,7 +33276,7 @@ where [refTable].[Nombre] = ? and [refTable].[tipo] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Fact Tables SQL Server Data Flow Task.Paths[Merge Join Output5]"
-          TopLeft="2173.14519742601,476.095236464587">
+          TopLeft="1885.64521313432,486.761903070987">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -33298,7 +33298,7 @@ where [refTable].[Nombre] = ? and [refTable].[tipo] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Fact Tables SQL Server Data Flow Task.Paths[Merge Join Output4]"
-          TopLeft="1484.26664881839,343.666664888793">
+          TopLeft="1196.7666645267,354.333331495193">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -33309,17 +33309,17 @@ where [refTable].[Nombre] = ? and [refTable].[tipo] = ?</property>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="87.7499965168537,0" />
+                    End="87.7499965168538,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="87.7499965168537,0"
-                    Point2="91.7499965168537,0"
-                    Point3="91.7499965168537,4" />
+                    Point1="87.7499965168538,0"
+                    Point2="91.7499965168538,0"
+                    Point3="91.7499965168538,4" />
                   <mssgle:LineSegment
-                    End="91.7499965168537,40.8666670222413" />
+                    End="91.7499965168538,40.8666670222413" />
                   <mssgle:CubicBezierSegment
-                    Point1="91.7499965168537,40.8666670222413"
-                    Point2="91.7499965168537,44.8666670222413"
-                    Point3="95.7499965168537,44.8666670222413" />
+                    Point1="91.7499965168538,40.8666670222413"
+                    Point2="91.7499965168538,44.8666670222413"
+                    Point3="95.7499965168538,44.8666670222413" />
                   <mssgle:LineSegment
                     End="175.999993033707,44.8666670222413" />
                 </mssgle:SegmentCollection>
@@ -33388,7 +33388,7 @@ where [refTable].[Nombre] = ? and [refTable].[tipo] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Fact Tables SQL Server Data Flow Task.Paths[Merge Join Output1]"
-          TopLeft="1806.1666418521,388.533331911034">
+          TopLeft="1518.66665756041,399.199998517434">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -33422,7 +33422,7 @@ where [refTable].[Nombre] = ? and [refTable].[tipo] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Fact Tables SQL Server Data Flow Task.Paths[Merge Join Output]"
-          TopLeft="2018.66665318939,421.199998155832">
+          TopLeft="1731.1666688977,431.866664762232">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -33433,17 +33433,17 @@ where [refTable].[Nombre] = ? and [refTable].[tipo] = ?</property>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="38.8833272093703,0" />
+                    End="38.8833272093705,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="38.8833272093703,0"
-                    Point2="42.8833272093703,0"
-                    Point3="42.8833272093703,4" />
+                    Point1="38.8833272093705,0"
+                    Point2="42.8833272093705,0"
+                    Point3="42.8833272093705,4" />
                   <mssgle:LineSegment
-                    End="42.8833272093703,30.0952383087553" />
+                    End="42.8833272093705,30.0952383087553" />
                   <mssgle:CubicBezierSegment
-                    Point1="42.8833272093703,30.0952383087553"
-                    Point2="42.8833272093703,34.0952383087553"
-                    Point3="46.8833272093703,34.0952383087553" />
+                    Point1="42.8833272093705,30.0952383087553"
+                    Point2="42.8833272093705,34.0952383087553"
+                    Point3="46.8833272093705,34.0952383087553" />
                   <mssgle:LineSegment
                     End="78.2666544187407,34.0952383087553" />
                 </mssgle:SegmentCollection>
@@ -33480,7 +33480,7 @@ where [refTable].[Nombre] = ? and [refTable].[tipo] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Fact Tables SQL Server Data Flow Task.Paths[Lookup No Match Output]"
-          TopLeft="2174.34756834524,549.599997442961">
+          TopLeft="1886.84758405355,560.266664049361">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -33498,13 +33498,13 @@ where [refTable].[Nombre] = ? and [refTable].[tipo] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-64.6750390625,6.4976188883421,129.350078125,16"
+              BoundingBox="-55.80638671875,8.69293138834212,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Fact Tables SQL Server Data Flow Task.Paths[Lookup Match Output8]"
-          TopLeft="1312.6237490387,280.104761781645">
+          TopLeft="1025.12376474701,290.771428388045">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -33534,13 +33534,13 @@ where [refTable].[Nombre] = ? and [refTable].[tipo] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-4.90327016223945,30.3442498903338,96.3827734375,11.609375"
+              BoundingBox="-4.90327016223946,30.3442498903338,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Fact Tables SQL Server Data Flow Task.Paths[Lookup Match Output7]"
-          TopLeft="1524.76447963101,280.476190350491">
+          TopLeft="1237.26449533932,291.142856956891">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -33576,7 +33576,7 @@ where [refTable].[Nombre] = ? and [refTable].[tipo] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Fact Tables SQL Server Data Flow Task.Paths[Lookup Match Output6]"
-          TopLeft="1952.22923800512,284.211470168422">
+          TopLeft="1664.72925371343,294.878136774822">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -33600,7 +33600,7 @@ where [refTable].[Nombre] = ? and [refTable].[tipo] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Fact Tables SQL Server Data Flow Task.Paths[Lookup Match Output5]"
-          TopLeft="2175.47912370527,283.192423156661">
+          TopLeft="1887.97913941358,293.859089763061">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -33744,7 +33744,7 @@ where [refTable].[Nombre] = ? and [refTable].[tipo] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Fact Tables SQL Server Data Flow Task.Paths[Lookup Match Output]"
-          TopLeft="1737.38328336271,281.838095102925">
+          TopLeft="1449.88329907102,292.504761709325">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
