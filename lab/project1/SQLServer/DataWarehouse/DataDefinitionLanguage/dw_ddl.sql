@@ -181,8 +181,7 @@ CREATE TABLE project1.[pivot_fact_ventas] (
 	[cliente] INTEGER NOT NULL,
 	[tipo_cliente] CHAR(8) NOT NULL,
 	[precio_unitario] DECIMAL(18, 2) NOT NULL,
-	[unidades] INTEGER NOT NULL,
-	PRIMARY KEY([id])
+	[unidades] INTEGER NOT NULL
 );
 GO
 
@@ -221,11 +220,29 @@ select * from project1.dim_proveedor
 select * from project1.dim_marca
 
 delete from project1.pivot_fact_compras
+delete from project1.pivot_fact_ventas
 
 
 select * from project1.dim_categoria ff
 left join project1.pivot_fact_compras cc on ff.nombre = 'charcutería'
 where cc.categoria_prod = 'charcutería'
+
+select * from project1.pivot_fact_ventas
+where categoria_prod = 'charcutería' 
+and marca_prod = 'monticello' 
+and cod_producto = 'AC00003' 
+and sucursal = 1 
+and fecha = 20200114 
+and vendedor = 1 
+and nombre_vendedor = 'nelson mario caffera morandi'
+and tipo_vendedor = 'fijo'
+and cliente = 1
+and tipo_cliente = 'min'
+and precio_unitario = 398.27
+and unidades = 34
+
+select * from project1.pivot_fact_ventas where id = 1
+select * from project1.pivot_fact_compras where id = 1
 
 CREATE INDEX [dim_vendedor_index_0]
 ON project1.[dim_vendedor] ([id_codigo]);
