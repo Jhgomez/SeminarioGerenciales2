@@ -150,6 +150,12 @@ There can be more than one fact table in a model and the dimensions can be relat
 ### Dimension Table
 Primary key aka Surrogated Key. For each hierarchy of the dimension each level would have at least a description and a code for example in a retail shop when creating products dimensions. THey have three types of fields, surrogated key, hierarchy level and attributes. Attributes are complementary info like in a customer dimension you would have the client full name, phone number, or in a product dimension we could have the product's color, attributes should not be part of search querys
 
-Class (10 marzo 2025)
+# Class (10 marzo 2025)
 Very important summary of modern data warehouse
 
+# Class (27 marzo 2025)
+
+## ETL tools
+* Pentaho
+* Databricks
+* SSIS(SQL Server Integration Services)
