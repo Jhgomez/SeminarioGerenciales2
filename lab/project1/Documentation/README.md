@@ -123,61 +123,144 @@ Unir las fuentes, otra vez es importante que la metadata sea igual sobre todo lo
 
 ![UnirFuentes](./17.png)
 
-## Estandarizar Datos
+### Estandarizar Datos
 Usando `Derived Column` stadandarizaremos:
 
 1. Eliminaremos el uso de `"` y `'`, comillas doble y simples, Todos los valores de texto usaran minusculas y eliminare espacios en blanco al incio y al final de todas las columnas que seran guardadas como texto
 
 2. En el "codigo de proveedor" los nulos y vacios se sustituiran con el valor por defecto "0000". Para poder utilizar este valor como llave primaria numerica se removera la primera letra del codigo(Todos los codigos de proveedor tienen una P al inicio, no tiene sentido hacerlo alfa numerico)
 
-5. El "codigo de producto" se sustituiran vacios y nulos con el valor por defecto "PR00000", aqui si hay que conservar el valor alfa numerico
+3. El "codigo de producto" se sustituiran vacios y nulos con el valor por defecto "PR00000", aqui si hay que conservar el valor alfa numerico
 
-7. En la "marca de producto" valores nulos y vacios seran por defecto "sin marca".
+4. En la "marca de producto" valores nulos y vacios seran por defecto "sin marca".
 
-8. En la "categoria" valores nulos y vacios seran por defecto "sin categoria".
+5. En la "categoria" valores nulos y vacios seran por defecto "sin categoria".
 
-9. En el "codigo de sucursal" removere la primera letra y dejare solo los numeros para usarlo como un primary key, no sera necesario conservarlo como alfa numerico
+6. En el "codigo de sucursal" removere la primera letra y dejare solo los numeros para usarlo como un primary key, no sera necesario conservarlo como alfa numerico
 
-10. En la "direccion sucursal" valores nulos y vacios seran por defecto "sin direccion"
+7. En la "direccion sucursal" valores nulos y vacios seran por defecto "sin direccion"
  
-11. En la "region" valores nulos y vacios seran por defecto "sin region"
+8. En la "region" valores nulos y vacios seran por defecto "sin region"
 
-12. En el "departamento" valores nulos y vacios seran por defecto "sin departamento"
+9. En el "departamento" valores nulos y vacios seran por defecto "sin departamento"
 
-## Ventas
+10. En el "codigo de cliente" para los nulos y los vacios el valor por defecto sera "0000", ademas para poder usar este valor como llave primaria numerica removere la letra inicial
 
-1. En el "codigo de cliente" para los nulos y los vacios el valor por defecto sera "0000", ademas para poder usar este valor como llave primaria numerica removere la letra inicial
+11. El "tipo de cliente" sera asignado "min" para Minorista y "may" para Mayorista
 
-3. El "tipo de cliente" sera asignado "min" para Minorista y "may" para Mayorista
+12. En el "numero de cliente" valores nulo o vacios seran cero por defecto
 
-5. En el "numero de cliente" valores nulo o vacios seran cero por defecto
+13. En el "codigo vendedor" removere la primera letra para poder usar el valor como numerico en una llave primaria y los valores vacios o nulos tendran por defecto "0000"
 
-7. En el "codigo vendedor" removere la primera letra para poder usar el valor como numerico en una llave primaria y los valores vacios o nulos tendran por defecto "0000"
+14. En "vacacionista" se sustituira 1 por "vacacionista" y cualquier 0 por "fijo", nulos y vacios seran "indefinido" esto nos cubrira los nulos y valores no validos y esto se insertara en una columna nueva llamada "TipoVendedor", este cambio se hace para mejorar la legibilidad del analisis.(me confundi en la implementacion, arreglar despues)
 
-7. En "vacacionista" se sustituira 1 por "vacacionista" y cualquier 0 por "fijo", nulos y vacios seran "indefinido" esto nos cubrira los nulos y valores no validos y esto se insertara en una columna nueva llamada "TipoVendedor", este cambio se hace para mejorar la legibilidad del analisis.(me confundi en la implementacion, arreglar despues)
+![standarization](./18.png)
+
+### Parseo de Tipos
+Ahora que el texto esta formateado podemos transformar de texto al tipo que corresponda para poder insertar el tipo adecuado a las tablas de dimensiones usando un `Data Conversion`, para poder hacer este mapeo se debe utilizar el modelo fisico(modelo de constelacion) de los datamarts para ver el tipo que necesita cada columna en las dimensiones. `four-byte signed integer [DT_I4]` mapea a `INTEGER`, `numeric [DT_NUMERIC](18, 2)` mapea a `DECIMAL(18,2)`, `Unicode string [DT_WSTR]` mapea a `NVARCHAR`, recordar que `NVARCHAR` puede guardar caracteres unicode y tener cuidado con el numero de bytes para evitar truncar el contenido
+
+![transformation](./19.png)
+
+### Recuperacion de Datos
+Al momento de parsear de texto al tipo deseado posiblemente tendremos errores, para manejarlos hay que conectar el canal de error del `Data Conversion` a otra accion, en este caso un script de C# usando un `Script Component`, aqui solo elegimos que columnas seran nuestro input y click en "Edit Script"
+
+Debemos analizar los errores y determinar que acciones tomar, en este caso haremos lo siguiente:
+
+1. El costo de unidad en las compras se limpiaran cualquier caracter no numerico que no sea `.`, si esta vacio o nulo el valor sera 0
+
+2. El numero de proveedor y unidades compradas se removera valores no numericos y si resulta en un valor vacio y/o nulo aignaremos 0
+
+3. La fecha la formateamos para asegurarnos que no sea un problema de formato y si hay problemas construyendo un objeto tipo fecha asignamos una fecha por defecto de "01-01-0001"
+
+![fixScript](./20.png)
+
+#### Parsear Datos Recuperados
+Se vuelven a correr las mismas transformaciones de tipos anteriormente realizadas
+
+#### Unir Datos Parseados
+Se unen los datos en un `Union All`
+
+#### Fecha(caso especial)
+Vamos a generar el ID de la fecha y los valoes de la dimension fecha, nos interesa hacerlo antes de la union porque queremos que el ID de fecha de cada registro que se va a generar podamos insertarlo en la tabla pivote de hechos y para eso uso un `Derived Columns`
+
+![fechaColumns](./21.png)
+
+### Direccionar Flujo
+Usaremos `Multicast` para poder usar el mismo flujo de datos en lineas de tareas diferentes.
+
+### Insertar a las Dimensiones
+Practicamente la insercion de informacion a todas las dimensiones siguen el mismo proceso o uno demasiado similar a excepcion de "fecha" que tiene una transformacion de tipo de numerico debido al diseño fisico de esta dimension, "proveedor" en el que le creamos un ID numerico con un script a cada entrada que tenga un ID valor 0 usando una variable `static` para llevar el conteo en un script de C#
+
+#### Eliminar Duplicados
+Agrupamos registros que sean iguales para eliminar duplicados con un `Aggregate`
+
+![comprassAgregate](./22.png)
+
+#### Unir Ambos Lado(compras y ventas)
+En un `Union All` ahora deberia ser muy facil unirlas, solo mapear bien
+
+#### Verificar Existencia
+Veririficar en la tabla de dimesiones que los datos que se quieren insertar todavia no existan usando `Lookup`, esto evitara errores como de querer insertar una llave primaria que ya exista
+
+![lookup](./23.png)
+
+![lookup](./24.png)
+
+#### Insertar
+Se insertan los valores ya sin duplicar y correctamente formateados a su tabla respectiva usando `OLE DB Destination`
+
+![insert](./25.png)
+
+![insert](./26.png)
+
+### Insertar a Los Pivotes de Los Hechos
+#### Verificar Existencia
+Veririficar en la tabla pivote que los datos que se quieren insertar todavia no existan usando `Lookup`, esto evitara errores como de querer insertar una fila que ya exista
+
+![pivotLookup](./27.png)
+
+#### Insertar
+Usando `OLE DB Destination` insertar a su respectivo pivote
+
+![pivotInsert](./28.png)
+
+## Insertar a Tablas de Hechos
+En un `Data Flow Task` diferente se lee de los pivotes y se inserta a los hechos, el proceso es casi igual para las compras y ventas
+
+### Obtener Los Datos
+Leer las tablas pivote con un `OLE DB Source`
+
+### Ordenar
+Es un requisito ordenar los datos para poder unir las columnas con las columnas con llaves surrogadas(FOREING KEYs) que van a mapear a una tabla de dimensiones. Ordenamos por `id`, este fue generado automaticamente por insert a la tabla pivote
+
+### Direccionar Flujo
+Usaremos `Multicast` para poder usar el mismo flujo de datos en lineas de tareas diferentes.
+
+### Mapear
+Ahora mapeamos cada columna que representa un valor en una dimension, en el caso de compras mapeamos "Categoria", "Marca", "Producto", "Proveedor", y en el caso de ventas "Categoria", "Marca", "Producto", "Vendedor", "Tipo Cliente", esto generara nuevas columnas con las llaves surrogadas. El id de la fecha ya esta en una columna del pivote. Aqui usamos un `Lookup` para indicar que columna nos va a vincular y que columna de la dimension queremos seleccionar cuando encuentre un match, en este caso la columna a selecionar siempre seria la llave primaria en la dimension
+
+![map](./29.png)
+
+### Fusionar(Merge)
+Solo se puede fusionar dos tablas al mismo tiempo y tienen que estar ordenadas como indicamos anteriormente. 
+
+![merge](./30.png)
+
+![merge](./31.png)
+
+### Verificar Existencia
+Veririficar en la tabla de hechos que los datos que se quieren insertar todavia no existan usando `Lookup`, esto evitara errores como querer insertar una llave primaria que ya exista
+
+![factLookup](./32.png)
+
+### Insertar
+Insertar usando un `OLE DB Destination`
+
+![factInsert](./33.png)
 
 
-
-
-
-![](./)
-
-![](./)
-
-![](./)
-
-![](./)
-
-![](./)
-
-![](./)
-
-![](./)
-
-![](./)
-
-# De 
-Vendedores
+# Conflictos
+En las tabla de vendedores resultamos con estos datos los cuales debemos analizar como tratar en una segunda iteracion posiblemente pero nos podrian servir para detectar problemas de las aplicaciones cliente o del recurso humano, etc.
 
 | id_codigo | Nombre | tipo |
 | -------- | ------ | ---- |
@@ -187,7 +270,3 @@ Vendedores
 | 28 | favio daniel caamazo  vernay | vacacionista |
 | 37 | fernando benitez caorsi | fijo |
 | 37 | fernando benitez caorsi | vacacionista |
-
-4. En el "numero de cliente" removere cualquier caracter(en caso de error) y si el valor es nulo o diferente a un numero entonces pondre ceros
-
-4. En el "numero de proveedor" removere cualquier caracter(en caso de error) y si el valor es nulo o diferente a un numero entonces pondre ceros
