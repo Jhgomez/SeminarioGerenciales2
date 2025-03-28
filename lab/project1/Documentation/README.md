@@ -1,3 +1,8 @@
+# Modelo Fisico del Datamart
+Se utilizo un modelo constelacion para optimizar espacio de almacenamiento y se opto por tener mas dimensiones por la misma razon ademas que si llega a ser necesario hacer busquedas podria ser mas eficiente buscar por joins valores numericos que comparando texto. 
+
+![modelo](../SQLServer/DataWarehouse/PhysicalModel.png)
+
 # Configuracion del Ambiente de desarrollo
 Se utilizo `Microsoft Visual Studio Community 2022 (64-bit) - Current Version 17.13.2` desde donde se descargo la extension de `SSIS`
 
