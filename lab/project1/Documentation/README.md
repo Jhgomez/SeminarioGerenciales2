@@ -84,7 +84,7 @@ Como estoy usando Docker solo instalar los Drivers. Volver a crear una conexion 
 
 ![PostgresSetup](./9.png)
 
-## Insertar a Tablas Pivote
+## Insertar a Tablas Pivote(Control Flow)
 Primero debo aclarar que no pude instalar SQL Server localmente ya que el tamaño del bloque debe ser modificado si se instala sobre sistemas de almcenamiento modernos pero esto implica ciertos riesgos por lo que opte por correr SQL Server en Docker. Pero esto implica para ambas bases de datos que no podre usar el tool llamado "Buik Insert Task" porque el archivo que quiero insertar no existe en el contexto que esta ejecutando los servidores de la base de datos, en este caso son maquinas virtuales, y en lugar hare uso de el tool "SQL Task" que permite ejecutar commandos SQL usando una conexion que sera del tipo `OLE DB` para SQL Server y `ODBC` para PostrgresSQL
 
 1. Truncar/limpiar las tablas pivote, esto se hace para que se pueda ejecutar todo el flujo repetidas veces llenando la tabla pivote multiples veces, entonces se vacian antes de volver a llenarlas usando un `SQL TASK`
@@ -97,7 +97,7 @@ Primero debo aclarar que no pude instalar SQL Server localmente ya que el tamañ
 
 ![insertarVentas](./12.png)
 
-## Insertar a Las Tablas de Dimensiones y Pivote Hechos
+## Insertar a Las Tablas de Dimensiones y Pivote Hechos(Data Flow)
 Despues de insertar a las tablas pivote ambas lineas de tareas(SQL Server y Postgres) se unen en un `Data Flow Task` para insertar a las tablas de dimensiones y tablas pivote de los hechos, aunque se pudo hacer por separado, osea cada tipo de conexion en su propio flujo, hacerlo asi nos evita duplicar el uso de algunas tareas justo antes de insertar a las tablas de dimensiones, por ejemplo algunas tools como `Data Conversion` en la dimension fecha, `Agregate`s que se usan para hacer `GROUP BY` que nos permite elimnar duplicados, `Lookup`s que nos permiten buscar en las tablas antes de insertar y saber que datos ya existen en las tablas para evitar errores, util en caso que todo el pipe se corra varias veces por alguna razon. Antes de hacer la insercion se transformaran los datos ya que en la tabla pivote son texto puro.
 
 ### Leer Tablas Pivote y Archivo CSV
