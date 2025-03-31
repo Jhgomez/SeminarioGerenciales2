@@ -1,19 +1,20 @@
 docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=abcdeF1+" \
 -p 1433:1433 --name sql1 --hostname sql1 \
 -d \
--v 'C:\Users\Juan Enrique\seminario2\lab\project1\ArchivosdeentradaProyecto':/usr:rw \
+-v 'C:\Users\Juan Enrique\seminario2\lab\project1\ArchivosdeentradaProyecto':/home:rw \
 mcr.microsoft.com/mssql/server:2022-latest
+
 /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P "abcdeF1+" -No
 
 Postgres automatically creates 'postgres' db if the user defines another like in the below commands this default db will be actually have nothing and no privileges 
 
-docker run --name seminario_postrgres \
+docker run --name seminario_postrgres -d \
 	-e POSTGRES_USER=edgar \   # if not set default value will be used, "postgres"
 	-e POSTGRES_PASSWORD=1234567A \
 	-e POSTGRES_DB=edgar \ # if not set value will be the same as "POSTGRES_USER"
 	-p 5432:5432 \
 	-v 'C:\Users\Juan Enrique\seminario2\lab\project1\ArchivosdeentradaProyecto':/home:rw \
-	-d postgres
+	postgres
 
 download postgres odbc(setup.exe)
 
@@ -161,6 +162,4 @@ Repeat same process with sales(ventas) file
 14. En el "departamento" removere espacios vacios al incio y final, valores nulos y vacios seran por defecto "sin departamento" y todo sera minusculas(tentativamente se quitaran tildes)
 
 
-669
 
-357
