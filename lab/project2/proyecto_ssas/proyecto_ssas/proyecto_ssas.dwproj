@@ -6,42 +6,14 @@
     <Name>proyecto_ssas.database</Name>
     <FullPath>proyecto_ssas.database</FullPath>
   </Database>
-  <Cubes>
-    <ProjectItem>
-      <Name>SeminarioCompras.cube</Name>
-      <FullPath>SeminarioCompras.cube</FullPath>
-      <Dependencies>
-        <ProjectItem>
-          <Name>SeminarioCompras.partitions</Name>
-          <FullPath>SeminarioCompras.partitions</FullPath>
-        </ProjectItem>
-      </Dependencies>
-    </ProjectItem>
-  </Cubes>
   <Dimensions>
     <ProjectItem>
-      <Name>DimSucursal.dim</Name>
-      <FullPath>DimSucursal.dim</FullPath>
+      <Name>DimSucursalCompras.dim</Name>
+      <FullPath>DimSucursalCompras.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>DimProducto.dim</Name>
-      <FullPath>DimProducto.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>DimProveedor.dim</Name>
-      <FullPath>DimProveedor.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>DimFecha.dim</Name>
-      <FullPath>DimFecha.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>DimMarca.dim</Name>
-      <FullPath>DimMarca.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>DimCategoria.dim</Name>
-      <FullPath>DimCategoria.dim</FullPath>
+      <Name>DimFechaCompras.dim</Name>
+      <FullPath>DimFechaCompras.dim</FullPath>
     </ProjectItem>
   </Dimensions>
   <DataSources>
