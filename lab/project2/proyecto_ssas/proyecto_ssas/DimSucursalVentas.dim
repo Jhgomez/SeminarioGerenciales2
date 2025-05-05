@@ -1,4 +1,4 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="624b4230-958e-4d8e-a290-8815aa641394" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="12ed3e2d-1277-4580-a8a9-e942876a7842" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>DimSucursalVentas</ID>
   <Name>DimSucursalVentas</Name>
   <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="2" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2120" scrolltop="-4477" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="7281" y="11621" backcolor="2039583" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="2" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2120" scrolltop="-3292" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="7281" y="9250" backcolor="2039583" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="010000009001b0300100065461686f6d61" />
             </font>
@@ -51,7 +51,7 @@
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
-      <Value>-4477</Value>
+      <Value>-3292</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
@@ -69,26 +69,31 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
       <Value>
         <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="0" xmlns="">
-          <Shapes NodeWidth="145">
-            <Shape Id="id_suc" Expanded="true">
+          <Shapes NodeWidth="161">
+            <Shape Id="id_suc_v" Expanded="true">
               <Attributes>
-                <Attribute Id="id_suc" />
-                <Attribute Id="Direccion" />
+                <Attribute Id="id_suc_v" />
+                <Attribute Id="Direccio_v" />
               </Attributes>
               <Position x="20" y="20" />
             </Shape>
-            <Shape Id="name_suc" Expanded="true">
+            <Shape Id="nombre_suc_v" Expanded="true">
               <Attributes>
-                <Attribute Id="name_suc" />
+                <Attribute Id="nombre_suc_v" />
               </Attributes>
-              <Position x="206" y="20" />
+              <Position x="226" y="20" />
             </Shape>
-            <Shape Id="Departamento" Expanded="true">
+            <Shape Id="Departamento_v" Expanded="true">
               <Attributes>
-                <Attribute Id="Departamento" />
-                <Attribute Id="Region" />
+                <Attribute Id="Departamento_v" />
               </Attributes>
-              <Position x="392" y="20" />
+              <Position x="432" y="20" />
+            </Shape>
+            <Shape Id="Region_v" Expanded="false">
+              <Attributes>
+                <Attribute Id="Region_v" />
+              </Attributes>
+              <Position x="638" y="20" />
             </Shape>
           </Shapes>
         </DiagramLayout>
@@ -97,74 +102,74 @@
   </Annotations>
   <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
   <State>Unprocessed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="71078088-7abe-491b-b5fe-6ec5756cb075">
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="f7b4edab-3f6d-4436-9729-129e413c628a">
     <DataSourceViewID>SeminarioVentas</DataSourceViewID>
   </Source>
-  <ErrorConfiguration dwd:design-time-name="838b2b59-806e-466f-8e32-0252bc8e2bc9">
+  <ErrorConfiguration dwd:design-time-name="cdf0caf4-2d6f-4282-bc1b-8dcde5fada57">
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <KeyDuplicate>ReportAndStop</KeyDuplicate>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
   </ErrorConfiguration>
   <CurrentStorageMode>Molap</CurrentStorageMode>
   <Attributes>
-    <Attribute dwd:design-time-name="abc247bb-0c34-43cc-94af-65ea0083de7f">
-      <ID>id_suc</ID>
-      <Name>id_suc</Name>
+    <Attribute dwd:design-time-name="a1a8a6e0-3acc-41c9-ba36-0c3bdbfdd664">
+      <ID>id_suc_v</ID>
+      <Name>id_suc_v</Name>
       <Usage>Key</Usage>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="181725f4-866f-4115-b0e3-bb23dc726a47">
+        <KeyColumn dwd:design-time-name="0e9aefc8-a6d1-4240-9550-5c7a15df272a">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="7e8c1ff3-45d1-4994-9f3b-be3fcae751cc">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="155169e6-6cba-404d-93a7-ac86567d31e5">
             <TableID>project1_dim_sucursal</TableID>
             <ColumnID>id_codigo</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="a8b51208-e247-43ba-b148-37a2d037c433">
-          <AttributeID>name_suc</AttributeID>
-          <Name>name_suc</Name>
+        <AttributeRelationship dwd:design-time-name="b4fb0d19-053d-457b-9565-de214e4faeca">
+          <AttributeID>nombre_suc_v</AttributeID>
+          <Name>nombre_suc_v</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="43805c35-8552-4260-87e0-28c2a6d25ce4">
-          <AttributeID>Direccion</AttributeID>
-          <Name>Direccion</Name>
+        <AttributeRelationship dwd:design-time-name="957d8e72-fa43-4c6c-8278-5c392743e036">
+          <AttributeID>Direccio_v</AttributeID>
+          <Name>Direccio_v</Name>
         </AttributeRelationship>
       </AttributeRelationships>
       <OrderBy>Key</OrderBy>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="21341d1b-504a-4925-8eea-c680a1325ed8">
-      <ID>name_suc</ID>
-      <Name>name_suc</Name>
+    <Attribute dwd:design-time-name="96a1a07c-d0c5-4ca2-9544-dc6b3ae7d891">
+      <ID>nombre_suc_v</ID>
+      <Name>nombre_suc_v</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="09600aeb-95bf-494b-94dc-2c25bb31be1c">
+        <KeyColumn dwd:design-time-name="b6be1257-84d5-4ef1-804f-98050fa0fd59">
           <DataType>WChar</DataType>
           <DataSize>48</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="36791a06-3a67-41fd-887d-c572fa6b3ca2">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="7c65c4fa-2e56-4eb6-afc6-24cec4099a16">
             <TableID>project1_dim_sucursal</TableID>
             <ColumnID>nombre</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="24770477-411b-478c-8225-3b5930d0bd26">
-          <AttributeID>Departamento</AttributeID>
-          <Name>Departamento</Name>
+        <AttributeRelationship dwd:design-time-name="c27517c4-8a79-4f01-a2d0-b0a468712b35">
+          <AttributeID>Departamento_v</AttributeID>
+          <Name>Departamento_v</Name>
         </AttributeRelationship>
       </AttributeRelationships>
       <OrderBy>Key</OrderBy>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="a9be5534-e5bd-4216-a4c6-093be4e903e7">
-      <ID>Direccion</ID>
-      <Name>Direccion</Name>
+    <Attribute dwd:design-time-name="23df5ae0-dd81-477b-9d80-269502e43bd3">
+      <ID>Direccio_v</ID>
+      <Name>Direccio_v</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="ca69d493-36b4-451e-98bc-e09cb9c8c3f0">
+        <KeyColumn dwd:design-time-name="f0db757c-bf6d-4bde-a1da-2a81e8e64fac">
           <DataType>WChar</DataType>
           <DataSize>256</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="5ef777ca-00ff-4165-a572-9346a1c7356c">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e5b5f307-c8ec-4469-b22a-f602d531a872">
             <TableID>project1_dim_sucursal</TableID>
             <ColumnID>direccion</ColumnID>
           </Source>
@@ -174,14 +179,14 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="a0aa6da1-2196-433d-9b25-d6e17fcd04c9">
-      <ID>Region</ID>
-      <Name>Region</Name>
+    <Attribute dwd:design-time-name="19afd910-8314-4443-9108-f0a4dc988e0b">
+      <ID>Region_v</ID>
+      <Name>Region_v</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="ceac35c5-1c44-466b-ad9d-198d5cc593d7">
+        <KeyColumn dwd:design-time-name="117de10c-eeb6-4842-962d-c406fae89944">
           <DataType>WChar</DataType>
           <DataSize>24</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="47bb3b20-4a8d-4c51-8a3a-23368698254e">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="44c15c00-a444-4d83-8a88-fe49b4575a7c">
             <TableID>project1_dim_sucursal</TableID>
             <ColumnID>region</ColumnID>
           </Source>
@@ -191,23 +196,23 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="a1e3ab09-1b24-4465-aa5b-4100bfca7ba0">
-      <ID>Departamento</ID>
-      <Name>Departamento</Name>
+    <Attribute dwd:design-time-name="e50e1652-cfe4-4fdc-815c-c3a900cba980">
+      <ID>Departamento_v</ID>
+      <Name>Departamento_v</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="4f23c475-5711-4964-b758-72b49454284d">
+        <KeyColumn dwd:design-time-name="791104f4-d043-4ca7-89bf-0d62773b8855">
           <DataType>WChar</DataType>
           <DataSize>40</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="3541d314-c49d-4a86-9166-cfdd4a030ec8">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="15d3436e-fd22-4165-9ddd-5a865b819cb3">
             <TableID>project1_dim_sucursal</TableID>
             <ColumnID>departamento</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="5bc85496-a424-4069-934a-773f19dbef9c">
-          <AttributeID>Region</AttributeID>
-          <Name>Region</Name>
+        <AttributeRelationship dwd:design-time-name="484207fc-1b5d-46af-ae02-bcc084cb068d">
+          <AttributeID>Region_v</AttributeID>
+          <Name>Region_v</Name>
         </AttributeRelationship>
       </AttributeRelationships>
       <OrderBy>Key</OrderBy>
@@ -216,24 +221,24 @@
     </Attribute>
   </Attributes>
   <Hierarchies>
-    <Hierarchy dwd:design-time-name="8d6cef41-9d3f-4ff9-a152-c83c9fd5f3ee">
+    <Hierarchy dwd:design-time-name="37c098dc-1306-4827-bb1c-e7008d4b8f0c">
       <ID>Hierarchy</ID>
       <Name>Hierarchy</Name>
       <Levels>
-        <Level dwd:design-time-name="24f0d4e8-00b3-4445-a6ab-d74a419affe9">
-          <ID>Region</ID>
-          <Name>Region</Name>
-          <SourceAttributeID>Region</SourceAttributeID>
+        <Level dwd:design-time-name="c927e8ae-ff6b-4463-8338-8924d84931d1">
+          <ID>Region_v</ID>
+          <Name>Region_v</Name>
+          <SourceAttributeID>Region_v</SourceAttributeID>
         </Level>
-        <Level dwd:design-time-name="4c613a08-7338-4872-9dbd-29144d29e3a8">
-          <ID>Departamento</ID>
-          <Name>Departamento</Name>
-          <SourceAttributeID>Departamento</SourceAttributeID>
+        <Level dwd:design-time-name="504ab04d-929f-4b02-942d-13188a843739">
+          <ID>Departamento_v</ID>
+          <Name>Departamento_v</Name>
+          <SourceAttributeID>Departamento_v</SourceAttributeID>
         </Level>
-        <Level dwd:design-time-name="16a232c7-a57b-4e4a-93ff-06ba6843d3df">
-          <ID>name_suc</ID>
-          <Name>name_suc</Name>
-          <SourceAttributeID>name_suc</SourceAttributeID>
+        <Level dwd:design-time-name="8f9217e4-9c35-402f-b774-8e06385c72b0">
+          <ID>nombre_suc_v</ID>
+          <Name>nombre_suc_v</Name>
+          <SourceAttributeID>nombre_suc_v</SourceAttributeID>
         </Level>
       </Levels>
     </Hierarchy>
