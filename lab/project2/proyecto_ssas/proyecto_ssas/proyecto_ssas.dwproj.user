@@ -7,14 +7,44 @@
           <ConfigurationSetting>
             <Id>Seminario</Id>
             <Name>Seminario</Name>
-            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA9wQuJo+RtUWKLPmRSXMVoAAAAAAUAAAAUwBlAG0AaQBuAGEAcgBpAG8AAAAQZgAAAAEAACAAAADIu+BW1wZU4aFIEoWTts/v9HV302ClhrH7qKDSuxD5fwAAAAAOgAAAAAIAACAAAAALdEQHfG4RxZetVP8S7c3Y/TX+JPeNoZZrb6UAOw2dcBAAAAB+J2genNKYLmQnKLlsMoX5QAAAAPAqKSQNiCPB1XoUpBSvVZueFp8J2DZAQY0e7EyjEGbniTvPs0o/6iHosdZ9yz54dfnhXUY1iDH9VIx14TCK6A0=</Value>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA9wQuJo+RtUWKLPmRSXMVoAAAAAAUAAAAUwBlAG0AaQBuAGEAcgBpAG8AAAAQZgAAAAEAACAAAAAQdMEQ7MJrdk0jQU8HVcDeC2prUrxddXXamVnyghpswwAAAAAOgAAAAAIAACAAAABxhoY5kZmQHju981z5s4xhq1YcYx5L25uhPtLQxttRfRAAAACDCcOOQ3iPIbZEr78fKgl+QAAAAM21o2OTAhlk4zqiUZsqrdGfagoeb8UHKz7FMn+GNCs5205Tk/x7MaEBZMHTvtsCtVN+J9zPkHl6X1+ZsssX4oM=</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>Seminario 1</Id>
+            <Name>Seminario 1</Name>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA9wQuJo+RtUWKLPmRSXMVoAAAAAAYAAAAUwBlAG0AaQBuAGEAcgBpAG8AIAAxAAAAEGYAAAABAAAgAAAAxYXjBt8razqZaz25gxbdqMcJTXrarfI+5FBomilspKAAAAAADoAAAAACAAAgAAAAzphnFe2GjYeRPpWt4zFG99x2cn0vCODCDcYCETWgPZ8QAAAAL2rS80rotk/nWxdwx/a/2EAAAAAbgFm93roYasOJAkU2sz8WGKvRE6X6rtxYaCJWlTJPWs4ygQ8AAqWcVd7A/dQVQ6E6efXKye1p15E2O+56Kdzq</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>SeminarioUpdated</Id>
+            <Name>SeminarioUpdated</Name>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA9wQuJo+RtUWKLPmRSXMVoAAAAAAiAAAAUwBlAG0AaQBuAGEAcgBpAG8AVQBwAGQAYQB0AGUAZAAAABBmAAAAAQAAIAAAALp7Ec7Fe3PpQ4pXGvjocIHXz66YF/AV5bPG8Xrv/tM1AAAAAA6AAAAAAgAAIAAAAOI9vysgYxRMR1vy1rXDVqxGCPqKkaxwg6moW6qNYk55EAAAAPq9HpC2NiQxbxuesHKUBXFAAAAAU9x+CwrGcyMl3TxRtibSyUOEDZX6oPhcma+/7X+XkPp3aYrAk9dqEaBNYL3ZQfDQUaX0LjbV+/WzVQokQESnQg==</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>SeminarioUpdates</Id>
+            <Name>SeminarioUpdates</Name>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA9wQuJo+RtUWKLPmRSXMVoAAAAAAiAAAAUwBlAG0AaQBuAGEAcgBpAG8AVQBwAGQAYQB0AGUAcwAAABBmAAAAAQAAIAAAAOnwYwlctJYTSWWMcMqQXNnfRmBfCeIlYnvEhLyln+9AAAAAAA6AAAAAAgAAIAAAAL79w2SdGTna1rlVT6Zg38rjHF+LYgbXWonM3JntNAiAEAAAAIe2kaHIAwNzDZsVw2urAcdAAAAAV0YGySvmJEJEeYgRlvbJGtsTl6ptXq4wAm2Xx3+KzEusVcRLeBujUVXazBLREiT7N5O6F09CfsK20KpKpb4Fbw==</Value>
           </ConfigurationSetting>
         </UserIDs>
         <UserPasswords>
           <ConfigurationSetting>
             <Id>Seminario</Id>
             <Name>Seminario</Name>
-            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA9wQuJo+RtUWKLPmRSXMVoAAAAAAUAAAAUwBlAG0AaQBuAGEAcgBpAG8AAAAQZgAAAAEAACAAAAD7GgWDezPdjHz/vEJv4OUnvD/EJjX4+s39zBVmW0wIxwAAAAAOgAAAAAIAACAAAAAUQjCvsm2O0YdPtE0tx/NfObD8VXaeFf1XI98EvZYJmCAAAAAhRdUgtFzkLphiySO1rbqUW0MeHA5PnjE1mKy000Mx7kAAAABxr/oSPJ1bP1YhxdhYPqp9571Hqaf1c0673p+kfEjZP+sfB3MwwIpAp1ZqejeeY7wudA28EhXK+YbzG70+I/x4</Value>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA9wQuJo+RtUWKLPmRSXMVoAAAAAAUAAAAUwBlAG0AaQBuAGEAcgBpAG8AAAAQZgAAAAEAACAAAAAWzpbhLK7TrbhcJnegw+jNv/4qlqnw1eYcLgiQCozebQAAAAAOgAAAAAIAACAAAAAk0sjpq4NYB6u3Ha+Dr3raKPawSYabk5qKn8A3Rk3kgiAAAAAmXHEbH0TOLJCnig7XPO3/Ku5Naqfvd390oQHOPSYTSUAAAAAK55sbC7eRhJhirnDdeH+X02QIsKn+9+AucH+QbeUU3Ymts104ebQ+sXxsokMP1daTym5vbnOaF7qz1Mjf7xqQ</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>Seminario 1</Id>
+            <Name>Seminario 1</Name>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA9wQuJo+RtUWKLPmRSXMVoAAAAAAYAAAAUwBlAG0AaQBuAGEAcgBpAG8AIAAxAAAAEGYAAAABAAAgAAAAISCQZBp/pyhjPHgWk8kg4eLjYvP5sqs6y9fdb10ib1QAAAAADoAAAAACAAAgAAAAFTb4nNwkX749kGcF8+sjF/sHc3GE4IMM4CSo3pVRv+8gAAAAWdwyBPaw5OpfK3BwKgmbqTw7BbocNZxxWDFQZxlc4TFAAAAAsaX5L+ZQ1NkHfEg5/DySWHsiFvhkwvaqSd9f182/jD9IVSrN2mBXWMb8IrPkVxVAoPVTH5lTusfFEv8tNVubiw==</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>SeminarioUpdated</Id>
+            <Name>SeminarioUpdated</Name>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA9wQuJo+RtUWKLPmRSXMVoAAAAAAiAAAAUwBlAG0AaQBuAGEAcgBpAG8AVQBwAGQAYQB0AGUAZAAAABBmAAAAAQAAIAAAALJ08cfRqIRPWl9Mbne0S1BPfLJ0LPdpx1P1W6ltabcBAAAAAA6AAAAAAgAAIAAAAFpx/1ra1XJ3kCqD7Z5coPW38uTnRhSliHWz3lxDOVrSIAAAAMwSGtijqj0z3LcnHmzA5vZLkN1ESfqfE54TrmxOUB9MQAAAAPiIWpUjsKWLmyd0C9GSjfjE2HFnDBPRBNX0Y8PU3uTkfWqIDnn5Y04yZ46qm1l/k4n5zcWQv6rua43xDi69o/I=</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>SeminarioUpdates</Id>
+            <Name>SeminarioUpdates</Name>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA9wQuJo+RtUWKLPmRSXMVoAAAAAAiAAAAUwBlAG0AaQBuAGEAcgBpAG8AVQBwAGQAYQB0AGUAcwAAABBmAAAAAQAAIAAAAOqCJDdIogDpnWGzmhKnKfJX+wUvSEuva7F75FF5S9w6AAAAAA6AAAAAAgAAIAAAAAg3RARnJOWtFuJ3ARf9Jdkkw6y623fzd/kcQb2upoeBIAAAAJHidu4cRj2+W/wOOfR1X5QLEwW4OKdso56jcr53U/XCQAAAACwtIVMEpAkjUk32srw50SOX/NJd0IMazAoqwZ431bThN2Dr0yEfrQsB00qtYw8kuFmKYCDPUwJrUIDHBuJGrbw=</Value>
           </ConfigurationSetting>
         </UserPasswords>
         <TargetServer>localhost</TargetServer>

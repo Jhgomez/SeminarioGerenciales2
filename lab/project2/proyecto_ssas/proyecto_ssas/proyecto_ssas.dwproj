@@ -6,14 +6,84 @@
     <Name>proyecto_ssas.database</Name>
     <FullPath>proyecto_ssas.database</FullPath>
   </Database>
+  <Cubes>
+    <ProjectItem>
+      <Name>SeminarioCompras.cube</Name>
+      <FullPath>SeminarioCompras.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>SeminarioCompras.partitions</Name>
+          <FullPath>SeminarioCompras.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SeminarioVentas.cube</Name>
+      <FullPath>SeminarioVentas.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>SeminarioVentas.partitions</Name>
+          <FullPath>SeminarioVentas.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+  </Cubes>
   <Dimensions>
+    <ProjectItem>
+      <Name>DimFechaCompra.dim</Name>
+      <FullPath>DimFechaCompra.dim</FullPath>
+    </ProjectItem>
     <ProjectItem>
       <Name>DimSucursalCompras.dim</Name>
       <FullPath>DimSucursalCompras.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>DimFechaCompras.dim</Name>
-      <FullPath>DimFechaCompras.dim</FullPath>
+      <Name>DimProductoCompras.dim</Name>
+      <FullPath>DimProductoCompras.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DimMarcaCompras.dim</Name>
+      <FullPath>DimMarcaCompras.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DimCategoriaCompras.dim</Name>
+      <FullPath>DimCategoriaCompras.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DimProveedorCompras.dim</Name>
+      <FullPath>DimProveedorCompras.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DimSucursalVentas.dim</Name>
+      <FullPath>DimSucursalVentas.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DimTipoClienteVentas.dim</Name>
+      <FullPath>DimTipoClienteVentas.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DimFechaVentas.dim</Name>
+      <FullPath>DimFechaVentas.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DimClienteVentas.dim</Name>
+      <FullPath>DimClienteVentas.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DimMarcaVenrtas.dim</Name>
+      <FullPath>DimMarcaVenrtas.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DimProductoVentas.dim</Name>
+      <FullPath>DimProductoVentas.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DimCategoriaVentas.dim</Name>
+      <FullPath>DimCategoriaVentas.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DimVendedor.dim</Name>
+      <FullPath>DimVendedor.dim</FullPath>
     </ProjectItem>
   </Dimensions>
   <DataSources>
