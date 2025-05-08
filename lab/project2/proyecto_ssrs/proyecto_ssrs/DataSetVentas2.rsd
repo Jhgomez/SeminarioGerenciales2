@@ -3,100 +3,13 @@
   <DataSet Name="DataSet1">
     <Query>
       <DataSourceReference>DataSourceSGFood</DataSourceReference>
-      <CommandText> SELECT NON EMPTY { [Measures].[Unidades] } ON COLUMNS, NON EMPTY { ([DimFechaVentas].[Anio_v].[Anio_v].ALLMEMBERS * [DimFechaVentas].[Mes_v].[Mes_v].ALLMEMBERS * [DimFechaVentas].[id_fecha_v].[id_fecha_v].ALLMEMBERS * [DimCategoriaVentas].[name_cat_v].[name_cat_v].ALLMEMBERS * [DimClienteVentas].[name_client].[name_client].ALLMEMBERS * [DimMarcaVenrtas].[name_marca_v].[name_marca_v].ALLMEMBERS * [DimProductoVentas].[name_prod_v].[name_prod_v].ALLMEMBERS * 
-[DimSucursalVentas].[id_suc_v].[id_suc_v].ALLMEMBERS *
-[DimSucursalVentas].[nombre_suc_v].[nombre_suc_v].ALLMEMBERS * [DimSucursalVentas].[Region_v].[Region_v].ALLMEMBERS ) } DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS FROM [SeminarioVentas] CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS</CommandText>
+      <CommandText> SELECT NON EMPTY { [Measures].[Unidades] } ON COLUMNS, NON EMPTY { ([DimSucursalVentas].[id_suc_v].[id_suc_v].ALLMEMBERS * [DimSucursalVentas].[nombre_suc_v].[nombre_suc_v].ALLMEMBERS * [DimSucursalVentas].[Region_v].[Region_v].ALLMEMBERS * [DimFechaVentas].[id_fecha_v].[id_fecha_v].ALLMEMBERS * [DimFechaVentas].[Anio_v].[Anio_v].ALLMEMBERS * [DimFechaVentas].[Mes_v].[Mes_v].ALLMEMBERS * [DimCategoriaVentas].[name_cat_v].[name_cat_v].ALLMEMBERS * [DimClienteVentas].[name_client].[name_client].ALLMEMBERS * [DimMarcaVenrtas].[id_marca_v].[id_marca_v].ALLMEMBERS * [DimProductoVentas].[name_prod_v].[name_prod_v].ALLMEMBERS ) } DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS FROM [SeminarioVentas] CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS</CommandText>
       <rd:DesignerState>
         <QueryDefinition xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">
           <CommandType>MDX</CommandType>
-          <Type>Query</Type>
           <QuerySpecification xsi:type="MDXQuerySpecification">
             <Select>
               <Items>
-                <Item>
-                  <ID xsi:type="Level">
-                    <DimensionName>DimFechaVentas</DimensionName>
-                    <HierarchyName>Anio_v</HierarchyName>
-                    <HierarchyUniqueName>[DimFechaVentas].[Anio_v]</HierarchyUniqueName>
-                    <LevelName>Anio_v</LevelName>
-                    <UniqueName>[DimFechaVentas].[Anio_v].[Anio_v]</UniqueName>
-                  </ID>
-                  <ItemCaption>Anio_v</ItemCaption>
-                  <UniqueName>true</UniqueName>
-                  <MemberValue>true</MemberValue>
-                </Item>
-                <Item>
-                  <ID xsi:type="Level">
-                    <DimensionName>DimFechaVentas</DimensionName>
-                    <HierarchyName>Mes_v</HierarchyName>
-                    <HierarchyUniqueName>[DimFechaVentas].[Mes_v]</HierarchyUniqueName>
-                    <LevelName>Mes_v</LevelName>
-                    <UniqueName>[DimFechaVentas].[Mes_v].[Mes_v]</UniqueName>
-                  </ID>
-                  <ItemCaption>Mes_v</ItemCaption>
-                  <UniqueName>true</UniqueName>
-                  <MemberValue>true</MemberValue>
-                </Item>
-                <Item>
-                  <ID xsi:type="Level">
-                    <DimensionName>DimFechaVentas</DimensionName>
-                    <HierarchyName>id_fecha_v</HierarchyName>
-                    <HierarchyUniqueName>[DimFechaVentas].[id_fecha_v]</HierarchyUniqueName>
-                    <LevelName>id_fecha_v</LevelName>
-                    <UniqueName>[DimFechaVentas].[id_fecha_v].[id_fecha_v]</UniqueName>
-                  </ID>
-                  <ItemCaption>id_fecha_v</ItemCaption>
-                  <UniqueName>true</UniqueName>
-                  <MemberValue>true</MemberValue>
-                </Item>
-                <Item>
-                  <ID xsi:type="Level">
-                    <DimensionName>DimCategoriaVentas</DimensionName>
-                    <HierarchyName>name_cat_v</HierarchyName>
-                    <HierarchyUniqueName>[DimCategoriaVentas].[name_cat_v]</HierarchyUniqueName>
-                    <LevelName>name_cat_v</LevelName>
-                    <UniqueName>[DimCategoriaVentas].[name_cat_v].[name_cat_v]</UniqueName>
-                  </ID>
-                  <ItemCaption>name_cat_v</ItemCaption>
-                  <UniqueName>true</UniqueName>
-                  <MemberValue>true</MemberValue>
-                </Item>
-                <Item>
-                  <ID xsi:type="Level">
-                    <DimensionName>DimClienteVentas</DimensionName>
-                    <HierarchyName>name_client</HierarchyName>
-                    <HierarchyUniqueName>[DimClienteVentas].[name_client]</HierarchyUniqueName>
-                    <LevelName>name_client</LevelName>
-                    <UniqueName>[DimClienteVentas].[name_client].[name_client]</UniqueName>
-                  </ID>
-                  <ItemCaption>name_client</ItemCaption>
-                  <UniqueName>true</UniqueName>
-                  <MemberValue>true</MemberValue>
-                </Item>
-                <Item>
-                  <ID xsi:type="Level">
-                    <DimensionName>DimMarcaVenrtas</DimensionName>
-                    <HierarchyName>name_marca_v</HierarchyName>
-                    <HierarchyUniqueName>[DimMarcaVenrtas].[name_marca_v]</HierarchyUniqueName>
-                    <LevelName>name_marca_v</LevelName>
-                    <UniqueName>[DimMarcaVenrtas].[name_marca_v].[name_marca_v]</UniqueName>
-                  </ID>
-                  <ItemCaption>name_marca_v</ItemCaption>
-                  <UniqueName>true</UniqueName>
-                  <MemberValue>true</MemberValue>
-                </Item>
-                <Item>
-                  <ID xsi:type="Level">
-                    <DimensionName>DimProductoVentas</DimensionName>
-                    <HierarchyName>name_prod_v</HierarchyName>
-                    <HierarchyUniqueName>[DimProductoVentas].[name_prod_v]</HierarchyUniqueName>
-                    <LevelName>name_prod_v</LevelName>
-                    <UniqueName>[DimProductoVentas].[name_prod_v].[name_prod_v]</UniqueName>
-                  </ID>
-                  <ItemCaption>name_prod_v</ItemCaption>
-                  <UniqueName>true</UniqueName>
-                  <MemberValue>true</MemberValue>
-                </Item>
                 <Item>
                   <ID xsi:type="Level">
                     <DimensionName>DimSucursalVentas</DimensionName>
@@ -107,7 +20,6 @@
                   </ID>
                   <ItemCaption>id_suc_v</ItemCaption>
                   <UniqueName>true</UniqueName>
-                  <MemberValue>true</MemberValue>
                 </Item>
                 <Item>
                   <ID xsi:type="Level">
@@ -119,7 +31,6 @@
                   </ID>
                   <ItemCaption>nombre_suc_v</ItemCaption>
                   <UniqueName>true</UniqueName>
-                  <MemberValue>true</MemberValue>
                 </Item>
                 <Item>
                   <ID xsi:type="Level">
@@ -131,7 +42,83 @@
                   </ID>
                   <ItemCaption>Region_v</ItemCaption>
                   <UniqueName>true</UniqueName>
-                  <MemberValue>true</MemberValue>
+                </Item>
+                <Item>
+                  <ID xsi:type="Level">
+                    <DimensionName>DimFechaVentas</DimensionName>
+                    <HierarchyName>id_fecha_v</HierarchyName>
+                    <HierarchyUniqueName>[DimFechaVentas].[id_fecha_v]</HierarchyUniqueName>
+                    <LevelName>id_fecha_v</LevelName>
+                    <UniqueName>[DimFechaVentas].[id_fecha_v].[id_fecha_v]</UniqueName>
+                  </ID>
+                  <ItemCaption>id_fecha_v</ItemCaption>
+                  <UniqueName>true</UniqueName>
+                </Item>
+                <Item>
+                  <ID xsi:type="Level">
+                    <DimensionName>DimFechaVentas</DimensionName>
+                    <HierarchyName>Anio_v</HierarchyName>
+                    <HierarchyUniqueName>[DimFechaVentas].[Anio_v]</HierarchyUniqueName>
+                    <LevelName>Anio_v</LevelName>
+                    <UniqueName>[DimFechaVentas].[Anio_v].[Anio_v]</UniqueName>
+                  </ID>
+                  <ItemCaption>Anio_v</ItemCaption>
+                  <UniqueName>true</UniqueName>
+                </Item>
+                <Item>
+                  <ID xsi:type="Level">
+                    <DimensionName>DimFechaVentas</DimensionName>
+                    <HierarchyName>Mes_v</HierarchyName>
+                    <HierarchyUniqueName>[DimFechaVentas].[Mes_v]</HierarchyUniqueName>
+                    <LevelName>Mes_v</LevelName>
+                    <UniqueName>[DimFechaVentas].[Mes_v].[Mes_v]</UniqueName>
+                  </ID>
+                  <ItemCaption>Mes_v</ItemCaption>
+                  <UniqueName>true</UniqueName>
+                </Item>
+                <Item>
+                  <ID xsi:type="Level">
+                    <DimensionName>DimCategoriaVentas</DimensionName>
+                    <HierarchyName>name_cat_v</HierarchyName>
+                    <HierarchyUniqueName>[DimCategoriaVentas].[name_cat_v]</HierarchyUniqueName>
+                    <LevelName>name_cat_v</LevelName>
+                    <UniqueName>[DimCategoriaVentas].[name_cat_v].[name_cat_v]</UniqueName>
+                  </ID>
+                  <ItemCaption>name_cat_v</ItemCaption>
+                  <UniqueName>true</UniqueName>
+                </Item>
+                <Item>
+                  <ID xsi:type="Level">
+                    <DimensionName>DimClienteVentas</DimensionName>
+                    <HierarchyName>name_client</HierarchyName>
+                    <HierarchyUniqueName>[DimClienteVentas].[name_client]</HierarchyUniqueName>
+                    <LevelName>name_client</LevelName>
+                    <UniqueName>[DimClienteVentas].[name_client].[name_client]</UniqueName>
+                  </ID>
+                  <ItemCaption>name_client</ItemCaption>
+                  <UniqueName>true</UniqueName>
+                </Item>
+                <Item>
+                  <ID xsi:type="Level">
+                    <DimensionName>DimMarcaVenrtas</DimensionName>
+                    <HierarchyName>id_marca_v</HierarchyName>
+                    <HierarchyUniqueName>[DimMarcaVenrtas].[id_marca_v]</HierarchyUniqueName>
+                    <LevelName>id_marca_v</LevelName>
+                    <UniqueName>[DimMarcaVenrtas].[id_marca_v].[id_marca_v]</UniqueName>
+                  </ID>
+                  <ItemCaption>id_marca_v</ItemCaption>
+                  <UniqueName>true</UniqueName>
+                </Item>
+                <Item>
+                  <ID xsi:type="Level">
+                    <DimensionName>DimProductoVentas</DimensionName>
+                    <HierarchyName>name_prod_v</HierarchyName>
+                    <HierarchyUniqueName>[DimProductoVentas].[name_prod_v]</HierarchyUniqueName>
+                    <LevelName>name_prod_v</LevelName>
+                    <UniqueName>[DimProductoVentas].[name_prod_v].[name_prod_v]</UniqueName>
+                  </ID>
+                  <ItemCaption>name_prod_v</ItemCaption>
+                  <UniqueName>true</UniqueName>
                 </Item>
                 <Item>
                   <ID xsi:type="Measure">
@@ -158,46 +145,18 @@
             </Filter>
             <Calculations />
             <Aggregates />
-            <QueryProperties />
+            <QueryProperties>
+              <IncludeMemberValue>true</IncludeMemberValue>
+            </QueryProperties>
           </QuerySpecification>
           <Query>
-            <Statement> SELECT NON EMPTY { [Measures].[Unidades] } ON COLUMNS, NON EMPTY { ([DimFechaVentas].[Anio_v].[Anio_v].ALLMEMBERS * [DimFechaVentas].[Mes_v].[Mes_v].ALLMEMBERS * [DimFechaVentas].[id_fecha_v].[id_fecha_v].ALLMEMBERS * [DimCategoriaVentas].[name_cat_v].[name_cat_v].ALLMEMBERS * [DimClienteVentas].[name_client].[name_client].ALLMEMBERS * [DimMarcaVenrtas].[name_marca_v].[name_marca_v].ALLMEMBERS * [DimProductoVentas].[name_prod_v].[name_prod_v].ALLMEMBERS * 
-[DimSucursalVentas].[id_suc_v].[id_suc_v].ALLMEMBERS *
-[DimSucursalVentas].[nombre_suc_v].[nombre_suc_v].ALLMEMBERS * [DimSucursalVentas].[Region_v].[Region_v].ALLMEMBERS ) } DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS FROM [SeminarioVentas] CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS</Statement>
+            <Statement> SELECT NON EMPTY { [Measures].[Unidades] } ON COLUMNS, NON EMPTY { ([DimSucursalVentas].[id_suc_v].[id_suc_v].ALLMEMBERS * [DimSucursalVentas].[nombre_suc_v].[nombre_suc_v].ALLMEMBERS * [DimSucursalVentas].[Region_v].[Region_v].ALLMEMBERS * [DimFechaVentas].[id_fecha_v].[id_fecha_v].ALLMEMBERS * [DimFechaVentas].[Anio_v].[Anio_v].ALLMEMBERS * [DimFechaVentas].[Mes_v].[Mes_v].ALLMEMBERS * [DimCategoriaVentas].[name_cat_v].[name_cat_v].ALLMEMBERS * [DimClienteVentas].[name_client].[name_client].ALLMEMBERS * [DimMarcaVenrtas].[id_marca_v].[id_marca_v].ALLMEMBERS * [DimProductoVentas].[name_prod_v].[name_prod_v].ALLMEMBERS ) } DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS FROM [SeminarioVentas] CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS</Statement>
             <ParameterDefinitions />
           </Query>
         </QueryDefinition>
       </rd:DesignerState>
     </Query>
     <Fields>
-      <Field Name="Anio_v">
-        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Level" UniqueName="[DimFechaVentas].[Anio_v].[Anio_v]" /&gt;</DataField>
-        <rd:TypeName>System.String</rd:TypeName>
-      </Field>
-      <Field Name="Mes_v">
-        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Level" UniqueName="[DimFechaVentas].[Mes_v].[Mes_v]" /&gt;</DataField>
-        <rd:TypeName>System.String</rd:TypeName>
-      </Field>
-      <Field Name="id_fecha_v">
-        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Level" UniqueName="[DimFechaVentas].[id_fecha_v].[id_fecha_v]" /&gt;</DataField>
-        <rd:TypeName>System.String</rd:TypeName>
-      </Field>
-      <Field Name="name_cat_v">
-        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Level" UniqueName="[DimCategoriaVentas].[name_cat_v].[name_cat_v]" /&gt;</DataField>
-        <rd:TypeName>System.String</rd:TypeName>
-      </Field>
-      <Field Name="name_client">
-        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Level" UniqueName="[DimClienteVentas].[name_client].[name_client]" /&gt;</DataField>
-        <rd:TypeName>System.String</rd:TypeName>
-      </Field>
-      <Field Name="name_marca_v">
-        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Level" UniqueName="[DimMarcaVenrtas].[name_marca_v].[name_marca_v]" /&gt;</DataField>
-        <rd:TypeName>System.String</rd:TypeName>
-      </Field>
-      <Field Name="name_prod_v">
-        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Level" UniqueName="[DimProductoVentas].[name_prod_v].[name_prod_v]" /&gt;</DataField>
-        <rd:TypeName>System.String</rd:TypeName>
-      </Field>
       <Field Name="id_suc_v">
         <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Level" UniqueName="[DimSucursalVentas].[id_suc_v].[id_suc_v]" /&gt;</DataField>
         <rd:TypeName>System.String</rd:TypeName>
@@ -208,6 +167,34 @@
       </Field>
       <Field Name="Region_v">
         <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Level" UniqueName="[DimSucursalVentas].[Region_v].[Region_v]" /&gt;</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="id_fecha_v">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Level" UniqueName="[DimFechaVentas].[id_fecha_v].[id_fecha_v]" /&gt;</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Anio_v">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Level" UniqueName="[DimFechaVentas].[Anio_v].[Anio_v]" /&gt;</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Mes_v">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Level" UniqueName="[DimFechaVentas].[Mes_v].[Mes_v]" /&gt;</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="name_cat_v">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Level" UniqueName="[DimCategoriaVentas].[name_cat_v].[name_cat_v]" /&gt;</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="name_client">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Level" UniqueName="[DimClienteVentas].[name_client].[name_client]" /&gt;</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="id_marca_v">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Level" UniqueName="[DimMarcaVenrtas].[id_marca_v].[id_marca_v]" /&gt;</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="name_prod_v">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Level" UniqueName="[DimProductoVentas].[name_prod_v].[name_prod_v]" /&gt;</DataField>
         <rd:TypeName>System.String</rd:TypeName>
       </Field>
       <Field Name="Unidades">
