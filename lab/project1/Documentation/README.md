@@ -36,6 +36,9 @@ docker run --name seminario_postrgres -d \
 
 Notar que los contenedores se crean con un volumen el cual apunta a la carpeta que contiene los archivos de entrada ya que estos deben existir dentro del contendor para poder ejecutar la tool `SQL Task` que va a realizar el bulk insert a las tablas pivote usando un comando SQL para esto
 
+## Instalar SQL Server Developer Edition
+Puedes ver en la fase 2 del proyecto(proyecto2) como se instala SSIS al momento de crear un servidor de SQL Server, esto es importante para poder realizar este proyecto porque sin instalar "SQL Server Integration Services" no se pueden realizar todas las transformacicones en este proyecto, como se menciono en la seccion de arriba tambien hay que instalar la extension de SSIS desde Visual Studio, un proceso similar tambien se documento el proyecto 2 pero para las extensiones de SSAS y SSRS
+
 # Crear Tablas Pivote
 En un administrador de bases de datos conectarse al contenedor, yo use Microsoft SQL Server Management Studio, y ejecutar este [script](../SQLServer/Pivot/DataDefinitionLanguage/pivot_ddl.sql)
 
@@ -68,7 +71,7 @@ Debe ser OLE DB
 ![connection](./4.png)
 
 ### PostgtesSQL
-Se debe [descargar](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads) PostgresSQL, yo utilice la version `17.4`, instalar solo lo que se indica(Command Line Tools) ya que se esta utilizando Docker
+Se debe [descargar](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads) PostgresSQL, yo utilice la version `17.4`, instalar solo lo que se indica(Command Line Tools) ya que se esta utilizando Docker, aunque otra opcion pudo haber sido "db browser for sqlite"
 
 ![Postgres](5.png)
 
